@@ -1,0 +1,65 @@
+:root {
+    --primary: rgb(135, 80, 175);
+    --border: rgb(230, 230, 230);
+    --nav-bar-button: rgb(73, 73, 73);
+    --background: rgb(255, 255, 255);
+}
+
+:root:has(#test:checked) {
+    --primary: rgb(159, 105, 197);
+    --border: rgb(230, 230, 230);
+    --nav-bar-button: rgb(221, 221, 221);
+    --background: rgb(21, 25, 34);
+}
+
+/* Element selectors */
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+}
+
+/* Fonts */
+@font-face {
+    font-family: "Montserrat";
+    src: url("assets/fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("assets/fonts/gothambook.woff");
+}
+
+@font-face {
+    font-family: "Gotham Medium";
+    src: url("assets/fonts/gothammedium.woff");
+}
+
+@font-face {
+    font-family: "Gotham Bold";
+    src: url("assets/fonts/gothambold.woff");
+}
+
+@font-face {
+    font-family: "Visby Round";
+    src: url("assets/fonts/VisbyRoundCF-Regular.woff");
+}
+
+@font-face {
+    font-family: "Visby Round Medium";
+    src: url("assets/fonts/VisbyRoundCF-Medium.woff");
+}
+
+@font-face {
+    font-family: "Visby Round DemiBold";
+    src: url("assets/fonts/VisbyRoundCF-DemiBold.woff");
+}
+
+@font-face {
+    font-family: "Visby Round Bold";
+    src: url("assets/fonts/VisbyRoundCF-Bold.woff");
+}
