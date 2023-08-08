@@ -19,10 +19,11 @@
 }
 
 #nav-bar-right {
-    flex-grow: 1;
     display: flex;
+    align-items: center;
+    flex-grow: 1;
+    column-gap: 40px;
     justify-content: flex-end;
-    column-gap: 50px;
 }
 
 #app-title {
@@ -36,6 +37,20 @@
 #app-logo {
     fill: none; 
     stroke: var(--primary);
+}
+
+#login-button {
+    padding: 15px 15px 15px 40px; 
+    border-radius: 15px; 
+    background-image: url('https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-512.png'); 
+    background-size: 25px 23px; 
+    background-repeat: no-repeat; 
+    background-position: 7px 13px;
+}
+
+#login-button:hover {
+    color: var(--nav-bar-button);
+    background-color: var(--border);
 }
 
 /* Class selectors */
