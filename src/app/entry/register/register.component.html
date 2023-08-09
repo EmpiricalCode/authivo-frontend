@@ -1,0 +1,25 @@
+<div id="register-container">
+    <p id="form-title">Create An Account</p>
+    <p id="form-subtitle">Complete these simple steps.</p>
+
+    <p class="form-input-title">Username</p>
+    <input class="form-input" placeholder="Your Username">
+
+    <p class="form-input-title">Password</p>
+    <div class="form-input-container">
+        <input #password class="form-input" type="password" placeholder="Your Password">
+        <!-- <svg class="show-password" viewBox="0 0 16 10" width="15px"><path d="M 0 5 C 5 11 11 11 16 5 C 11 -1 5 -1 0 5 M 5 5 C 5 1 11 1 11 5 C 11 9 5 9 5 5"></path></svg> -->
+    </div>
+
+    <p class="form-input-title">Confirm Password</p>
+    <div class="form-input-container">
+        <input #confirmPassword class="form-input" type="password" placeholder="Confirm Your Password">
+        <!-- <svg class="show-password" viewBox="0 0 16 10" width="15px"><path d="M 0 5 C 5 11 11 11 16 5 C 11 -1 5 -1 0 5 M 5 5 C 5 1 11 1 11 5 C 11 9 5 9 5 5"></path></svg> -->
+    </div>
+
+    <button class="form-button-solid" style="margin-top: 30px;">Register</button>
+
+    <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
+
+    <a class="form-button-outline" href="/login">Login</a>
+</div>

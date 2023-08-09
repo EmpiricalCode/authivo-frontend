@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'authivo-frontend';
+  
+  shouldShowNavRight() {
+    if (window.location.pathname == "/login" || window.location.pathname == "/register") {
+      return false;
+    }
+
+    return true;
+  }
 }

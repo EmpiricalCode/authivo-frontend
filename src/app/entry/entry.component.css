@@ -1,0 +1,123 @@
+:host {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* ID Selectors */
+#content-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#entry-background-container {
+    position: absolute;
+    left: calc(50% - 500px);
+    margin-bottom: -700px; 
+    z-index: -1; 
+    filter: blur(70px);
+    opacity: 0.5;
+}
+
+#form-title {
+    font-size: 35px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: var(--title);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0;
+    transition: 0.2s;
+}
+
+#form-subtitle {
+    font-size: 15px;
+    font-family: "Montserrat";
+    color: var(--text);
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Class selectors */
+.form-input-title {
+    font-family: "Gotham Medium";
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.form-input {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 1px 0px;
+    width: calc(100% - 26px);
+    font-size: 14px;
+    font-family: "Gotham";
+    color: var(--text);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 12px;
+    margin: 0;
+    outline: none;
+    transition: 0.2s border, 0.2s background;
+    background: var(--background);
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+}
+
+.form-button-solid {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.form-button-solid:hover {
+    background: var(--button-hover);
+}
+
+.form-button-outline {
+    display: inline-block;
+    width: calc(100% - 24px);
+    text-align: center;
+    padding: 12px;
+    background: var(--background);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--primary);
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form-button-outline:hover {
+    color: var(--button-hover);
+    border-color: var(--button-hover);
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.show-password {
+    fill: none; 
+    stroke: var(--border); 
+    margin-left: -30px;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: all;
+}

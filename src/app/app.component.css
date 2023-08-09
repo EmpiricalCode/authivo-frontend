@@ -1,3 +1,9 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 /* ID Selectors */
 #nav-bar {
     position: relative;
@@ -39,6 +45,14 @@
     stroke: var(--primary);
 }
 
+#app-logo-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
 #login-button {
     padding: 15px 15px 15px 40px; 
     border-radius: 15px; 
@@ -46,6 +60,7 @@
     background-size: 25px 23px; 
     background-repeat: no-repeat; 
     background-position: 7px 13px;
+    transition: 0.2s;
 }
 
 #login-button:hover {
@@ -59,6 +74,8 @@
     font-size: 16px;
     color: var(--nav-bar-button);
     cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 .nav-bar-button:hover {

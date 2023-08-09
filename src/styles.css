@@ -1,15 +1,25 @@
 :root {
     --primary: rgb(168, 100, 216);
+    --secondary: rgb(83, 83, 187);
     --border: rgb(230, 230, 230);
     --nav-bar-button: rgb(73, 73, 73);
     --background: rgb(255, 255, 255);
+    --text: rgb(96, 96, 96);
+    --title: rgb(47, 47, 47);
+    --button: rgb(168, 100, 216);
+    --button-hover: rgb(182, 128, 222);
 }
 
 :root:has(#test:checked) {
-    --primary: rgb(159, 105, 197);
-    --border: rgb(230, 230, 230);
+    --border: rgb(33, 40, 54);
     --nav-bar-button: rgb(221, 221, 221);
     --background: rgb(21, 25, 34);
+    --title: rgb(232, 232, 232);
+    --text: rgb(177, 177, 177);
+}
+
+:root:has(#test:checked) #login-background-container {
+    opacity: 0.3;
 }
 
 /* Element selectors */
@@ -21,6 +31,8 @@ body {
     display: flex;
     flex-direction: column;
     background: var(--background);
+    overflow-x: hidden;
+    transition: 0.2s;
 }
 
 /* Fonts */

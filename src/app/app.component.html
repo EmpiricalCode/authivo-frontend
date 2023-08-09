@@ -2,18 +2,21 @@
 <div id="nav-bar">
   
   <div id="nav-bar-left">
-    <svg id="app-logo" width="22px" height="22px">
-      <path stroke-linecap="round" stroke-width="3.5" d="M 2 11 C 2 -1 20 -1 20 11 C 20 15 18 19 15 20 M 2 11 C 2 15 4 19 7 20 M 2 11 L 20 11"></path>
-    </svg>
-    <p id="app-title">authivo</p>
+    <div id="app-logo-container" onclick="window.location=window.location.origin">
+      <svg id="app-logo" width="22px" height="22px">
+        <path stroke-linecap="round" stroke-width="3.5" d="M 2 11 C 2 -1 20 -1 20 11 C 20 15 18 19 15 20 M 2 11 C 2 15 4 19 7 20 M 2 11 L 20 11"></path>
+      </svg>
+      <p id="app-title">authivo</p>
+    </div>
+    <input type="radio" id="test">
   </div>
 
-  <div id="nav-bar-right">
+  <div id="nav-bar-right" *ngIf="shouldShowNavRight()">
     <a class="nav-bar-button">About</a>
     <a class="nav-bar-button">Documentation</a>
     <a class="nav-bar-button">Tutorials</a>
-    <div style="width: 2px; height: 30px; background: var(--border);"></div>
-    <a class="nav-bar-button" id="login-button">Login</a>
+    <div style="width: 2px; height: 30px; background: var(--border); transition: 0.2s;"></div>
+    <a class="nav-bar-button" id="login-button" href="/login">Login</a>
   </div>
 </div>  
 
