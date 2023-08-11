@@ -19,7 +19,7 @@
 }
 
 :root:has(#test:checked) #login-background-container {
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 /* Element selectors */

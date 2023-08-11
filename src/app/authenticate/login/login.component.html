@@ -1,0 +1,20 @@
+<div id="error-container"></div>
+
+<div id="login-container">
+    <p id="form-title">Welcome Back!</p>
+    <p id="form-subtitle" *ngIf="this.authService.pathMatch('/login')">You must sign in to continue.</p>
+    <p id="form-redirect-message" *ngIf="this.authService.pathMatch('/auth/login')">Continuing to {{this.authService.getRedirectUri()}}</p>
+
+    <p class="form-input-title">Username</p>
+    <input class="form-input" placeholder="Your Username">
+
+    <p class="form-input-title">Password</p>
+    <input class="form-input" type="password" placeholder="Your Password">
+
+    <button class="form-button-solid" style="margin-top: 30px;">Login</button>
+
+    <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
+
+    <a class="form-button-outline" href="/register" *ngIf="this.authService.pathMatch('/login')">Register</a>
+    <a class="form-button-outline" (click)="this.authService.redirectWithParams('/auth/register')" *ngIf="this.authService.pathMatch('/auth/login')">Register</a>
+</div>

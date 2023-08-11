@@ -1,5 +1,6 @@
 :host {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
 
@@ -11,7 +12,7 @@
     align-items: center;
 }
 
-#entry-background-container {
+#authenticate-background-container {
     position: absolute;
     left: calc(50% - 500px);
     margin-bottom: -700px; 
@@ -28,6 +29,17 @@
     text-align: center;
     margin-top: 50px;
     margin-bottom: 0;
+    transition: 0.2s;
+}
+
+#form-redirect-message {
+    font-size: 17px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 35px;
     transition: 0.2s;
 }
 

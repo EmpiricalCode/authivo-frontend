@@ -1,9 +1,9 @@
 /* ID selectors */
-#login-container {
-    width: 340px;
-    height: 500px;
+#register-container {
+    width: 360px;
+    height: 580px;
+    margin-top: 40px;
     border-radius: 20px;
-    margin-top: 100px;
     padding: 0 30px 0 30px;
     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     border: 1px solid var(--border);

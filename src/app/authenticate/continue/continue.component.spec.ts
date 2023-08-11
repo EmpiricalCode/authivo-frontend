@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntryComponent } from './entry.component';
+import { ContinueComponent } from './continue.component';
 
-describe('EntryComponent', () => {
-  let component: EntryComponent;
-  let fixture: ComponentFixture<EntryComponent>;
+describe('ContinueComponent', () => {
+  let component: ContinueComponent;
+  let fixture: ComponentFixture<ContinueComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EntryComponent]
+      declarations: [ContinueComponent]
     });
-    fixture = TestBed.createComponent(EntryComponent);
+    fixture = TestBed.createComponent(ContinueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

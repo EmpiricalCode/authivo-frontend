@@ -1,6 +1,9 @@
+<div id="error-container"></div>
+
 <div id="register-container">
     <p id="form-title">Create An Account</p>
-    <p id="form-subtitle">Complete these simple steps.</p>
+    <p id="form-subtitle" *ngIf="!this.authService.getRedirectUri()">Complete these simple steps.</p>
+    <p id="form-redirect-message" *ngIf="this.authService.getRedirectUri()">Continuing to {{this.authService.getRedirectUri()}}</p>
 
     <p class="form-input-title">Username</p>
     <input class="form-input" placeholder="Your Username">
@@ -21,5 +24,6 @@
 
     <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
 
-    <a class="form-button-outline" href="/login">Login</a>
+    <a class="form-button-outline" href="/login" *ngIf="this.authService.pathMatch('/register')">Login</a>
+    <a class="form-button-outline" (click)="this.authService.redirectWithParams('/auth/login')" *ngIf="this.authService.pathMatch('/auth/register')">Login</a>
 </div>

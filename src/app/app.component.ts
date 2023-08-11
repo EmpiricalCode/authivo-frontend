@@ -6,12 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  authPaths: String[] = [
+    "/login",
+    "/register",
+    "/auth/login",
+    "/auth/register",
+    "/auth/continue",
+    "/auth"
+  ]
   
   shouldShowNavRight() {
-    if (window.location.pathname == "/login" || window.location.pathname == "/register") {
-      return false;
-    }
-
-    return true;
+    return !this.authPaths.includes(document.location.pathname);
   }
 }
