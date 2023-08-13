@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
@@ -33,9 +33,10 @@ export class AuthService {
     if (window.localStorage.getItem("token")) {
 
       const response: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authorization/tokeninfo", {
+        headers: new HttpHeaders({"Access-Control-Allow-Origin" : "https://authivo-api-dev.vercel.app"}),
         token: window.localStorage.getItem("token")
       })).catch((error) => {
-        console.log(error);
+        alert(error.message);
       })
 
       if (response && response.status == 200 && response.valid == true && response.decoded.aud == "host") {
