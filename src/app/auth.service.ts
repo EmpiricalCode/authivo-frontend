@@ -28,7 +28,7 @@ export class AuthService {
     
     if (window.localStorage.getItem("token")) {
 
-      const response: any = await lastValueFrom(this.http.post("https://authivo-backend-git-dev-empiricalcode.vercel.app/authorization/tokeninfo", {
+      const response: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authorization/tokeninfo", {
         token: window.localStorage.getItem("token")
       })).catch((error) => {
         console.log(error);

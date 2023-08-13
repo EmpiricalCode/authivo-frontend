@@ -34,7 +34,7 @@ export class LoginComponent {
 
         try {
 
-          const codeResponse: any = await lastValueFrom(this.http.post("https://authivo-backend-git-dev-empiricalcode.vercel.app/authentication/login", {
+          const codeResponse: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/login", {
             username: username,
             password: password,
             auth_type: "pkce",
@@ -45,7 +45,7 @@ export class LoginComponent {
 
           if (codeResponse.status == 200) {
 
-            const tokenResponse: any = await lastValueFrom(this.http.post("https://authivo-backend-git-dev-empiricalcode.vercel.app/authentication/token", {
+            const tokenResponse: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/token", {
               auth_type: "pkce",
               client_id: "host",
               code_verifier: code_verifier,
