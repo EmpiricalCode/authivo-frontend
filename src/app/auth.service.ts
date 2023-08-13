@@ -24,6 +24,10 @@ export class AuthService {
     return this.search.get("auth_type");
   }
 
+  getCodeChallenge() {
+    return this.search.get("code_challenge");
+  }
+
   async isLoggedIn() {
     
     if (window.localStorage.getItem("token")) {
