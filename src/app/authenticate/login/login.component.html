@@ -11,7 +11,15 @@
     <p class="form-input-title">Password</p>
     <input #password class="form-input" type="password" placeholder="Your Password">
 
-    <button class="form-button-solid" style="margin-top: 30px;" (click)="this.login()">Login</button>
+    <button #loginButton class="form-button-solid" style="margin-top: 30px;" (click)="this.login()">
+        Login
+        <div class="form-button-loading-svg-container">
+            <svg width="30px" height="30px" class="rotating">
+                <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+            </svg> 
+        </div>
+    </button>
 
     <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
 

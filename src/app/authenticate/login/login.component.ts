@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
@@ -10,17 +10,26 @@ import { lastValueFrom } from 'rxjs';
 })
 export class LoginComponent {
 
+  @Output() 
+  spawnErrorMessageEvent = new EventEmitter<string>();
+
   @ViewChild("username") usernameRef!: ElementRef;
   @ViewChild("password") passwordRef!: ElementRef;
+  @ViewChild("loginButton") loginButton!: ElementRef;
 
   loggingIn: boolean = false;
 
   constructor(public authService: AuthService, private http: HttpClient) { }
 
+  spawnErrorMessage(message: string) {
+    this.spawnErrorMessageEvent.emit(message);
+  }
+
   async login() {
 
     if (!this.loggingIn) {
 
+      this.loginButton.nativeElement.classList.add("form-button-solid-disabled");
       this.loggingIn = true;
 
       // Regular login
@@ -56,16 +65,27 @@ export class LoginComponent {
               window.localStorage.setItem("token", tokenResponse.token);
               window.location.href = window.location.origin + "/dashboard";
             } else {
-              alert(tokenResponse.response);
+
+              if (tokenResponse.status == 500) {
+                this.spawnErrorMessage("A fatal server error was encountered");
+              } else {
+                this.spawnErrorMessage(tokenResponse.response);
+              }
             }
 
           } else {
-            alert(codeResponse.response);
+            
+            if (codeResponse.status == 500) {
+              this.spawnErrorMessage("A fatal server error was encountered");
+            } else {
+              this.spawnErrorMessage(codeResponse.response);
+            }
           }
         } catch(error) {
           console.log(error);
         }
 
+        this.loginButton.nativeElement.classList.remove("form-button-solid-disabled");
         this.loggingIn = false;
 
       // Auth provider login

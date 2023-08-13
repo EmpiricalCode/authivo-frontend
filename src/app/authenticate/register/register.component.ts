@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 
@@ -10,14 +10,22 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class RegisterComponent {
 
+  @Output() 
+  spawnErrorMessageEvent = new EventEmitter<string>();
+
   registering: boolean = false;
 
   @ViewChild("username") usernameRef!: ElementRef;
   @ViewChild("password") passwordRef!: ElementRef;
   @ViewChild("confirmPassword") confirmPasswordRef!: ElementRef;
+  @ViewChild("registerButton") registerButton!: ElementRef;
 
   constructor(public authService: AuthService, private http: HttpClient) {
 
+  }
+
+  spawnErrorMessage(message: string) {
+    this.spawnErrorMessageEvent.emit(message);
   }
 
   async register() {
@@ -30,6 +38,7 @@ export class RegisterComponent {
 
       if (password == confirmPassword) {
 
+        this.registerButton.nativeElement.classList.add("form-button-solid-disabled");
         this.registering = true;
 
         // Regular login
@@ -62,16 +71,27 @@ export class RegisterComponent {
                 window.localStorage.setItem("token", tokenResponse.token);
                 window.location.href = window.location.origin + "/dashboard";
               } else {
-                alert(tokenResponse.response);
+                
+                if (tokenResponse.status == 500) {
+                  this.spawnErrorMessage("A fatal server error was encountered");
+                } else {
+                  this.spawnErrorMessage(tokenResponse.response);
+                }
               }
 
             } else {
-              alert(codeResponse.response);
+              
+              if (codeResponse.status == 500) {
+                this.spawnErrorMessage("A fatal server error was encountered");
+              } else {
+                this.spawnErrorMessage(codeResponse.response);
+              }
             }
           } catch(error) {
             console.log(error);
           }
 
+          this.registerButton.nativeElement.classList.remove("form-button-solid-disabled");
           this.registering = false;
 
         // Auth provider login
@@ -79,7 +99,7 @@ export class RegisterComponent {
         
         }
       } else {
-        alert("Password does not match confirm password");
+        this.spawnErrorMessage("Passwords do not match");
       }
     }
   }
