@@ -8,6 +8,8 @@ import { LoginComponent } from './authenticate/login/login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { RegisterComponent } from './authenticate/register/register.component';
 import { ContinueComponent } from './authenticate/continue/continue.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { ContinueComponent } from './authenticate/continue/continue.component';
     LoginComponent,
     AuthenticateComponent,
     RegisterComponent,
-    ContinueComponent
+    ContinueComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

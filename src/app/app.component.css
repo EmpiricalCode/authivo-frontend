@@ -68,6 +68,21 @@
     background-color: var(--border);
 }
 
+#dashboard-button {
+    padding: 15px 15px 15px 40px; 
+    border-radius: 15px; 
+    background-repeat: no-repeat; 
+    background-image: url('https://cdn2.iconfinder.com/data/icons/user-interface-169/32/home-256.png');
+    background-size: 23px 23px; 
+    background-position: 9px 12px;
+    transition: 0.2s;
+}
+
+#dashboard-button:hover {
+    color: var(--nav-bar-button);
+    background-color: var(--border);
+}
+
 /* Class selectors */
 .nav-bar-button {
     font-family: "Gotham Medium";

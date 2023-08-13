@@ -7,7 +7,7 @@ export const authProviderGuard: CanActivateFn = (route, state) => {
   const router: Router = inject(Router);
   const authService: AuthService = inject(AuthService);
   
-  if (authService.getClientID() && authService.getRedirectUri()) {
+  if (authService.getClientID() && authService.getRedirectUri() && authService.getAuthType()) {
     return true;
   }
 

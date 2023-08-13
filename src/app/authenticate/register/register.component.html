@@ -6,7 +6,7 @@
     <p id="form-redirect-message" *ngIf="this.authService.getRedirectUri()">Continuing to {{this.authService.getRedirectUri()}}</p>
 
     <p class="form-input-title">Username</p>
-    <input class="form-input" placeholder="Your Username">
+    <input #username class="form-input" placeholder="Your Username">
 
     <p class="form-input-title">Password</p>
     <div class="form-input-container">
@@ -20,7 +20,7 @@
         <!-- <svg class="show-password" viewBox="0 0 16 10" width="15px"><path d="M 0 5 C 5 11 11 11 16 5 C 11 -1 5 -1 0 5 M 5 5 C 5 1 11 1 11 5 C 11 9 5 9 5 5"></path></svg> -->
     </div>
 
-    <button class="form-button-solid" style="margin-top: 30px;">Register</button>
+    <button class="form-button-solid" style="margin-top: 30px;" (click)="this.register()">Register</button>
 
     <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
 

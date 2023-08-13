@@ -15,13 +15,11 @@ export class AuthenticateComponent implements AfterViewInit {
 
   ngAfterViewInit() {
       
-    if (this.authService.pathMatch("/auth") && this.authService.getRedirectUri() && this.authService.getClientID()) {
+    if (this.authService.pathMatch("/auth")) {
 
       const urlParams = new URLSearchParams(document.location.search);
 
-      document.location = document.location.origin + "/auth/login?" + urlParams.toString();
+      this.authService.redirectWithParams("/auth/login");
     }
-
-    // TODO: Handle error
   }
 }

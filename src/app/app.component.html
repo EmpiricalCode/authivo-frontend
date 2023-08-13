@@ -16,7 +16,8 @@
     <a class="nav-bar-button">Documentation</a>
     <a class="nav-bar-button">Tutorials</a>
     <div style="width: 2px; height: 30px; background: var(--border); transition: 0.2s;"></div>
-    <a class="nav-bar-button" id="login-button" href="/login">Login</a>
+    <a class="nav-bar-button" id="login-button" href="/login" *ngIf="!this.loggedIn">Login</a>
+    <a class="nav-bar-button" id="dashboard-button" href="/dashboard" *ngIf="this.loggedIn">Dashboard</a>
   </div>
 </div>  
 

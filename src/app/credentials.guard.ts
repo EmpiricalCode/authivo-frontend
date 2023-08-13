@@ -2,7 +2,7 @@ import { CanActivateFn } from '@angular/router';
 import { AuthService } from './auth.service';
 import { inject } from '@angular/core';
 
-export const authCredentialsGuard: CanActivateFn = async (route, state) => {
+export const credentialsGuard: CanActivateFn = async (route, state) => {
   
   const authService: AuthService = inject(AuthService);
 
@@ -10,5 +10,5 @@ export const authCredentialsGuard: CanActivateFn = async (route, state) => {
     return true;
   }
 
-  return authService.redirectWithParams("/auth/continue");
+  return authService.redirectWithParams("");
 };

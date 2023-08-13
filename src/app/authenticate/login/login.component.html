@@ -6,12 +6,12 @@
     <p id="form-redirect-message" *ngIf="this.authService.pathMatch('/auth/login')">Continuing to {{this.authService.getRedirectUri()}}</p>
 
     <p class="form-input-title">Username</p>
-    <input class="form-input" placeholder="Your Username">
+    <input #username class="form-input" placeholder="Your Username">
 
     <p class="form-input-title">Password</p>
-    <input class="form-input" type="password" placeholder="Your Password">
+    <input #password class="form-input" type="password" placeholder="Your Password">
 
-    <button class="form-button-solid" style="margin-top: 30px;">Login</button>
+    <button class="form-button-solid" style="margin-top: 30px;" (click)="this.login()">Login</button>
 
     <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
 

@@ -7,6 +7,9 @@ import { ContinueComponent } from './authenticate/continue/continue.component';
 import { authProviderGuard } from './auth-provider.guard';
 import { authContinueGuard } from './auth-continue.guard';
 import { authCredentialsGuard } from './auth-credentials.guard';
+import { credentialsGuard } from './credentials.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -14,12 +17,19 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [authGuard]
+  },
+  {
     path: "login",
-    component: AuthenticateComponent
+    component: AuthenticateComponent,
+    canActivate: [credentialsGuard]
   },
   {
     path: "register",
-    component: AuthenticateComponent
+    component: AuthenticateComponent,
+    canActivate: [credentialsGuard]
   },
   {
     path: "auth/login",
