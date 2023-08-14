@@ -2,6 +2,8 @@
     <h4>Dashboard</h4>
     <h1 style="margin-top: 10px;">My Applications</h1>
 
+    <a id="create-application-button">+ Create</a>
+
     <div id="application-container">
         <div class="application" *ngFor="let application of this.applications">
             <h2 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 350px;">{{application.name}}</h2>
