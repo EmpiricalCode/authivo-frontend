@@ -132,5 +132,5 @@ body {
 
 /* Webkit */
 input:-webkit-autofill{
-    -webkit-text-fill-color: rgb(213, 183, 229) !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(213, 183, 229) inset;
 }
