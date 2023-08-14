@@ -54,12 +54,12 @@
 }
 
 #login-button {
-    padding: 15px 15px 15px 40px; 
+    padding: 15px 15px 15px 15px; 
+    margin-left: -10px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
     border-radius: 15px; 
-    background-image: url('https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-512.png'); 
-    background-size: 25px 23px; 
-    background-repeat: no-repeat; 
-    background-position: 7px 13px;
     transition: 0.2s;
 }
 
