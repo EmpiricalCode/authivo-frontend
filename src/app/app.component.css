@@ -38,6 +38,7 @@
     margin: 0;
     margin-top: -5px;
     color: var(--nav-bar-button);
+    transition: 0.2s;
 }
 
 #app-logo {
