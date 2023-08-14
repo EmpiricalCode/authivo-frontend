@@ -1,0 +1,60 @@
+:host {
+    flex-grow: 1;
+}
+
+/* ID Selectors */
+#content-container {
+    flex-grow: 1;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-left: max(100px, calc(50% - 600px));
+    margin-right: max(100px, calc(50% - 600px));
+    padding-top: 20px;
+}
+
+#application-container {
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+/* Class selectors */
+.application-placeholder {
+    height: 160px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.application {
+    height: 160px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+/* Element selectors */
+h1 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 35px;
+    margin: 0;
+    color: var(--text);
+}
+
+h4 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--subtitle);
+    margin: 10px 0 10px 0;
+}
+
+/* Exceptions */
+@media only screen and (max-width: 1400px) {
+
+    #content-container {
+        width: calc(100% - 200px);
+    }
+}
