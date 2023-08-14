@@ -21,7 +21,7 @@
     --title: rgb(232, 232, 232);
     --subtitle: rgb(150, 150, 150);
     --text: rgb(177, 177, 177);
-    --box-shadow: rgba(53, 53, 62, 0.8) 0px 0px 3px;
+    --box-shadow: var(--border) 0px 0px 0 1px;
 }
 
 :root:has(#test:checked) #login-background-container {
