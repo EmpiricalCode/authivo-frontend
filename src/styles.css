@@ -129,3 +129,8 @@ body {
         transform: rotate(360deg);
     }
 }
+
+/* Webkit */
+input:-webkit-autofill{
+    -webkit-text-fill-color: rgb(213, 183, 229) !important;
+}
