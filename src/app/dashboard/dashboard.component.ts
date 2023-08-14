@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  applications: any[] = [
+    {
+      name: "Spotify appasdfasdfasdfasdfasdasdasdasdasasdf",
+      date: "2023/08/14"
+    },
+    {
+      name: "My Application",
+      date: "2023/08/14"
+    }
+  ];
 }

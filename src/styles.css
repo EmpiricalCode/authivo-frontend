@@ -11,6 +11,7 @@
     --error-message: rgb(179, 87, 87);
     --error-message-border: rgb(133, 51, 51);
     --subtitle: rgb(94, 94, 94);
+    --box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px;
 }
 
 :root:has(#test:checked) {
@@ -18,7 +19,9 @@
     --nav-bar-button: rgb(221, 221, 221);
     --background: rgb(21, 25, 34);
     --title: rgb(232, 232, 232);
+    --subtitle: rgb(150, 150, 150);
     --text: rgb(177, 177, 177);
+    --box-shadow: rgba(53, 53, 62, 0.8) 0px 0px 3px;
 }
 
 :root:has(#test:checked) #login-background-container {
@@ -33,8 +36,6 @@
     -o-animation: rotating 1.5s linear infinite;
     animation: rotating 1.5s linear infinite;
 }
-
-
 
 /* Element selectors */
 body {

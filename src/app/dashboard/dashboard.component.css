@@ -16,7 +16,7 @@
 #application-container {
     display: grid;
     margin-top: 30px;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     column-gap: 20px;
     row-gap: 20px;
 }
@@ -24,21 +24,37 @@
 /* Class selectors */
 .application-placeholder {
     height: 160px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
+    border-radius: 15px;
+    border: 2px dashed var(--border);
+    transition: 0.2s;
+    background: var(--background);
 }
 
 .application {
-    height: 160px;
-    border-radius: 20px;
+    height: 70px;
+    border-radius: 15px;
     border: 1px solid var(--border);
+    transition: 0.2s;
+    padding: 40px;
+    padding-top: 50px;
+    background: var(--background);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
 }
 
 /* Element selectors */
 h1 {
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 35px;
+    font-size: 40px;
+    margin: 0;
+    color: var(--text);
+}
+
+h2 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 28px;
     margin: 0;
     color: var(--text);
 }
