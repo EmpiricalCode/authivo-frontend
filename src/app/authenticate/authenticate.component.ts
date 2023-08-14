@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class AuthenticateComponent implements AfterViewInit {
 
   @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private renderer: Renderer2) {
 
   }
 
@@ -27,12 +27,12 @@ export class AuthenticateComponent implements AfterViewInit {
 
   spawnErrorMessage(message: string) {
 
-    const errorMessage = document.createElement("div");
+    const errorMessage = this.renderer.createElement("div");
 
     errorMessage.innerHTML = message;
-    errorMessage.classList.add("error-message");
-
     this.errorMessageContainer.nativeElement.append(errorMessage);
+    this.renderer.addClass(errorMessage, "error-message");
+
 
     setTimeout(() => {
       errorMessage.style.opacity = "0";

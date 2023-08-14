@@ -160,6 +160,19 @@
     align-items: center;
 }
 
+.form-button-solid-disabled {
+    background: var(--button-hover) !important;
+}
+
+.form-button-solid-disabled .form-button-loading-svg-container {
+    opacity: 1 !important;
+    background: var(--button-hover) !important;
+}
+
+.form-button-solid-disabled circle {
+    fill: var(--button-hover) !important;
+}
+
 .show-password {
     fill: none; 
     stroke: var(--border); 
@@ -167,4 +180,16 @@
     cursor: pointer;
     user-select: none;
     pointer-events: all;
+}
+
+.error-message {
+    background: var(--error-message);
+    border: 1px solid var(--error-message-border);
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "Gotham";
+    color: rgb(255, 241, 241);    
+    font-size: 14px;
+    width: calc(100% - 20px);
+    transition: 0.2s;
 }

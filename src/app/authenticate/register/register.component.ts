@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 
@@ -20,7 +20,7 @@ export class RegisterComponent {
   @ViewChild("confirmPassword") confirmPasswordRef!: ElementRef;
   @ViewChild("registerButton") registerButton!: ElementRef;
 
-  constructor(public authService: AuthService, private http: HttpClient) {
+  constructor(public authService: AuthService, private http: HttpClient, private renderer: Renderer2) {
 
   }
 
@@ -38,7 +38,6 @@ export class RegisterComponent {
 
       if (password == confirmPassword) {
 
-        this.registerButton.nativeElement.classList.add("form-button-solid-disabled");
         this.registering = true;
 
         // Regular login
@@ -91,7 +90,6 @@ export class RegisterComponent {
             console.log(error);
           }
 
-          this.registerButton.nativeElement.classList.remove("form-button-solid-disabled");
           this.registering = false;
 
         // Auth provider login

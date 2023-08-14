@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
@@ -19,7 +19,7 @@ export class LoginComponent {
 
   loggingIn: boolean = false;
 
-  constructor(public authService: AuthService, private http: HttpClient) { }
+  constructor(public authService: AuthService, private http: HttpClient, private renderer: Renderer2) { }
 
   spawnErrorMessage(message: string) {
     this.spawnErrorMessageEvent.emit(message);
@@ -29,7 +29,6 @@ export class LoginComponent {
 
     if (!this.loggingIn) {
 
-      this.loginButton.nativeElement.classList.add("form-button-solid-disabled");
       this.loggingIn = true;
 
       // Regular login
@@ -85,7 +84,6 @@ export class LoginComponent {
           console.log(error);
         }
 
-        this.loginButton.nativeElement.classList.remove("form-button-solid-disabled");
         this.loggingIn = false;
 
       // Auth provider login

@@ -11,7 +11,7 @@
     <p class="form-input-title">Password</p>
     <input #password class="form-input" type="password" placeholder="Your Password">
 
-    <button #loginButton class="form-button-solid" style="margin-top: 30px;" (click)="this.login()">
+    <button class="form-button-solid" style="margin-top: 30px;" [ngClass]="this.loggingIn ? 'form-button-solid-disabled' : ''" (click)="this.login()">
         Login
         <div class="form-button-loading-svg-container">
             <svg width="30px" height="30px" class="rotating">
