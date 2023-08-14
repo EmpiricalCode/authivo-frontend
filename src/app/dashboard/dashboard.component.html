@@ -5,7 +5,7 @@
     <div id="application-container">
         <div class="application" *ngFor="let application of this.applications">
             <h2 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 350px;">{{application.name}}</h2>
-            <h4>Created on {{application.date}}</h4>
+            <h4>Creation Date: {{application.date}}</h4>
         </div>
 
         <div class="application-placeholder" *ngIf="this.applications.length < 4"></div>
