@@ -55,7 +55,6 @@ export class RegisterComponent {
 
               const tokenResponse: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/token", {
                 auth_type: "pkce",
-                client_id: "host",
                 code_verifier: code_verifier,
                 code: codeResponse.code
               }));
