@@ -126,23 +126,3 @@
 .nav-bar-button:hover {
     color: var(--primary);
 }
-
-.message {
-    border-radius: 10px;
-    padding: 10px;
-    font-family: "Gotham";
-    color: rgb(255, 241, 241);    
-    font-size: 14px;
-    width: calc(100% - 20px);
-    transition: 0.2s;
-}
-
-.error-message {
-    background: var(--error-message);
-    border: 1px solid var(--error-message-border);
-}
-
-.success-message {
-    background: var(--success-message);
-    border: 1px solid var(--success-message-border);
-}
