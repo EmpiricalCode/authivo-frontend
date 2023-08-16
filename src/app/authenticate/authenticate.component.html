@@ -4,9 +4,7 @@
         <path d="M -7 33 C 0 9 39 30 52 20 C 43 35 1 17 -7 33" style="filter: blur(0px); stroke: var(--secondary); fill: var(--secondary); margin-left: -500px"></path>
     </svg>
 
-    <div #errorMessageContainer id="error-message-container"></div>
-
-    <app-login (spawnErrorMessageEvent)="this.spawnErrorMessage($event)" *ngIf="this.authService.pathMatch('/login') || this.authService.pathMatch('/auth/login')"></app-login>
-    <app-register (spawnErrorMessageEvent)="this.spawnErrorMessage($event)" *ngIf="this.authService.pathMatch('/register') || this.authService.pathMatch('/auth/register')"></app-register>
-    <app-continue (spawnErrorMessageEvent)="this.spawnErrorMessage($event)" *ngIf="this.authService.pathMatch('/auth/continue')"></app-continue>
+    <app-login *ngIf="this.authService.pathMatch('/login') || this.authService.pathMatch('/auth/login')"></app-login>
+    <app-register *ngIf="this.authService.pathMatch('/register') || this.authService.pathMatch('/auth/register')"></app-register>
+    <app-continue *ngIf="this.authService.pathMatch('/auth/continue')"></app-continue>
 </div>

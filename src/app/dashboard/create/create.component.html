@@ -21,4 +21,12 @@
             </button>
         </div>
     </div>
+
+    <div id="application-information-container" *ngIf="this.clientID && this.clientSecret">
+        <h2 style="margin-bottom: 30px;">Application Information</h2>
+        <h4>Client ID</h4>
+        <p class="application-information-field">{{this.clientID}}</p>
+        <h4>Client Secret</h4>
+        <p class="application-information-field">{{this.clientSecret}}</p>
+    </div>
 </div>

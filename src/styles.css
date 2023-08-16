@@ -10,6 +10,10 @@
     --button-hover: rgb(182, 128, 222);
     --error-message: rgb(179, 87, 87);
     --error-message-border: rgb(133, 51, 51);
+    --success-message: rgb(92 133 90);
+    --success-message-border: rgb(65 101 63);
+    --information-field: rgb(241, 241, 241);
+    --information-field-border: rgb(120, 120, 120);
     --subtitle: rgb(94, 94, 94);
     --box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px;
 }
@@ -21,11 +25,18 @@
     --title: rgb(232, 232, 232);
     --subtitle: rgb(150, 150, 150);
     --text: rgb(177, 177, 177);
+    --information-field: rgb(31, 37, 50);
+    --information-field-border: rgb(83 90 109);
     --box-shadow: var(--border) 0px 0px 0 1px;
 }
 
 :root:has(#test:checked) #login-background-container {
     opacity: 0.2;
+}
+
+/* ID selectors */
+#content-container {
+    padding-bottom: 50px;
 }
 
 /* Class selectors */

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
+import { MessageService } from 'src/app/message.service';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,6 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class RegisterComponent {
 
-  @Output() 
-  spawnErrorMessageEvent = new EventEmitter<string>();
-
   registering: boolean = false;
 
   @ViewChild("username") usernameRef!: ElementRef;
@@ -20,12 +18,8 @@ export class RegisterComponent {
   @ViewChild("confirmPassword") confirmPasswordRef!: ElementRef;
   @ViewChild("registerButton") registerButton!: ElementRef;
 
-  constructor(public authService: AuthService, private http: HttpClient, private renderer: Renderer2) {
+  constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService) {
 
-  }
-
-  spawnErrorMessage(message: string) {
-    this.spawnErrorMessageEvent.emit(message);
   }
 
   async register() {
@@ -72,18 +66,18 @@ export class RegisterComponent {
               } else {
                 
                 if (tokenResponse.status == 500) {
-                  this.spawnErrorMessage("A fatal server error was encountered");
+                  this.messageService.spawnErrorMessage("A fatal server error was encountered");
                 } else {
-                  this.spawnErrorMessage(tokenResponse.response);
+                  this.messageService.spawnErrorMessage(tokenResponse.response);
                 }
               }
 
             } else {
               
               if (codeResponse.status == 500) {
-                this.spawnErrorMessage("A fatal server error was encountered");
+                this.messageService.spawnErrorMessage("A fatal server error was encountered");
               } else {
-                this.spawnErrorMessage(codeResponse.response);
+                this.messageService.spawnErrorMessage(codeResponse.response);
               }
             }
           } catch(error) {
@@ -97,7 +91,7 @@ export class RegisterComponent {
         
         }
       } else {
-        this.spawnErrorMessage("Passwords do not match");
+        this.messageService.spawnErrorMessage("Passwords do not match");
       }
     }
   }

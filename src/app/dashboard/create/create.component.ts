@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { MessageService } from 'src/app/message.service';
 
 @Component({
   selector: 'app-create',
@@ -13,8 +14,10 @@ export class CreateComponent {
 
   creating: boolean = false;
   creatingFinished: boolean = false;
+  clientID!: number;
+  clientSecret!: number;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private messageService: MessageService) {}
 
   async createApplication() {
 
@@ -25,11 +28,16 @@ export class CreateComponent {
         token: window.localStorage.getItem("token"),
         name: this.nameInput.nativeElement.value
       }));
-
-      alert(applicationCreateResponse.response);
         
       if (applicationCreateResponse.status == 201) {
         this.creatingFinished = true;
+
+        this.clientID = applicationCreateResponse.client_id;
+        this.clientSecret = applicationCreateResponse.client_secret;
+
+        this.messageService.spawnSuccessMessage(applicationCreateResponse.response);
+      } else {
+        this.messageService.spawnErrorMessage(applicationCreateResponse.response);
       }
 
       this.creating = false;

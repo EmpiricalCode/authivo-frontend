@@ -8,6 +8,8 @@
       </svg>
       <p id="app-title">authivo</p>
     </div>
+
+    <!-- <input type="radio" id="test"> -->
   </div>
 
   <div id="nav-bar-right" *ngIf="shouldShowNavRight()">
@@ -38,6 +40,8 @@
     </a>
   </div>
 </div>  
+
+<div #errorMessageContainer id="error-message-container"></div>
 
 <!-- MAIN CONTENT -->
 <router-outlet></router-outlet>

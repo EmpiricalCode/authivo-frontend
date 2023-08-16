@@ -9,9 +9,7 @@ import { AuthService } from '../auth.service';
 
 export class AuthenticateComponent implements AfterViewInit {
 
-  @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
-
-  constructor(public authService: AuthService, private renderer: Renderer2) {
+  constructor(public authService: AuthService) {
 
   }
 
@@ -23,23 +21,5 @@ export class AuthenticateComponent implements AfterViewInit {
 
       this.authService.redirectWithParams("/auth/login");
     }
-  }
-
-  spawnErrorMessage(message: string) {
-
-    const errorMessage = this.renderer.createElement("div");
-
-    errorMessage.innerHTML = message;
-    this.errorMessageContainer.nativeElement.append(errorMessage);
-    this.renderer.addClass(errorMessage, "error-message");
-
-
-    setTimeout(() => {
-      errorMessage.style.opacity = "0";
-
-      setTimeout(() => {
-        errorMessage.remove();
-      }, 200);
-    }, 3000);
   }
 }

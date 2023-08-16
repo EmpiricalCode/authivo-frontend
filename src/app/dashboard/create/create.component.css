@@ -30,3 +30,23 @@
     opacity: 0;
     margin-top: -160px;
 }
+
+#application-information-container {
+    padding: 40px 50px 40px 50px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+/* Class selectors */
+.application-information-field {
+    font-family: "Gotham";
+    font-size: 15px;
+    color: var(--information-field-border);
+    background: var(--information-field);
+    border: 1px solid var(--information-field-border);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.2s;
+}

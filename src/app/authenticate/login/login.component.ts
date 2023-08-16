@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } fro
 import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { MessageService } from 'src/app/message.service';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,13 @@ import { lastValueFrom } from 'rxjs';
 })
 export class LoginComponent {
 
-  @Output() 
-  spawnErrorMessageEvent = new EventEmitter<string>();
-
   @ViewChild("username") usernameRef!: ElementRef;
   @ViewChild("password") passwordRef!: ElementRef;
   @ViewChild("loginButton") loginButton!: ElementRef;
 
   loggingIn: boolean = false;
 
-  constructor(public authService: AuthService, private http: HttpClient, private renderer: Renderer2) { }
-
-  spawnErrorMessage(message: string) {
-    this.spawnErrorMessageEvent.emit(message);
-  }
+  constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService) { }
 
   async login() {
 
@@ -66,18 +60,18 @@ export class LoginComponent {
             } else {
 
               if (tokenResponse.status == 500) {
-                this.spawnErrorMessage("A fatal server error was encountered");
+                this.messageService.spawnErrorMessage("A fatal server error was encountered");
               } else {
-                this.spawnErrorMessage(tokenResponse.response);
+                this.messageService.spawnErrorMessage(tokenResponse.response);
               }
             }
 
           } else {
             
             if (codeResponse.status == 500) {
-              this.spawnErrorMessage("A fatal server error was encountered");
+              this.messageService.spawnErrorMessage("A fatal server error was encountered");
             } else {
-              this.spawnErrorMessage(codeResponse.response);
+              this.messageService.spawnErrorMessage(codeResponse.response);
             }
           }
         } catch(error) {

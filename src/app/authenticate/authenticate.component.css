@@ -21,17 +21,6 @@
     opacity: 0.5;
 }
 
-#error-message-container {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    width: 270px;
-}
-
 #form-title {
     font-size: 35px;
     font-family: "Montserrat";
@@ -78,16 +67,4 @@
     cursor: pointer;
     user-select: none;
     pointer-events: all;
-}
-
-.error-message {
-    background: var(--error-message);
-    border: 1px solid var(--error-message-border);
-    border-radius: 10px;
-    padding: 10px;
-    font-family: "Gotham";
-    color: rgb(255, 241, 241);    
-    font-size: 14px;
-    width: calc(100% - 20px);
-    transition: 0.2s;
 }
