@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* ID Selectors */
+#content-container {
+    padding-top: 80px !important;
+    max-width: 700px !important;
+    margin-left: max(100px, calc(50% - 350px)) !important;
+    margin-right: max(100px, calc(50% - 350px)) !important;
+    flex-grow: 1;
+}
+
+#create-container {
+    padding: 50px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    transition: 0.2s;
+}
+
+#create-form-container {
+    z-index: -1;
+}
+
+#create-form-container-hidden {
+    transition: opacity 0.3s, margin-top 1s;
+    z-index: -1;
+    position: relative;
+    opacity: 0;
+    margin-top: -160px;
+}

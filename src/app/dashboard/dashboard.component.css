@@ -23,8 +23,9 @@
 
 #create-application-button {
     display: inline;
-    align-self: flex-end;
-    margin-top: -40px;
+    align-self: flex-start;
+    margin-top: -43px;
+    margin-left: 360px;
     padding: 10px;
     font-family: "Montserrat";
     font-weight: 500;
@@ -33,6 +34,7 @@
     background: var(--button);
     cursor: pointer;
     transition: 0.2s;
+    text-decoration: none;
 }
 
 #create-application-button:hover {
@@ -41,23 +43,35 @@
 
 /* Class selectors */
 .application-placeholder {
-    height: 160px;
-    border-radius: 15px;
+    height: 158px;
+    border-radius: 10px;
     border: 2px dashed var(--border);
     transition: 0.2s;
     background: var(--background);
 }
 
 .application {
-    height: 70px;
-    border-radius: 15px;
+    position: relative;
+    height: 80px;
+    border-radius: 10px;
     border: 1px solid var(--border);
     transition: 0.2s;
     padding: 40px;
-    padding-top: 50px;
+    padding-left: 30px;
     background: var(--background);
     box-shadow: var(--box-shadow);
     cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+}
+
+.application-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary);
 }
 
 /* Element selectors */
@@ -72,7 +86,7 @@ h1 {
 h2 {
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 28px;
+    font-size: 23px;
     margin: 0;
     color: var(--nav-bar-button);
 }

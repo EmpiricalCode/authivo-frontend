@@ -2,12 +2,14 @@
     <h4>Dashboard</h4>
     <h1 style="margin-top: 10px;">My Applications</h1>
 
-    <a id="create-application-button">+ Create</a>
+    <a id="create-application-button" href="/dashboard/create">+ Create</a>
 
     <div id="application-container">
         <div class="application" *ngFor="let application of this.applications">
+            <div class="application-strip"></div>
             <h2 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 350px;">{{application.name}}</h2>
-            <h4>Creation Date: {{application.date}}</h4>
+            <h4>Creation Date: {{application.creationDate}}</h4>
+            <h4 style="margin-top: -5px;">Client ID: {{application.clientID}}</h4>
         </div>
 
         <div class="application-placeholder" *ngIf="this.applications.length < 4"></div>

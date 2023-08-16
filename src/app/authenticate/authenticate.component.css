@@ -64,113 +64,11 @@
 }
 
 /* Class selectors */
-.form-button-loading-svg-container {
-    width: 200px; 
-    height: 30px; 
-    position: absolute; 
-    left: calc(50% - 100px); 
-    top: calc(50% - 15px);
-    background: var(--button);
-    transition: 0.2s;
-    opacity: 0;
-}
-
 .form-input-title {
     font-family: "Gotham Medium";
     font-size: 13px;
     color: var(--text);
     margin-bottom: 10px;
-}
-
-.form-input {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 1px 0px;
-    width: calc(100% - 26px);
-    font-size: 14px;
-    font-family: "Gotham";
-    color: var(--text);
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    padding: 12px;
-    margin: 0;
-    outline: none;
-    transition: 0.2s border, 0.2s background;
-    background: var(--background);
-}
-
-.form-input:focus {
-    border-color: var(--primary);
-}
-
-.form-button-solid {
-    width: 100%;
-    padding: 12px;
-    background: var(--primary);
-    border: none;
-    border-radius: 10px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 15px;
-    color: white;
-    transition: 0.2s;
-    cursor: pointer;
-    position: relative;
-}
-
-.form-button-solid circle {
-    transition: 0.2s;
-}
-
-.form-button-solid:hover {
-    background: var(--button-hover);
-}
-
-.form-button-solid:hover .form-button-loading-svg-container {
-    background: var(--button-hover);
-}
-
-.form-button-solid:hover circle {
-    fill: var(--button-hover) !important;
-}
-
-.form-button-outline {
-    display: inline-block;
-    width: calc(100% - 24px);
-    text-align: center;
-    padding: 12px;
-    background: var(--background);
-    border: 1px solid var(--primary);
-    border-radius: 10px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--primary);
-    transition: 0.2s;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.form-button-outline:hover {
-    color: var(--button-hover);
-    border-color: var(--button-hover);
-}
-
-.form-input-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.form-button-solid-disabled {
-    background: var(--button-hover) !important;
-}
-
-.form-button-solid-disabled .form-button-loading-svg-container {
-    opacity: 1 !important;
-    background: var(--button-hover) !important;
-}
-
-.form-button-solid-disabled circle {
-    fill: var(--button-hover) !important;
 }
 
 .show-password {

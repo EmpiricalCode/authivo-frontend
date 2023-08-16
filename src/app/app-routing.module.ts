@@ -10,6 +10,7 @@ import { authCredentialsGuard } from './auth-credentials.guard';
 import { credentialsGuard } from './credentials.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
+import { CreateComponent } from './dashboard/create/create.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "dashboard/create",
+    component: CreateComponent,
     canActivate: [authGuard]
   },
   {
