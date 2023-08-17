@@ -1,0 +1,37 @@
+<div id="error-container"></div>
+
+<div id="register-container">
+    <p id="form-title">Create An Account</p>
+    <p id="form-subtitle" *ngIf="!this.authService.getRedirectUri()">Complete these simple steps.</p>
+    <p id="form-redirect-message" *ngIf="this.authService.getRedirectUri()">Continuing to {{this.authService.getRedirectUri()}}</p>
+
+    <p class="form-input-title">Username</p>
+    <input #username class="form-input" placeholder="Your Username">
+
+    <p class="form-input-title">Password</p>
+    <div class="form-input-container">
+        <input #password class="form-input" type="password" placeholder="Your Password">
+        <!-- <svg class="show-password" viewBox="0 0 16 10" width="15px"><path d="M 0 5 C 5 11 11 11 16 5 C 11 -1 5 -1 0 5 M 5 5 C 5 1 11 1 11 5 C 11 9 5 9 5 5"></path></svg> -->
+    </div>
+
+    <p class="form-input-title">Confirm Password</p>
+    <div class="form-input-container">
+        <input #confirmPassword class="form-input" type="password" placeholder="Confirm Your Password">
+        <!-- <svg class="show-password" viewBox="0 0 16 10" width="15px"><path d="M 0 5 C 5 11 11 11 16 5 C 11 -1 5 -1 0 5 M 5 5 C 5 1 11 1 11 5 C 11 9 5 9 5 5"></path></svg> -->
+    </div>
+
+    <button class="form-button-solid" [ngClass]="this.registering ? 'form-button-solid-disabled' : ''" style="margin-top: 30px;" (click)="this.register()">
+        Register
+        <div class="form-button-loading-svg-container">
+            <svg width="30px" height="30px" class="rotating">
+                <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+            </svg> 
+        </div>
+    </button>
+
+    <p style="font-family: 'Gotham Medium'; color: var(--text); text-align: center; font-size: 14px; margin: 10px 0 10px 0;">OR</p>
+
+    <a class="form-button-outline" href="/login" *ngIf="this.authService.pathMatch('/register')">Login</a>
+    <a class="form-button-outline" (click)="this.authService.redirectWithParams('/auth/login')" *ngIf="this.authService.pathMatch('/auth/register')">Login</a>
+</div>

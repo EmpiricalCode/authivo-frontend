@@ -1,0 +1,39 @@
+<div id="content-container">
+    <div id="create-container">
+        <a href="/dashboard" style="cursor: pointer;">
+            <svg style="margin-bottom: 10px" width="20px" height="20px" viewBox="-1 -1 11 10">
+                <path style="stroke: var(--primary); stroke-width: 1.5px; stroke-linecap: round;" d="M 0 4 L 4 0 M 0 4 L 9 4 M 0 4 L 4 8"></path>
+            </svg>
+        </a>
+        <h2 style="margin-bottom: 30px;">Create Application</h2>
+
+        <div id="create-form-container" [id]="this.creatingFinished ? 'create-form-container-hidden' : 'create-form-container'">
+            <h4>Name</h4>
+            <input #nameInput class="form-input" placeholder="Your Application Name">
+            <button class="form-button-solid" (click)="this.createApplication()" [ngClass]="this.creating ? 'form-button-solid-disabled' : ''" style="margin-top: 20px;">
+                Create
+                <div class="form-button-loading-svg-container">
+                    <svg width="30px" height="30px" class="rotating">
+                        <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                        <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+                    </svg> 
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div id="application-information-container" style="transition: all 0.2s, opacity 1s;" [ngClass]="this.clientID && this.clientSecret ? '' : 'hidden'">
+
+        <h2 style="margin-bottom: 20px;">Application Information</h2>
+
+        <h4>Client ID</h4>
+        <p class="application-information-field">{{this.clientID}}</p>
+        
+        <h4>Client Secret</h4>
+        <p class="application-information-field">{{this.clientSecret}}</p>
+    </div>
+
+    <div class="message error-message" style="transition: opacity 1s;" [ngClass]="this.clientID && this.clientSecret ? '' : 'hidden'">
+        Save this information. You will not be able to access the client secret again.
+    </div>
+</div>

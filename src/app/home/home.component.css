@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* ID selectors */
+#content-container {
+    flex-grow: 1;
+}
