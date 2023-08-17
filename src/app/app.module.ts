@@ -11,6 +11,7 @@ import { ContinueComponent } from './authenticate/continue/continue.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './dashboard/create/create.component';
+import { ConfigureComponent } from './dashboard/configure/configure.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CreateComponent } from './dashboard/create/create.component';
     RegisterComponent,
     ContinueComponent,
     DashboardComponent,
-    CreateComponent
+    CreateComponent,
+    ConfigureComponent
   ],
   imports: [
     BrowserModule,

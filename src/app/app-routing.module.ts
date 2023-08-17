@@ -11,6 +11,7 @@ import { credentialsGuard } from './credentials.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
 import { CreateComponent } from './dashboard/create/create.component';
+import { ConfigureComponent } from './dashboard/configure/configure.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,15 @@ const routes: Routes = [
   {
     path: "dashboard/create",
     component: CreateComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "dashboard/configure",
+    redirectTo: "dashboard"
+  },
+  {
+    path: "dashboard/configure/:client_id",
+    component: ConfigureComponent,
     canActivate: [authGuard]
   },
   {

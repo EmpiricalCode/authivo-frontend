@@ -5,7 +5,7 @@
 /* ID Selectors */
 #content-container {
     flex-grow: 1;
-    width: 1200px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     margin-left: max(100px, calc(50% - 600px));
@@ -61,7 +61,6 @@
     background: var(--background);
     box-shadow: var(--box-shadow);
     cursor: pointer;
-    user-select: none;
     overflow: hidden;
 }
 
@@ -72,37 +71,4 @@
     width: 5px;
     height: 100%;
     background: var(--primary);
-}
-
-/* Element selectors */
-h1 {
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-size: 40px;
-    margin: 0;
-    color: var(--nav-bar-button);
-}
-
-h2 {
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-size: 23px;
-    margin: 0;
-    color: var(--nav-bar-button);
-}
-
-h4 {
-    font-family: "Gotham";
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--subtitle);
-    margin: 10px 0 10px 0;
-}
-
-/* Exceptions */
-@media only screen and (max-width: 1400px) {
-
-    #content-container {
-        width: calc(100% - 200px);
-    }
 }

@@ -5,7 +5,7 @@
     <a id="create-application-button" href="/dashboard/create">+ Create</a>
 
     <div id="application-container">
-        <div class="application" *ngFor="let application of this.applications">
+        <div class="application" *ngFor="let application of this.applications" (click)="this.router.navigate(['dashboard', 'configure', application.clientID])">
             <div class="application-strip"></div>
             <h2 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 350px;">{{application.name}}</h2>
             <h4>Creation Date: {{application.creationDate}}</h4>
