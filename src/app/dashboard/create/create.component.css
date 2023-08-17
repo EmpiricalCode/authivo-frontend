@@ -10,6 +10,9 @@
     margin-left: max(100px, calc(50% - 350px)) !important;
     margin-right: max(100px, calc(50% - 350px)) !important;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 #create-container {
@@ -35,8 +38,6 @@
     padding: 40px 50px 40px 50px;
     border: 1px solid var(--border);
     border-radius: 15px;
-    margin-top: 30px;
-    transition: 0.2s;
 }
 
 /* Class selectors */

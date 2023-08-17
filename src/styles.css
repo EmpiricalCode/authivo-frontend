@@ -170,6 +170,10 @@
     border: 1px solid var(--success-message-border);
 }
 
+.hidden {
+    opacity: 0;
+}
+
 /* Element selectors */
 body {
     width: 100%;

@@ -22,12 +22,8 @@
         </div>
     </div>
 
-    <div id="application-information-container" *ngIf="this.clientID && this.clientSecret">
+    <div id="application-information-container" style="transition: all 0.2s, opacity 1s;" [ngClass]="this.clientID && this.clientSecret ? '' : 'hidden'">
 
-        <div style="margin-bottom: 20px;" class="message error-message">
-            Save this information. You will not be able to access the client secret again.
-        </div>
-        
         <h2 style="margin-bottom: 20px;">Application Information</h2>
 
         <h4>Client ID</h4>
@@ -35,5 +31,9 @@
         
         <h4>Client Secret</h4>
         <p class="application-information-field">{{this.clientSecret}}</p>
+    </div>
+
+    <div class="message error-message" style="transition: opacity 1s;" [ngClass]="this.clientID && this.clientSecret ? '' : 'hidden'">
+        Save this information. You will not be able to access the client secret again.
     </div>
 </div>
