@@ -24,10 +24,11 @@
 
     <div id="application-information-container" *ngIf="this.clientID && this.clientSecret">
 
-        <h2 style="margin-bottom: 20px;">Application Information</h2>
         <div style="margin-bottom: 20px;" class="message error-message">
             Save this information. You will not be able to access the client secret again.
         </div>
+        
+        <h2 style="margin-bottom: 20px;">Application Information</h2>
 
         <h4>Client ID</h4>
         <p class="application-information-field">{{this.clientID}}</p>
