@@ -13,6 +13,9 @@ export class ConfigureComponent {
 
   application: any = {};
   params: any = {};
+  redirectURIs: any = [
+
+  ];
 
   deleting: boolean = false;
 

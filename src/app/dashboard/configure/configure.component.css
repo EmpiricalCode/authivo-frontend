@@ -49,20 +49,51 @@
 #delete-initiate-button {
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid var(--error-message);
+    border: 2px solid var(--red-button);
     background: var(--background);
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 15px;
-    color: var(--error-message);
+    color: var(--red-button);
     transition: 0.2s;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 #delete-initiate-button:hover {
-    background: var(--error-message) !important;
+    background: var(--red-button) !important;
     color: white;
 }
+
+#redirect-uri-container {
+    background: var(--background);  
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 100%;
+    padding: 0;
+    border-spacing: 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#redirect-uri-container td { 
+    font-family: "Gotham";
+    font-size: 14px;
+    color: var(--text);
+    text-align: start;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+#redirect-uri-container tr:last-child > td { 
+    border-bottom: none !important;
+}
+
+#redirect-uri-add {
+    display: flex;
+    column-gap: 15px;
+}
+
 
 /* Class selectors */
 .divider {
@@ -85,6 +116,32 @@
     align-self: flex-start;
 }
 
+.delete-uri-button-container {
+    width: 80px;
+    padding: 7px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.delete-uri-button {
+    font-family: "Gotham Medium";
+    font-size: 13px;
+    top: 7px;
+    position: absolute;
+    height: calc(100% - 14px);
+    border-radius: 10px;
+    width: calc(100% - 14px);
+    border: none;
+    background: var(--red-button);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-uri-button:hover {
+    background: var(--red-button-hover);
+}
+
 .section-container {
     margin: 10px 0 20px 0;
 }
@@ -92,6 +149,10 @@
 /* Element selectors */
 h2 {
     margin: 20px 0 20px 0;
+}
+
+h4 {
+    margin-top: 20px;
 }
 
 p {
