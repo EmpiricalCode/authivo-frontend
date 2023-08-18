@@ -5,13 +5,11 @@
         </svg>
     </a>
     <h4>Configure Application</h4>
-    <h1 style="margin-bottom: 40px;">{{this.application.name}}</h1>
-    
-    <div class="divider"></div>
-    <h2>Information</h2>
-    <div class="divider"></div>
-
+    <h1 style="margin-bottom: 20px;">{{this.application.name}}</h1>
+        
     <div class="section-container">
+        <h2>Information</h2>
+
         <h4>Client ID</h4>
         <div class="application-information-field">
             {{this.application.clientID}}
@@ -21,11 +19,10 @@
         <p>{{this.application.creationDate}}</p>
     </div>
 
-    <div class="divider" style="margin-top: 20px;"></div>
-    <h2>Settings</h2>
-    <div class="divider"></div>
-
     <div class="section-container">
+
+        <h2>Settings</h2>
+
         <h4>Redirect URIs</h4>
 
         <table id="redirect-uri-container">
