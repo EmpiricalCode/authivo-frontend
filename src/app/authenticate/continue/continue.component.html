@@ -1,1 +1,21 @@
-<p>continue works!</p>
+<div id="continue-container">
+    <p id="form-title">Continue</p>
+    <p id="form-redirect-message">Continuing to <a id="redirect-uri" href="{{this.authService.getRedirectUri()}}">{{this.authService.getRedirectUri()}}</a></p>
+
+    <div id="user-display">
+        <svg style="min-width: 20px;" height="20px" viewBox="0 0 30 34">
+            <path style="fill: none; stroke: var(--nav-bar-button); stroke-width: 3; stroke-linecap: round;" d="M 16 2 C 7 2 7 15 16 15 M 30 32 C 30 22 22 18 16 18 C 10 18 2 22 2 32 L 30 32 M 16 15 C 25 15 25 2 16 2"></path>
+        </svg>
+        <h4 style="margin: 0 0 0 15px;">{{this.userData.username}}</h4>
+    </div>
+
+    <button class="form-button-solid" style="margin-top: 30px;" [ngClass]="this.continuing ? 'form-button-solid-disabled' : ''" (click)="this.continue()">
+        Continue
+        <div class="form-button-loading-svg-container">
+            <svg width="30px" height="30px" class="rotating">
+                <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+            </svg> 
+        </div>
+    </button>
+</div>

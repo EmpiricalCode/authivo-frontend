@@ -123,6 +123,13 @@
     fill: var(--button-hover) !important;
 }
 
+.form-input-title {
+    font-family: "Gotham Medium";
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
 .form-input {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 1px 0px;
     width: calc(100% - 26px);
@@ -214,6 +221,11 @@ h4 {
     font-size: 15px;
     color: var(--nav-bar-button);
     margin: 10px 0 10px 0;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
 }
 
 body {

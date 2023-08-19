@@ -75,6 +75,7 @@
     margin-bottom: 10px;
     overflow: hidden;
     transition: 0.2s;
+    table-layout: fixed;
 }
 
 #redirect-uri-container td { 
@@ -84,6 +85,9 @@
     text-align: start;
     padding: 15px;
     border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #redirect-uri-container tr:last-child > td { 

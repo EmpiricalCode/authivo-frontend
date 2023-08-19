@@ -1,4 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpParameterCodec } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
@@ -8,7 +9,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class AuthService {
 
-  search: URLSearchParams = new URLSearchParams(window.location.search);
+  search: HttpParams = new HttpParams({fromString: window.location.search});
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -73,5 +74,23 @@ export class AuthService {
     }
 
     return result;
+  }
+}
+
+export class CustomEncoder implements HttpParameterCodec {
+  encodeKey(key: string): string {
+    return encodeURIComponent(key);
+  }
+
+  encodeValue(value: string): string {
+    return encodeURIComponent(value);
+  }
+
+  decodeKey(key: string): string {
+    return decodeURIComponent(key);
+  }
+
+  decodeValue(value: string): string {
+    return decodeURIComponent(value);
   }
 }

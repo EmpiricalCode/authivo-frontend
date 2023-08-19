@@ -3,7 +3,7 @@
 <div id="login-container">
     <p id="form-title">Welcome Back!</p>
     <p id="form-subtitle" *ngIf="this.authService.pathMatch('/login')">You must sign in to continue.</p>
-    <p id="form-redirect-message" *ngIf="this.authService.pathMatch('/auth/login')">Continuing to {{this.authService.getRedirectUri()}}</p>
+    <p id="form-redirect-message" *ngIf="this.authService.pathMatch('/auth/login')">Logging into <a id="redirect-uri" href="{{this.authService.getRedirectUri()}}">{{this.authService.getRedirectUri()}}</a></p>
 
     <p class="form-input-title">Username</p>
     <input #username class="form-input" placeholder="Your Username">
