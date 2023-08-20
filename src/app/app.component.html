@@ -33,7 +33,7 @@
       Dashboard
     </a>
 
-    <div id="profile-dropdown-container" >
+    <div id="profile-dropdown-container" *ngIf="this.loggedIn">
 
       <a id="profile-button" class="nav-bar-button profile-dropdown-member" [ngClass]="this.profileDropdown ? 'profile-button-open' : ''" *ngIf="this.loggedIn" (click)="this.toggleProfileDropdown()">
         <svg class="profile-dropdown-member" style="min-width: 20px; margin-right: 2px" height="20px" viewBox="0 0 30 34">
