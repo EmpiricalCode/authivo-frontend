@@ -1,18 +1,22 @@
 import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
 import { MessageService } from './message.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements AfterViewInit {
   @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
 
   title: string = "authivo-frontend";
   loggedIn: boolean = true;
+  profileDropdown: boolean = false;
+
+  userData: any = {};
 
   authPaths: String[] = [
     "/login",
@@ -23,7 +27,7 @@ export class AppComponent implements AfterViewInit {
     "/auth"
   ];
 
-  constructor(public authService: AuthService, private renderer: Renderer2, private messageService: MessageService) { }
+  constructor(public authService: AuthService, private renderer: Renderer2, private messageService: MessageService, private http: HttpClient) { }
 
   ngAfterViewInit() {
 
@@ -33,7 +37,39 @@ export class AppComponent implements AfterViewInit {
     
     this.authService.isLoggedIn().then((value) => {
       this.loggedIn = value;
+
+      if (value) {
+
+        this.http.post("https://authivo-api-dev.vercel.app/authorization/tokeninfo", {
+          token: window.localStorage.getItem("token")
+        }).subscribe((tokenInfoResponse: any) => {
+
+          console.log(tokenInfoResponse);
+
+          if (tokenInfoResponse.status == 200) {
+
+            this.http.get(`https://authivo-api-dev.vercel.app/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
+
+              if (userDataResponse.status == 200) {
+                this.userData = userDataResponse.data;
+                console.log(this.userData);
+              }
+            })
+          }
+        });
+      }
     })
+    
+    // Dropdown
+    window.onclick = (event: any) => {
+      console.log(event.target.id);
+      console.log(event.target.classList);
+      
+      
+      if (!event.target.matches(".profile-dropdown-member")) {
+        this.hideProfileDropdown();
+      }
+    }
   }
   
   shouldShowNavRight() {
@@ -62,5 +98,22 @@ export class AppComponent implements AfterViewInit {
         errorMessage.remove();
       }, 200);
     }, 3000);
+  }
+
+  showProfileDropdown() {
+    this.profileDropdown = true;
+  }
+
+  hideProfileDropdown() {
+    this.profileDropdown = false;
+  }
+
+  toggleProfileDropdown() {
+    this.profileDropdown = !this.profileDropdown;
+  }
+
+  logout() {
+    window.localStorage.removeItem("token");
+    window.location.href = window.location.origin;
   }
 }

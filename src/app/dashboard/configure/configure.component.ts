@@ -61,6 +61,8 @@ export class ConfigureComponent {
       client_id: this.params.client_id
     }).subscribe((response: any) => {
 
+      this.deactivateDelete();
+
       if (response.status == 200) {
         this.router.navigate(['dashboard']);
       } else {

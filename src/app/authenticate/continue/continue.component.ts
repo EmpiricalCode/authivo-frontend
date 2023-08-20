@@ -22,17 +22,12 @@ export class ContinueComponent implements AfterViewInit {
       token: window.localStorage.getItem("token")
     }).subscribe((tokenInfoResponse: any) => {
 
-      console.log(tokenInfoResponse);
-      
-
       if (tokenInfoResponse.status == 200) {
 
         this.http.get(`https://authivo-api-dev.vercel.app/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
 
           if (userDataResponse.status == 200) {
             this.userData = userDataResponse.data;
-            console.log(this.userData);
-            
           } else {
             this.messageService.spawnErrorMessage(userDataResponse.response);
           }
