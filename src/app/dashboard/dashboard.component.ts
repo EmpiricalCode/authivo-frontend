@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
   applications: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public router: Router) {}
 
   ngOnInit() {
       
@@ -24,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
         // Formatting dates
         for (var application of this.applications) {
-          application.creationDate = new Date(application.creationDate).toLocaleString().split(',')[0]
+          application.creationDate = new Date(application.creationDate).toLocaleString().split(',')[0];
         }
 
       } else {

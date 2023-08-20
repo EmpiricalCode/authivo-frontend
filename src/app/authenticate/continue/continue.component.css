@@ -1,0 +1,36 @@
+/* ID Selectors */
+#continue-container {
+    width: 340px;
+    border-radius: 20px;
+    margin-top: 150px;
+    padding: 0 30px 40px 30px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    border: 1px solid var(--border);
+    background: var(--background);
+    transition: 0.2s background, 0.2s border;
+    position: relative;
+}
+
+#user-display {
+    padding: 20px 15px 20px 15px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    display: flex;
+    user-select: none;
+    align-items: center;
+}
+
+#user-display h4 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#redirect-uri {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    margin-bottom: -4px; 
+    display: inline-block; 
+    max-width: 100%;
+}

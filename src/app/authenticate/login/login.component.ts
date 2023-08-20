@@ -25,11 +25,11 @@ export class LoginComponent {
 
       this.loggingIn = true;
 
+      const username = this.usernameRef.nativeElement.value;
+      const password = this.passwordRef.nativeElement.value;
+
       // Regular login
       if (this.authService.pathMatch("/login")) {
-
-        const username = this.usernameRef.nativeElement.value;
-        const password = this.passwordRef.nativeElement.value;
 
         const code_verifier = this.authService.generateCodeVerifier();
         const code_challenge = btoa(String.fromCharCode(...new Uint8Array(await window.crypto.subtle.digest("SHA-256", (new TextEncoder()).encode(code_verifier)))));
@@ -81,7 +81,43 @@ export class LoginComponent {
 
       // Auth provider login
       } else if (this.authService.pathMatch("/auth/login")) {
+
+        const clientID = this.authService.getClientID();
+        const redirectURI = this.authService.getRedirectUri();
+
+        let codeResponse: any;
       
+        if (this.authService.getAuthType() == "pkce") {
+
+          const codeChallenge = this.authService.getCodeChallenge();
+
+          codeResponse = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/login", {
+            username: username,
+            password: password,
+            auth_type: "pkce",
+            client_id: clientID,
+            code_challenge: codeChallenge,
+            redirect_uri: redirectURI
+          }));
+
+        } else {
+
+          codeResponse = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/login", {
+            username: username,
+            password: password,
+            auth_type: "authentication_code",
+            client_id: clientID,
+            redirect_uri: redirectURI
+          }));
+        }
+
+        if (codeResponse.status == 200) {
+          window.location.href = redirectURI + "?code=" + codeResponse.code;
+        } else {
+          this.messageService.spawnErrorMessage(codeResponse.response);
+        }
+
+        this.loggingIn = false;
       }
     }
   }

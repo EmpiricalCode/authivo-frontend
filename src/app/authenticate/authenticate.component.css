@@ -53,13 +53,6 @@
 }
 
 /* Class selectors */
-.form-input-title {
-    font-family: "Gotham Medium";
-    font-size: 13px;
-    color: var(--text);
-    margin-bottom: 10px;
-}
-
 .show-password {
     fill: none; 
     stroke: var(--border); 

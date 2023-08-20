@@ -32,12 +32,38 @@
       </svg>
       Dashboard
     </a>
-    <a class="nav-bar-button" id="profile-button" *ngIf="this.loggedIn">
-      <svg width="20px" height="20px" viewBox="0 0 30 34">
-        <path style="fill: none; stroke: var(--nav-bar-button); stroke-width: 3; stroke-linecap: round;" d="M 16 2 C 7 2 7 15 16 15 M 30 32 C 30 22 22 18 16 18 C 10 18 2 22 2 32 L 30 32 M 16 15 C 25 15 25 2 16 2"></path>
-      </svg>
-      Profile
-    </a>
+
+    <div id="profile-dropdown-container" >
+
+      <a id="profile-button" class="nav-bar-button profile-dropdown-member" *ngIf="this.loggedIn" (click)="this.toggleProfileDropdown()">
+        <svg class="profile-dropdown-member" style="min-width: 20px; margin-right: 2px" height="20px" viewBox="0 0 30 34">
+          <path style="fill: none; stroke: var(--nav-bar-button); stroke-width: 3; stroke-linecap: round;" d="M 16 2 C 7 2 7 15 16 15 M 30 32 C 30 22 22 18 16 18 C 10 18 2 22 2 32 L 30 32 M 16 15 C 25 15 25 2 16 2"></path>
+        </svg>
+        <p id="profile-button-inner" class="profile-dropdown-member">{{this.userData.username}}</p>
+      </a>
+
+      <div id="profile-dropdown" *ngIf="this.loggedIn" [ngClass]="this.profileDropdown ? '' : 'hidden'" (click)="this.showProfileDropdown()">
+        <button class="profile-dropdown-button profile-dropdown-member">
+
+          <svg viewBox="0 -1 20 20" width="17" height="17" style="fill: none; stroke: var(--nav-bar-button); stroke-width: 2px">
+            <circle r="5" cx="9" cy="9"></circle>
+            <line x1="9" y1="1" x2="9" y2="4" style="stroke-linecap: round;"></line>
+            <line x1="9" y1="14" x2="9" y2="17" style="stroke-linecap: round;"></line>
+            <line x1="13" y1="6" x2="16" y2="4" style="stroke-linecap: round;"></line>
+            <line x1="5" y1="6" x2="2" y2="4" style="stroke-linecap: round;"></line>
+            <line x1="13" y1="12" x2="16" y2="14" style="stroke-linecap: round;"></line>
+            <line x1="5" y1="12" x2="2" y2="14" style="stroke-linecap: round;"></line>
+          </svg>
+          Settings
+        </button>
+        <button class="profile-dropdown-button profile-dropdown-member" (click)="this.logout()">
+          <svg viewBox="-1 -1 12 12" width="15px" height="15px">
+            <path style="fill: none; stroke: var(--nav-bar-button); stroke-width: 1.5px; stroke-linecap: round;" d="M 0 10 L 0 0 L 5 0 M 3 5 L 10 5 L 10 5 L 7 2 M 10 5 L 7 8 M 0 10 L 5 10"></path>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </div>
   </div>
 </div>  
 

@@ -3,7 +3,7 @@
 <div id="register-container">
     <p id="form-title">Create An Account</p>
     <p id="form-subtitle" *ngIf="!this.authService.getRedirectUri()">Complete these simple steps.</p>
-    <p id="form-redirect-message" *ngIf="this.authService.getRedirectUri()">Continuing to {{this.authService.getRedirectUri()}}</p>
+    <p id="form-redirect-message" *ngIf="this.authService.getRedirectUri()">Registering for <a id="redirect-uri" href="{{this.authService.getRedirectUri()}}">{{this.authService.getRedirectUri()}}</a></p>
 
     <p class="form-input-title">Username</p>
     <input #username class="form-input" placeholder="Your Username">

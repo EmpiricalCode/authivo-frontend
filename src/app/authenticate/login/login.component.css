@@ -11,3 +11,12 @@
     transition: 0.2s background, 0.2s border;
     position: relative;
 }
+
+#redirect-uri {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    margin-bottom: -4px; 
+    display: inline-block; 
+    max-width: 100%;
+}

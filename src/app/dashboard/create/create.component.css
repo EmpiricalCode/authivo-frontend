@@ -44,7 +44,7 @@
 .application-information-field {
     font-family: "Gotham";
     font-size: 15px;
-    color: var(--information-field-border);
+    color: var(--text);
     background: var(--information-field);
     border: 1px solid var(--information-field-border);
     border-radius: 10px;

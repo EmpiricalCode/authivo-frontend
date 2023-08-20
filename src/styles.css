@@ -2,9 +2,10 @@
     --primary: rgb(168, 100, 216);
     --secondary: rgb(83, 83, 187);
     --border: rgb(230, 230, 230);
+    --border-light: rgb(240, 240, 240);
     --nav-bar-button: rgb(73, 73, 73);
     --background: rgb(255, 255, 255);
-    --text: rgb(65, 65, 65);
+    --text: rgb(91 91 91);
     --title: rgb(47, 47, 47);
     --button: rgb(168, 100, 216);
     --button-hover: rgb(182, 128, 222);
@@ -12,10 +13,12 @@
     --error-message-border: rgb(133, 51, 51);
     --success-message: rgb(92 133 90);
     --success-message-border: rgb(65 101 63);
-    --information-field: rgb(241, 241, 241);
-    --information-field-border: rgb(120, 120, 120);
+    --information-field: rgb(250, 250, 250);
+    --information-field-border: rgb(177, 177, 177);
     --subtitle: rgb(94, 94, 94);
     --box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+    --red-button: rgb(179, 87, 87);
+    --red-button-hover: rgb(206, 112, 112);
 }
 
 :root:has(#test:checked) {
@@ -120,6 +123,13 @@
     fill: var(--button-hover) !important;
 }
 
+.form-input-title {
+    font-family: "Gotham Medium";
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
 .form-input {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 1px 0px;
     width: calc(100% - 26px);
@@ -172,9 +182,52 @@
 
 .hidden {
     opacity: 0;
+    /* z-index: -1000 !important; */
+    pointer-events: none;
+}
+
+.no-scroll {
+    overflow-y: hidden;
 }
 
 /* Element selectors */
+h1 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 40px;
+    margin: 0;
+    color: var(--nav-bar-button);
+}
+
+h2 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 23px;
+    margin: 0;
+    color: var(--nav-bar-button);
+}
+
+h3 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0;
+    color: var(--nav-bar-button);
+}
+
+h4 {
+    font-family: "Gotham";
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--nav-bar-button);
+    margin: 10px 0 10px 0;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
 body {
     width: 100%;
     min-height: 100vh;
