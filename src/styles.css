@@ -32,6 +32,7 @@
     --information-field: rgb(31, 37, 50);
     --information-field-border: rgb(83 90 109);
     --box-shadow: var(--border) 0px 0px 0 1px;
+    --profile-button-hover: rgb(31, 37, 50);
 }
 
 :root:has(#test:checked) #login-background-container {
