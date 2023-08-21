@@ -93,7 +93,7 @@
     position: absolute;
     right: 0;
     margin-top: 10px;
-    width: 140px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -119,6 +119,7 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
+    transition: 0.2s
 }
 
 #profile-dropdown button:last-child {
@@ -126,7 +127,7 @@
 }
 
 #profile-dropdown button:hover {
-    background: var(--border);
+    background: var(--profile-button-hover);
 }
 
 #profile-button {
@@ -181,6 +182,9 @@
     color: var(--primary);
 }
 
-.profile-button-open {
-    box-shadow: inset 0px 0px 0px 2px var(--border) !important;
+.dropdown-hidden {
+    opacity: 0;
+    margin-top: 0 !important;
+    /* z-index: -1000 !important; */
+    pointer-events: none;
 }
