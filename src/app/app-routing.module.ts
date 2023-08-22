@@ -12,11 +12,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
 import { CreateComponent } from './dashboard/create/create.component';
 import { ConfigureComponent } from './dashboard/configure/configure.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 const routes: Routes = [
   {
     path: "",
     component: HomeComponent
+  },
+  {
+    path: "documentation",
+    component: DocumentationComponent
   },
   {
     path: "dashboard",

@@ -1,0 +1,253 @@
+<div id="content-container">
+    <div id="sidebar-container">
+        <div class="sidebar-section">
+            <a class="sidebar-title" (click)="this.scrollTo(introduction)">Introduction</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollTo(whatIsAuthivo)">What is Authivo?</a>
+                <a class="sidebar-subtitle" (click)="this.scrollTo(supportedAuthFlows)">Supported Auth Flows</a>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <a class="sidebar-title" (click)="this.scrollTo(authentication)">Authentication API</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollTo(auth)">Authentication</a>
+                <a class="sidebar-subtitle" (click)="this.scrollTo(token)">Token</a>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <a class="sidebar-title" (click)="this.scrollTo(authorization)">Authorization API</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollTo(tokenInfo)">Token Info</a>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <a class="sidebar-title" (click)="this.scrollTo(applications)">Applications API</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollTo(getApplications)">Get Applications</a>
+                <a class="sidebar-subtitle" (click)="this.scrollTo(getApplicationById)">Get Application By ID</a>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <a class="sidebar-title" (click)="this.scrollTo(users)">Users API</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollTo(userData)">User Data</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="documentation-container">
+
+        <div class="documentation-section">
+
+            <h1 #introduction>Introduction</h1>
+            <div class="separator"></div>
+
+            <h3 #whatIsAuthivo>What is Authivo?</h3>
+            <p>
+                Authivo is a free SSO (Single Sign On) service built with the MEAN framework that provides your personal projects with easier-than-ever authentication and authorization. 
+                All it takes to log in with authivo are some lines of code and a few clicks. Before you begin, make sure you create an Authivo account.
+            </p>
+
+            <h3 #supportedAuthFlows>Supported Auth Flows</h3>
+            <p>
+                Authivo supports the PKCE (Proof of Key Code Exchange) code flow for single-page applications,
+                and a regular Authorization Code flow for websites with a dedicated backend (such as Express.js).
+            </p>
+        </div>
+
+        <div class="documentation-section">
+
+            <h1 #authentication>Authentication API</h1>
+            <div class="separator"></div>
+
+            <!--  -->
+
+            <h3 class="api-title" #auth><span class="api-type-display redirect">REDIRECT</span>Authentication</h3>
+
+            <h4>Redirect URL</h4>
+
+            <div class="api-url-container">
+                https://authivo.vercel.app/auth
+            </div>
+
+            <p>
+                Redirect to this endpoint with the neccessary URL query parameters in order to use Authivo authentication.
+            </p>
+
+            <h4>Request Parameters</h4>
+
+            <table class="parameter-container">
+                <tr>
+                    <td>
+                        auth_type
+                    </td>
+                    <td>
+                        The authentication type which your project uses. Valid values are "authentication_code" and "pkce".
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        client_id
+                    </td>
+                    <td>
+                        The client ID for your application. This can be viewed from the Authivo dashboard.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        redirect_uri
+                    </td>
+                    <td>
+                        The URI that Authivo should redirect to once authentication is complete.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        code_challenge
+                    </td>
+                    <td>
+                        A code challenge relating to the PKCE code flow. If your project's authentication type is "authentication_code", this parameter is not neccessary.
+                    </td>
+                </tr>
+            </table>
+
+            <h4>Return Parameters</h4>
+
+            <table class="parameter-container">
+                <tr>
+                    <td>
+                        code
+                    </td>
+                    <td>
+                        The authentication code that should be used to fetch a token.
+                    </td>
+                </tr>
+            </table>
+
+            <!--  -->
+
+            <h3 class="api-title"  #token><span class="api-type-display post">POST</span>Token</h3>
+
+            <h4>API URL</h4>
+
+            <div class="api-url-container">
+                https://authivo-api.vercel.app/authentication/token
+            </div>
+
+            <p>
+                The token endpoint takes in an authentication code (among other parameters), and returns a JSON web token.
+            </p>
+
+            <h4>Request Body</h4>
+
+            <table class="parameter-container">
+                <tr>
+                    <td>
+                        code
+                    </td>
+                    <td>
+                        The authentication code returned by the /auth redirect.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        code_verifier
+                    </td>
+                    <td>
+                        The code verifier used to generate the code challenge (Only for PKCE).
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        client_secret
+                    </td>
+                    <td>
+                        The client secret to your application (For non-PKCE).
+                    </td>
+                </tr>
+            </table>
+
+            <h4>Return Body</h4>
+
+            <table class="parameter-container">
+                <tr>
+                    <td>
+                        status
+                    </td>
+                    <td>
+                        The HTTP status of the response.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        response
+                    </td>
+                    <td>
+                        The response to the request.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        token
+                    </td>
+                    <td>
+                        The authentication code that should be used to fetch a token.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="documentation-section">
+
+            <h1 #authorization>Authorization API</h1>
+            <div class="separator"></div>
+
+            <!--  -->
+
+            <h3 class="api-title"  #tokenInfo><span class="api-type-display post">POST</span>Token Info</h3>
+            <p>
+                The tokenInfo endpoint takes in a token, and returns information about the token.
+            </p>
+        </div>
+
+        <div class="documentation-section">
+
+            <h1 #applications>Applications API</h1>
+            <div class="separator"></div>
+
+            <!--  -->
+
+            <h3 class="api-title"  #getApplications><span class="api-type-display post">POST</span>Get Applications</h3>
+            <p>
+                The getApplications endpoint returns all applications associated with a user ID.
+            </p>
+
+            <!--  -->
+
+            <h3 class="api-title"  #getApplicationById><span class="api-type-display post">POST</span>Get Application By ID</h3>
+            <p>
+                The getApplicationsById endpoint returns a specific Authivo application given a client ID (only if the associated user ID owns this application).
+            </p>
+        </div>
+
+        <div class="documentation-section">
+
+            <h1 #users>Users API</h1>
+            <div class="separator"></div>
+
+            <!--  -->
+
+            <h3 class="api-title"  #userData><span class="api-type-display post">POST</span>User Data</h3>
+            <p>
+                The userData endpoint returns account information associated with a user ID.
+            </p>
+        </div>
+    </div>
+</div>
