@@ -10,5 +10,5 @@ export const credentialsGuard: CanActivateFn = async (route, state) => {
     return true;
   }
 
-  return authService.redirectWithParams("");
+  return authService.redirectWithParams("/dashboard");
 };
