@@ -33,11 +33,17 @@
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 17px;
-    color: var(--primary);
+    color: var(--button);
     border-radius: 10px;
     padding: 10px;
-    margin-top: 20px;
-    border: 2px solid var(--primary);
+    margin-top: 30px;
+    border: 2px solid var(--button);
+    transition: 0.2s;
+}
+
+#landing-onboarding-button:hover {
+    color: var(--button-hover);
+    border: 2px solid var(--button-hover);
 }
 
 #landing-page-background-container {
