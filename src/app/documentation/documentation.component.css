@@ -136,6 +136,16 @@
     background: var(--primary);
 }
 
+.note {
+    background: var(--error-message);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--error-message-border);
+    color: white;
+    font-family: "Gotham";
+    font-size: 15px;
+}
+
 /* Element selectors */
 h1 {
     margin-top: 20px;
