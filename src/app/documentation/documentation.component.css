@@ -78,7 +78,16 @@
     font-size: 15px;
     border-radius: 10px;
     margin-right: 10px;
+    margin-left: 20px;
     color: white;
+}
+
+.api-information-display {
+    padding: 5px 8px 5px 8px;
+    font-size: 15px;
+    border-radius: 10px;
+    color: var(--nav-bar-button);
+    border: 1px solid var(--information-field-border);
 }
 
 .api-title {
@@ -138,7 +147,7 @@ h1 {
 h3 {
     margin-top: 40px;
     margin-bottom: 20px;
-    font-size: 23px;
+    font-size: 25px;
     scroll-margin: 20px;
 }
 

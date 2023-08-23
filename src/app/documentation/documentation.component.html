@@ -43,7 +43,13 @@
             <!--  -->
 
             <div *ngFor="let index of data.indexGrouping">
-                <h3 id="{{this.documentationData.raw[index].id}}" class="api-title" #auth><span class="api-type-display" [ngClass]="this.documentationData.raw[index].type.toLowerCase()">{{this.documentationData.raw[index].type}}</span>{{this.documentationData.raw[index].title}}</h3>
+                <h3 id="{{this.documentationData.raw[index].id}}" class="api-title" #auth>
+                    {{this.documentationData.raw[index].title}}
+                    <span class="api-type-display" [ngClass]="this.documentationData.raw[index].type.toLowerCase()">
+                        {{this.documentationData.raw[index].type}}
+                    </span>
+                    <span class="api-information-display">{{this.documentationData.raw[index].access}}</span>   
+                </h3>
 
                 <h4>{{this.documentationData.raw[index].type == "REDIRECT" ? "Redirect URI" : "API URL"}}</h4>
 
