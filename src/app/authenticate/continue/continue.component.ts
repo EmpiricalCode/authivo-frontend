@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Observable, lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 import { MessageService } from 'src/app/message.service';
@@ -14,7 +15,9 @@ export class ContinueComponent implements AfterViewInit {
   userData: any = {};
   continuing: boolean = false;
 
-  constructor(private messageService: MessageService, private http: HttpClient, public authService: AuthService) {}
+  constructor(private messageService: MessageService, private http: HttpClient, public authService: AuthService, private titleService: Title) {
+    this.titleService.setTitle("Authivo • Continue");
+  }
 
   ngAfterViewInit() {
 

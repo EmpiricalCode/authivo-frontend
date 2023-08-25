@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
@@ -19,7 +20,9 @@ export class CreateComponent {
   clientID!: number;
   clientSecret!: number;
 
-  constructor(private http: HttpClient, private messageService: MessageService) {}
+  constructor(private http: HttpClient, private messageService: MessageService, private titleService: Title) {
+    this.titleService.setTitle("Authivo • Create");
+  }
 
   async createApplication() {
 
