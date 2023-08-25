@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { response } from 'express';
 import { lastValueFrom } from 'rxjs';
@@ -21,7 +22,9 @@ export class ConfigureComponent {
   addingURI: boolean = false;
   deleting: boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private renderer: Renderer2, private messageService: MessageService) {
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private renderer: Renderer2, private messageService: MessageService, private titleService: Title) {
+
+    this.titleService.setTitle("Authivo • Configure");
 
     this.route.params.subscribe((params: any) => {
       this.params = params;

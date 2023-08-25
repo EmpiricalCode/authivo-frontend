@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 import { MessageService } from 'src/app/message.service';
@@ -18,8 +19,8 @@ export class RegisterComponent {
   @ViewChild("confirmPassword") confirmPasswordRef!: ElementRef;
   @ViewChild("registerButton") registerButton!: ElementRef;
 
-  constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService) {
-
+  constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService, private titleService: Title) {
+    this.titleService.setTitle("Authivo • Register");
   }
 
   async register() {

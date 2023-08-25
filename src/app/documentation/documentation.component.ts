@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-documentation',
@@ -225,6 +226,10 @@ export class DocumentationComponent {
         indexGrouping: [5]
       }
     ]
+  }
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle("Authivo • Documentation");
   }
 
   scrollTo(element: Element) {

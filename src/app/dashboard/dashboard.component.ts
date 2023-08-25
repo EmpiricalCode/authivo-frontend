@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +12,9 @@ export class DashboardComponent implements OnInit {
 
   applications: any[] = [];
 
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient, private titleService: Title, public router: Router) {
+    this.titleService.setTitle("Authivo • Dashboard");
+  }
 
   ngOnInit() {
       

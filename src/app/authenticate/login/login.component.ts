@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { MessageService } from 'src/app/message.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,9 @@ export class LoginComponent {
 
   loggingIn: boolean = false;
 
-  constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService) { }
+  constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService, private titleService: Title) {
+    this.titleService.setTitle("Authivo • Login");
+  }
 
   async login() {
 
