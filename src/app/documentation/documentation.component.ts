@@ -173,7 +173,7 @@ export class DocumentationComponent {
       {
         title: "User Data",
         id: "user_data",
-        type: "POST",
+        type: "GET",
         access: "PUBLIC",
         url: "https://authivo-api.vercel.app/users/userData",
         description: "The user data endpoint takes in either a user ID or username, and returns data related to that user. Only one (either ID or username) is neccessary.",
