@@ -36,7 +36,7 @@ export class LoginComponent {
 
         try {
 
-          const codeResponse: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/login", {
+          const codeResponse: any = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authentication/login", {
             username: username,
             password: password,
             auth_type: "pkce",
@@ -47,7 +47,7 @@ export class LoginComponent {
 
           if (codeResponse.status == 200) {
 
-            const tokenResponse: any = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/token", {
+            const tokenResponse: any = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authentication/token", {
               auth_type: "pkce",
               code_verifier: code_verifier,
               code: codeResponse.code
@@ -91,7 +91,7 @@ export class LoginComponent {
 
           const codeChallenge = this.authService.getCodeChallenge();
 
-          codeResponse = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/login", {
+          codeResponse = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authentication/login", {
             username: username,
             password: password,
             auth_type: "pkce",
@@ -102,7 +102,7 @@ export class LoginComponent {
 
         } else {
 
-          codeResponse = await lastValueFrom(this.http.post("https://authivo-api-dev.vercel.app/authentication/login", {
+          codeResponse = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authentication/login", {
             username: username,
             password: password,
             auth_type: "authentication_code",

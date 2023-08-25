@@ -13,6 +13,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './dashboard/create/create.component';
 import { ConfigureComponent } from './dashboard/configure/configure.component';
 import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
+import { DocumentationComponent } from './documentation/documentation.component';
+import { TutorialsComponent } from './tutorials/tutorials.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 export default class CustomUrlSerializer implements UrlSerializer {
   private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -39,14 +42,21 @@ export default class CustomUrlSerializer implements UrlSerializer {
     ContinueComponent,
     DashboardComponent,
     CreateComponent,
-    ConfigureComponent
+    ConfigureComponent,
+    DocumentationComponent,
+    TutorialsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MarkdownModule.forRoot(),
   ],
-  providers: [{ provide: UrlSerializer, useClass: CustomUrlSerializer }],
+  providers: [
+    { 
+      provide: UrlSerializer, useClass: CustomUrlSerializer 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

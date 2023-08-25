@@ -1,9 +1,121 @@
 :host {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
 
 /* ID selectors */
 #content-container {
     flex-grow: 1;
+}
+
+#landing-page-container {
+    position: relative;
+    margin-top: 150px;
+    margin-left: 17%;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: calc(100vh - 300px);
+}
+
+#landing-page-title {
+    font-weight: 600;
+    font-size: 80px;
+    /* color: var(--primary); */
+    background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#landing-onboarding-button {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--button);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 30px;
+    border: 2px solid var(--button);
+    transition: 0.2s;
+}
+
+#landing-onboarding-button:hover {
+    color: var(--button-hover);
+    border: 2px solid var(--button-hover);
+}
+
+#landing-page-background-container {
+    position: absolute;
+    left: -100px;
+    top: -250px;
+    filter: blur(100px) opacity(50%);
+    z-index: -1;
+}
+
+#landing-page-graphic {
+    width: 400px;
+    height: 240px;
+    border-radius: 10px;
+    background: var(--background);
+    position: absolute;
+    top: 150px;
+    left: max(40vw, 400px);
+    overflow: hidden;
+    user-select: none;
+    z-index: -1;
+}
+
+#landing-page-graphic-menubar {
+    width: calc(100% - 10px);
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    column-gap: 10px;
+}
+
+#landing-page-graphic-login {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: calc(50% - 100px);
+    margin-top: 70px;
+    font-family: "Montserrat";
+    font-weight: 500;
+}
+
+/* Class selectors */
+.landing-page-graphic-menubar-button {
+    width: 10px;
+    border-radius: 5px;
+    height: 10px;
+}
+
+.red {
+    background: var(--error-message);
+}
+
+.yellow {
+    background: rgb(232, 182, 46);
+}
+
+.green {
+    background: var(--success-message);
+}
+
+/* Exceptions */
+@media only screen and (min-width: 1500px) {
+
+    #landing-page-graphic {
+        left: 700px !important;
+    }
 }

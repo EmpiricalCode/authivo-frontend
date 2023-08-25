@@ -30,7 +30,7 @@ export class ConfigureComponent {
   }
 
   loadApplicationData() {
-    this.http.post("https://authivo-api-dev.vercel.app/applications/getapplicationbyid", {
+    this.http.post("https://authivo-api.vercel.app/applications/getapplicationbyid", {
         token: window.localStorage.getItem("token"),
         client_id: this.params.client_id
     }).subscribe((response: any) => {
@@ -56,7 +56,7 @@ export class ConfigureComponent {
   }
 
   delete() {
-    this.http.post("https://authivo-api-dev.vercel.app/applications/delete", {
+    this.http.post("https://authivo-api.vercel.app/applications/delete", {
       token: window.localStorage.getItem("token"),
       client_id: this.params.client_id
     }).subscribe((response: any) => {
@@ -79,7 +79,7 @@ export class ConfigureComponent {
 
       const uri = this.addRedirectURIInput.nativeElement.value;
 
-      this.http.post("https://authivo-api-dev.vercel.app/applications/addredirecturi", {
+      this.http.post("https://authivo-api.vercel.app/applications/addredirecturi", {
         token: window.localStorage.getItem("token"),
         client_id: this.params.client_id,
         redirect_uri: uri
@@ -99,7 +99,7 @@ export class ConfigureComponent {
   }
 
   deleteRedirectURI(uri: string) {
-    this.http.post("https://authivo-api-dev.vercel.app/applications/deleteredirecturi", {
+    this.http.post("https://authivo-api.vercel.app/applications/deleteredirecturi", {
       token: window.localStorage.getItem("token"),
       client_id: this.params.client_id,
       redirect_uri: uri
@@ -117,7 +117,7 @@ export class ConfigureComponent {
 
   getRedirectURIs() {
 
-    this.http.post("https://authivo-api-dev.vercel.app/applications/getredirecturis", {
+    this.http.post("https://authivo-api.vercel.app/applications/getredirecturis", {
       token: window.localStorage.getItem("token"),
       client_id: this.params.client_id,
     }).subscribe((response: any) => {

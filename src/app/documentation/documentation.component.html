@@ -1,0 +1,96 @@
+<div id="content-container">
+    <div id="sidebar-container">
+        <div class="sidebar-section">
+            <a class="sidebar-title" (click)="this.scrollTo(introduction)">Introduction</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollTo(whatIsAuthivo)">What is Authivo?</a>
+                <a class="sidebar-subtitle" (click)="this.scrollTo(supportedAuthFlows)">Supported Auth Flows</a>
+            </div>
+        </div>
+        <div class="sidebar-section" *ngFor="let data of this.documentationData.index">
+            <a class="sidebar-title" (click)="this.scrollToID(data.id)">{{data.title}}</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollToID(this.documentationData.raw[index].id)" *ngFor="let index of data.indexGrouping">{{this.documentationData.raw[index].title}}</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog-container">
+
+        <div class="blog-section">
+
+            <h1 #introduction>Introduction</h1>
+            <div class="separator"></div>
+
+            <h3 #whatIsAuthivo>What is Authivo?</h3>
+            <p>
+                Authivo is a free SSO (Single Sign On) service built with the MEAN stack that provides your personal projects with easier-than-ever authentication and authorization. 
+                All it takes to log in with authivo are some lines of code and a few clicks. Before you begin, make sure you create an Authivo account.
+            </p>
+
+            <h3 #supportedAuthFlows>Supported Auth Flows</h3>
+            <p>
+                Authivo supports the PKCE (Proof of Key Code Exchange) code flow for single-page applications,
+                and a regular Authorization Code flow for websites with a dedicated backend (such as Express.js).
+            </p>
+        </div>
+
+        <div class="blog-section" *ngFor="let data of this.documentationData.index">
+
+            <h1 id="{{data.id}}">{{data.title}}</h1>
+            <div class="separator"></div>
+
+            <!--  -->
+
+            <div *ngFor="let index of data.indexGrouping">
+                <h3 id="{{this.documentationData.raw[index].id}}" class="title" #auth>
+                    {{this.documentationData.raw[index].title}}
+                    <span class="api-type-display" [ngClass]="this.documentationData.raw[index].type.toLowerCase()">
+                        {{this.documentationData.raw[index].type}}
+                    </span>
+                    <span class="api-information-display">{{this.documentationData.raw[index].access}}</span>   
+                </h3>
+
+                <h4>{{this.documentationData.raw[index].type == "REDIRECT" ? "Redirect URI" : "API URL"}}</h4>
+
+                <div class="api-url-container">
+                    {{this.documentationData.raw[index].url}}
+                </div>
+
+                <p>
+                    {{this.documentationData.raw[index].description}}
+                </p>
+
+                <h4 *ngIf="this.documentationData.raw[index].type == 'REDIRECT' || this.documentationData.raw[index].type == 'GET'">Request Parameters</h4>
+                <h4 *ngIf="this.documentationData.raw[index].type == 'POST'">Request Body</h4>
+
+                <table class="parameter-container">
+                    <tr *ngFor="let request of this.documentationData.raw[index].request">
+                        <td>
+                            {{request.name}}
+                        </td>
+                        <td>
+                            {{request.description}}
+                        </td>
+                    </tr>
+                </table>
+
+                <h4 *ngIf="this.documentationData.raw[index].type == 'REDIRECT' || this.documentationData.raw[index].type == 'GET'">Return Parameters</h4>
+                <h4 *ngIf="this.documentationData.raw[index].type == 'POST'">Return Body</h4>
+
+                <table class="parameter-container" style="margin-bottom: 20px">
+                    <tr *ngFor="let return of this.documentationData.raw[index].return">
+                        <td>
+                            {{return.name}}
+                        </td>
+                        <td>
+                            {{return.description}}
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="note" style="margin-bottom: 20px;" *ngIf="this.documentationData.raw[index].note">{{this.documentationData.raw[index].note}}</div>
+            </div>
+        </div>
+    </div>
+</div>

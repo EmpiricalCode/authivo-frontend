@@ -14,8 +14,8 @@
 
   <div id="nav-bar-right" *ngIf="shouldShowNavRight()">
     <a class="nav-bar-button">About</a>
-    <a class="nav-bar-button">Documentation</a>
-    <a class="nav-bar-button">Tutorials</a>
+    <a class="nav-bar-button" href="/documentation">Documentation</a>
+    <a class="nav-bar-button" href="/tutorials">Tutorials</a>
     <div style="width: 2px; height: 30px; background: var(--border); transition: 0.2s;"></div>
     <a class="nav-bar-button" id="login-button" href="/login" *ngIf="!this.loggedIn">
       <svg width="20px" height="20px" viewBox="0 0 30 34">
@@ -33,16 +33,16 @@
       Dashboard
     </a>
 
-    <div id="profile-dropdown-container" >
+    <div id="profile-dropdown-container" *ngIf="this.loggedIn">
 
-      <a id="profile-button" class="nav-bar-button profile-dropdown-member" *ngIf="this.loggedIn" (click)="this.toggleProfileDropdown()">
+      <a id="profile-button" class="nav-bar-button profile-dropdown-member" (click)="this.toggleProfileDropdown()">
         <svg class="profile-dropdown-member" style="min-width: 20px; margin-right: 2px" height="20px" viewBox="0 0 30 34">
-          <path style="fill: none; stroke: var(--nav-bar-button); stroke-width: 3; stroke-linecap: round;" d="M 16 2 C 7 2 7 15 16 15 M 30 32 C 30 22 22 18 16 18 C 10 18 2 22 2 32 L 30 32 M 16 15 C 25 15 25 2 16 2"></path>
+          <path class="profile-dropdown-member" style="fill: none; stroke: var(--nav-bar-button); stroke-width: 3; stroke-linecap: round;" d="M 16 2 C 7 2 7 15 16 15 M 30 32 C 30 22 22 18 16 18 C 10 18 2 22 2 32 L 30 32 M 16 15 C 25 15 25 2 16 2"></path>
         </svg>
         <p id="profile-button-inner" class="profile-dropdown-member">{{this.userData.username}}</p>
       </a>
 
-      <div id="profile-dropdown" *ngIf="this.loggedIn" [ngClass]="this.profileDropdown ? '' : 'hidden'" (click)="this.showProfileDropdown()">
+      <div id="profile-dropdown" *ngIf="this.loggedIn" [ngClass]="this.profileDropdown ? '' : 'dropdown-hidden'" (click)="this.showProfileDropdown()">
         <button class="profile-dropdown-button profile-dropdown-member">
 
           <svg viewBox="0 -1 20 20" width="17" height="17" style="fill: none; stroke: var(--nav-bar-button); stroke-width: 2px">

@@ -1,0 +1,33 @@
+<div id="content-container">
+    <div id="sidebar-container">
+        <h3 style="margin-top: 0; margin-bottom: 10px !important;">Tutorials</h3>
+        <div class="sidebar-section" *ngFor="let data of this.tutorialsData.index">
+            <a class="sidebar-title" (click)="this.scrollToID(data.id)">{{data.title}}</a>
+            <div class="sidebar-subsection">
+                <a class="sidebar-subtitle" (click)="this.scrollToID(this.tutorialsData.raw[index].id)" *ngFor="let index of data.indexGrouping">{{this.tutorialsData.raw[index].title}}</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog-container">
+
+        <div class="blog-section" *ngFor="let data of this.tutorialsData.index">
+
+            <h1 id="{{data.id}}">{{data.title}}</h1>
+            <div class="separator"></div>
+
+            <div *ngFor="let index of data.indexGrouping">
+                <h3 id="{{this.tutorialsData.raw[index].id}}" class="title" #auth>
+                    {{this.tutorialsData.raw[index].title}}
+                </h3>
+
+                <div *ngFor="let item of this.tutorialsData.raw[index].content" style="margin-top: 15px; margin-bottom: 15px; font-size: 13px;">
+                    
+                    <p *ngIf="item.type == 'p'">{{item.content}}</p>
+                    <h4 *ngIf="item.type == 'h4'">{{item.content}}</h4>
+                    <div *ngIf="item.type == 'code'" markdown ngPreserveWhitespaces>{{item.content}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
