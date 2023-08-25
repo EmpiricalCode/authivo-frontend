@@ -6,11 +6,14 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent implements AfterViewInit {
+
   @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
+
+  ngxMarkdownVersion = '6.2.0';
 
   title: string = "authivo-frontend";
   loggedIn: boolean = true;
@@ -40,7 +43,7 @@ export class AppComponent implements AfterViewInit {
 
       if (value) {
 
-        this.http.post("https://authivo-api-dev.vercel.app/authorization/tokeninfo", {
+        this.http.post("https://authivo-api.vercel.app/authorization/tokeninfo", {
           token: window.localStorage.getItem("token")
         }).subscribe((tokenInfoResponse: any) => {
 
@@ -48,7 +51,7 @@ export class AppComponent implements AfterViewInit {
 
           if (tokenInfoResponse.status == 200) {
 
-            this.http.get(`https://authivo-api-dev.vercel.app/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
+            this.http.get(`https://authivo-api.vercel.app/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
 
               if (userDataResponse.status == 200) {
                 this.userData = userDataResponse.data;

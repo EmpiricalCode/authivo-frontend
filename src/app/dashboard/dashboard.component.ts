@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
       
-    this.http.post("https://authivo-api-dev.vercel.app/applications/getapplications", {
+    this.http.post("https://authivo-api.vercel.app/applications/getapplications", {
       token: window.localStorage.getItem("token")
     }).subscribe((res: any) => {
 
