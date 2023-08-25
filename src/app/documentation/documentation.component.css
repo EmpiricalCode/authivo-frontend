@@ -20,7 +20,7 @@
     row-gap: 20px;
 }
 
-#documentation-container {
+#blog-container {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -90,7 +90,7 @@
     border: 1px solid var(--information-field-border);
 }
 
-.api-title {
+.title {
     display: flex;
     align-items: center;
 }
@@ -162,7 +162,7 @@ h3 {
 }
 
 h4 {
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 20px;
     margin-bottom: 20px;
     scroll-margin: 20px;
@@ -174,4 +174,5 @@ p {
     font-size: 15px;
     color: var(--text);
     line-height: 30px;
+    margin: 10px 0 10px 0;
 }
