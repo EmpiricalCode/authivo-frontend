@@ -195,7 +195,7 @@ export class TutorialsComponent {
 
               title = 'authivo-angular';
 
-              clientID: string = "F9SFFIUfH89rcuX2Iy4S";
+              clientID: string = "(your client ID)";
 
               constructor(private http: HttpClient) {}
 
@@ -318,7 +318,7 @@ export class TutorialsComponent {
 
               title = 'authivo-angular';
             
-              clientID: string = "F9SFFIUfH89rcuX2Iy4S";
+              clientID: string = "(your client ID)";
             
               constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {}
             
