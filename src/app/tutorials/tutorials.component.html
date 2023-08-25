@@ -16,8 +16,6 @@
             <h1 id="{{data.id}}">{{data.title}}</h1>
             <div class="separator"></div>
 
-            <!--  -->
-
             <div *ngFor="let index of data.indexGrouping">
                 <h3 id="{{this.tutorialsData.raw[index].id}}" class="title" #auth>
                     {{this.tutorialsData.raw[index].title}}
