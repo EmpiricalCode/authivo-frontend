@@ -416,7 +416,7 @@ export class TutorialsComponent {
                         window.localStorage.setItem("token", tokenResponse.token);
                         window.localStorage.removeItem("code");
           
-                        window.location.reload();
+                        window.location.href = window.location.origin;
 
                         ...
 
