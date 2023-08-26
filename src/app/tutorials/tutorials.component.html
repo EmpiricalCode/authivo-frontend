@@ -21,7 +21,7 @@
                     {{this.tutorialsData.raw[index].title}}
                 </h3>
 
-                <div *ngFor="let item of this.tutorialsData.raw[index].content" style="margin-top: 15px; margin-bottom: 15px; font-size: 13px;">
+                <div *ngFor="let item of this.tutorialsData.raw[index].content" style="margin-top: 15px; margin-bottom: 15px; font-size: 13px">
                     
                     <p *ngIf="item.type == 'p'">{{item.content}}</p>
                     <h4 *ngIf="item.type == 'h4'">{{item.content}}</h4>

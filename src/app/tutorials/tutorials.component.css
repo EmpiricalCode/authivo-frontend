@@ -1,3 +1,8 @@
+/* ID Selectors */
+#blog-container {
+    overflow: hidden;
+}
+
 /* Element selectors */
 h3 {
     margin-bottom: 30px !important;
