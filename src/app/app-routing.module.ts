@@ -14,6 +14,7 @@ import { CreateComponent } from './dashboard/create/create.component';
 import { ConfigureComponent } from './dashboard/configure/configure.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -39,13 +40,13 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: "dashboard/configure",
-    redirectTo: "dashboard"
-  },
-  {
     path: "dashboard/configure/:client_id",
     component: ConfigureComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: "dashboard/configure",
+    redirectTo: "dashboard"
   },
   {
     path: "login",
@@ -76,6 +77,10 @@ const routes: Routes = [
     path: "auth",
     component: AuthenticateComponent,
     canActivate: [authProviderGuard]
+  },
+  {
+    path: "**",
+    component: PageNotFoundComponent
   }
 ];
 

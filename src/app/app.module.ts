@@ -16,6 +16,7 @@ import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export default class CustomUrlSerializer implements UrlSerializer {
   private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -45,6 +46,7 @@ export default class CustomUrlSerializer implements UrlSerializer {
     ConfigureComponent,
     DocumentationComponent,
     TutorialsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

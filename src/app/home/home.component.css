@@ -11,7 +11,7 @@
 
 #landing-page-container {
     position: relative;
-    margin-top: 150px;
+    margin-top: 130px;
     margin-left: 17%;
     width: 650px;
     display: flex;
@@ -27,6 +27,14 @@
     background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+#landing-page-subtitle {
+    margin-top: 15px;   
+    line-height: 30px;
+    font-size: 18px;
+    width: 550px;
+    color: var(--secondary);
 }
 
 #landing-onboarding-button {
