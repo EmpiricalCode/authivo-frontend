@@ -15,7 +15,7 @@ export class DocumentationComponent {
         id: "authentication",
         type: "REDIRECT",
         access: "PUBLIC",
-        url: "https://authivo.vercel.app/auth",
+        url: "https://authivo.com/auth",
         description: "Redirect to this endpoint with the neccessary URL query parameters in order to use Authivo authentication.",
         request: [
           {
