@@ -21,13 +21,13 @@ export class ContinueComponent implements AfterViewInit {
 
   ngAfterViewInit() {
 
-    this.http.post("https://authivo-api.vercel.app/authorization/tokeninfo", {
+    this.http.post("https://api.authivo.com/authorization/tokeninfo", {
       token: window.localStorage.getItem("token")
     }).subscribe((tokenInfoResponse: any) => {
 
       if (tokenInfoResponse.status == 200) {
 
-        this.http.get(`https://authivo-api.vercel.app/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
+        this.http.get(`https://api.authivo.com/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
 
           if (userDataResponse.status == 200) {
             this.userData = userDataResponse.data;
@@ -58,7 +58,7 @@ export class ContinueComponent implements AfterViewInit {
 
         const codeChallenge = this.authService.getCodeChallenge();
 
-        codeResponse = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authentication/continue", {
+        codeResponse = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/continue", {
           token: window.localStorage.getItem("token"),
           auth_type: "pkce",
           client_id: clientID,
@@ -68,7 +68,7 @@ export class ContinueComponent implements AfterViewInit {
 
       } else {
 
-        codeResponse = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authentication/continue", {
+        codeResponse = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/continue", {
           token: window.localStorage.getItem("token"),
           auth_type: "authentication_code",
           client_id: clientID,

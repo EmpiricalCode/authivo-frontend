@@ -33,8 +33,8 @@ export class AuthService {
     
     if (window.localStorage.getItem("token")) {
 
-      const response: any = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/authorization/tokeninfo", {
-        headers: new HttpHeaders({"Access-Control-Allow-Origin" : "https://authivo-api.vercel.app"}),
+      const response: any = await lastValueFrom(this.http.post("https://api.authivo.com/authorization/tokeninfo", {
+        headers: new HttpHeaders({"Access-Control-Allow-Origin" : "https://api.authivo.com"}),
         token: window.localStorage.getItem("token")
       }))
       .catch((error) => {

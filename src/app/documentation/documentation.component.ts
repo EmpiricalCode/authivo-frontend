@@ -47,7 +47,7 @@ export class DocumentationComponent {
         id: "token",
         type: "POST",
         access: "PUBLIC",
-        url: "https://authivo-api.vercel.app/authentication/token",
+        url: "https://api.authivo.com/authentication/token",
         description: "The token endpoint takes in an authorization code (among other parameters), and returns a JSON web token.",
         request: [
           {
@@ -83,7 +83,7 @@ export class DocumentationComponent {
         id: "token_info",
         type: "POST",
         access: "PUBLIC",
-        url: "https://authivo-api.vercel.app/authorization/tokenInfo",
+        url: "https://api.authivo.com/authorization/tokenInfo",
         description: "The token info endpoint takes in a token, and returns information about that token.",
         note: "Make sure you verify that the 'aud' field of the decoded token matches to your client ID.",
         request: [
@@ -116,7 +116,7 @@ export class DocumentationComponent {
         id: "get_applications",
         type: "POST",
         access: "HOST ONLY",
-        url: "https://authivo-api.vercel.app/applications/getApplications",
+        url: "https://api.authivo.com/applications/getApplications",
         description: "This endpoint takes in a token, and returns the applications associated with the owner of that token.",
         request: [
           {
@@ -144,7 +144,7 @@ export class DocumentationComponent {
         id: "get_application_by_id",
         type: "POST",
         access: "HOST ONLY",
-        url: "https://authivo-api.vercel.app/applications/getApplicationByID",
+        url: "https://api.authivo.com/applications/getApplicationByID",
         description: "This endpoint takes in a token, and returns the application associated with a client ID (if it exists).",
         request: [
           {
@@ -176,7 +176,7 @@ export class DocumentationComponent {
         id: "user_data",
         type: "GET",
         access: "PUBLIC",
-        url: "https://authivo-api.vercel.app/users/userData",
+        url: "https://api.authivo.com/users/userData",
         description: "The user data endpoint takes in either a user ID or username, and returns data related to that user. Only one (either ID or username) is neccessary.",
         request: [
           {
