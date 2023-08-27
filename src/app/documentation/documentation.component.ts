@@ -38,7 +38,7 @@ export class DocumentationComponent {
         return: [
           {
             name: "code",
-            description: "The authentication code that should be used to fetch a token."
+            description: "The authorization code that should be used to fetch a token."
           }
         ]
       },
@@ -48,11 +48,11 @@ export class DocumentationComponent {
         type: "POST",
         access: "PUBLIC",
         url: "https://authivo-api.vercel.app/authentication/token",
-        description: "The token endpoint takes in an authentication code (among other parameters), and returns a JSON web token.",
+        description: "The token endpoint takes in an authorization code (among other parameters), and returns a JSON web token.",
         request: [
           {
             name: "code",
-            description: "The authentication code returned by the /auth redirect."
+            description: "The authorization code returned by the /auth redirect."
           },
           {
             name: "code_verifier",

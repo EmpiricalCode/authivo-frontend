@@ -258,8 +258,8 @@ export class TutorialsComponent {
               const codeChallenge = btoa(String.fromCharCode(...new Uint8Array(
                 await window.crypto.subtle.digest("SHA-256", (new TextEncoder()).encode(codeVerifier)))));
           
-              window.location.href = \`https://authivo.vercel.app/auth
-                ?auth_type=pkce&client_id=\${this.clientID}&code_challenge=\${codeChallenge}&redirect_uri=http://localhost:4200\`;
+              // Redirecting to /auth
+              window.location.href = \`https://authivo.com/auth?auth_type=pkce&client_id=\${this.clientID}&code_challenge=\${codeChallenge}&redirect_uri=http://localhost:4200\`;
             }
 
             ...
@@ -290,19 +290,19 @@ export class TutorialsComponent {
         content: [
           {
             type: "p",
-            content: `After a user clicks the login button and authenticates, they will be redirected back to the website with the authentication code within the URL query parameters. Using this code, 
-            alongside the stored code verifier, make a request to the token endpoint to recieve a Java Web Token. These JWTs last for one day. Also note that the authentication code provided
+            content: `After a user clicks the login button and authenticates, they will be redirected back to the website with the authorization code within the URL query parameters. Using this code, 
+            alongside the stored code verifier, make a request to the token endpoint to recieve a Java Web Token. These JWTs last for one day. Also note that the authorization code provided
             only lasts for 60 seconds.`
           },
           {
             type: "p",
             content: `Implement the OnInit interface and then create the ngOnInit function.
             Inject the ActivatedRoute service into the app component and use it to access the URL query parameters.
-            Once the authentication code is obtained from the URL, make a post request to the token endpoint in order to obtain a token corresponding to your application.`
+            Once the authorization code is obtained from the URL, make a post request to the token endpoint in order to obtain a token corresponding to your application.`
           },
           {
             type: "p",
-            content: `Now that the token is obtained, store it and then get rid of the original authentication code.`
+            content: `Now that the token is obtained, store it and then get rid of the original authorization code.`
           },
           {
             type: "h4",
@@ -326,11 +326,11 @@ export class TutorialsComponent {
                   
                 this.activatedRoute.queryParams.subscribe((params: any) => {
                   
-                  // If there is an authentication code within the URL query parameters, use it to obtain a token
+                  // If there is an authorization code within the URL query parameters, use it to obtain a token
                   if (params.code) {
 
                     // Create the post request
-                    this.http.post("https://authivo-api.vercel.app/authentication/token", 
+                    this.http.post("https://api.authivo.com/authentication/token", 
                       {
                         auth_type: "pkce",
                         code_verifier: window.localStorage.getItem("code"),
@@ -366,7 +366,7 @@ export class TutorialsComponent {
             type: "p",
             content: `Next, create a variable describing whether or not the user is logged in. Within ngOnInit, check if the localStorage contains a token. 
             If it does, make a post request to the tokenInfo endpoint and verify that the token is valid and its 'aud' field matches your application's client id.
-            If the token is valid, set loggedIn to true. As well, make sure you reload the page after you store the token (after using the authentication code).`
+            If the token is valid, set loggedIn to true. Otherwise, remove the token from localStorage. As well, make sure you reload the page after you store the token (after using the authorization code).`
           },
           {
             type: "h4",
@@ -387,7 +387,7 @@ export class TutorialsComponent {
               if (window.localStorage.getItem("token")) {
           
                 // Making post request to token info endpoint
-                this.http.post("https://authivo-api.vercel.app/authorization/tokeninfo", 
+                this.http.post("https://api.authivo.com/authorization/tokeninfo", 
                   {
                     token: window.localStorage.getItem("token")
                   }
@@ -399,6 +399,10 @@ export class TutorialsComponent {
           
                     if (tokenInfoResponse.valid && tokenInfoResponse.decoded.aud == this.clientID) {
                       this.loggedIn = true;
+                    
+                      // Removing the token if it isn't valid
+                    } else {
+                      localStorage.removeItem("token");
                     }
           
                   } else {
@@ -443,7 +447,13 @@ export class TutorialsComponent {
             <button *ngIf="!this.loggedIn" id="login-button" (click)="login()">Login With Authivo</button>
             <p *ngIf="this.loggedIn">Welcome!</p>
             \`\`\``
-          },
+          }
+        ]
+      },
+      {
+        title: "Displaying User Data",
+        id: "displaying_user_data",
+        content: [
           {
             type: "p",
             content: `Within ngOnInit, after you request the token information and the token is verified, make a get request to the userData endpoint with the user id of the token in the URL query params.
@@ -468,7 +478,7 @@ export class TutorialsComponent {
                       this.loggedIn = true;
           
                       // Fetching user data
-                      this.http.get(\`https://authivo-api.vercel.app/users/userdata?id=\${tokenInfoResponse.decoded.id}\`).subscribe((userDataResponse: any) => {
+                      this.http.get(\`https://api.authivo.com/users/userdata?id=\${tokenInfoResponse.decoded.id}\`).subscribe((userDataResponse: any) => {
                         
                         if (userDataResponse.status == 200) {
                           this.userData = userDataResponse.data;
@@ -476,6 +486,10 @@ export class TutorialsComponent {
                           console.log(userDataResponse.response);
                         }
                       })
+
+                    // Removing the token if it isn't valid
+                    } else {
+                      localStorage.removeItem("token");
                     }
           
                   } else {
@@ -504,17 +518,13 @@ export class TutorialsComponent {
             content: "Your application should now be able to display the username and ID of a user upon logging in with Authivo."
           }
         ]
-      },
-      {
-        title: "Displaying User Data",
-        id: "displaying_user_data"
       }
     ],
     index: [
       {
         title: "Using Authivo With Angular",
         id: "using_authivo_with_angular",
-        indexGrouping: [0, 1, 2, 3, 4, 5, 6, 7]
+        indexGrouping: [0, 1, 2, 3, 4, 5, 6, 7, 8]
       }
     ]
   }
