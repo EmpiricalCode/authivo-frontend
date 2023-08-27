@@ -23,7 +23,6 @@
 #landing-page-title {
     font-weight: 600;
     font-size: 80px;
-    /* color: var(--primary); */
     background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -32,9 +31,11 @@
 #landing-page-subtitle {
     margin-top: 15px;   
     line-height: 30px;
-    font-size: 18px;
+    font-size: 20px;
     width: 550px;
-    color: var(--secondary);
+    background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #landing-onboarding-button {
