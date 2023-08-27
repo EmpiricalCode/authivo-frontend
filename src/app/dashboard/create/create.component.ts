@@ -29,7 +29,7 @@ export class CreateComponent {
     if (!this.creating) {
       this.creating = true;
 
-      const applicationCreateResponse: any = await lastValueFrom(this.http.post("https://authivo-api.vercel.app/applications/create", {
+      const applicationCreateResponse: any = await lastValueFrom(this.http.post("https://api.authivo.com/applications/create", {
         token: window.localStorage.getItem("token"),
         name: this.nameInput.nativeElement.value
       }));

@@ -43,7 +43,7 @@ export class AppComponent implements AfterViewInit {
 
       if (value) {
 
-        this.http.post("https://authivo-api.vercel.app/authorization/tokeninfo", {
+        this.http.post("https://api.authivo.com/authorization/tokeninfo", {
           token: window.localStorage.getItem("token")
         }).subscribe((tokenInfoResponse: any) => {
 
@@ -51,7 +51,7 @@ export class AppComponent implements AfterViewInit {
 
           if (tokenInfoResponse.status == 200) {
 
-            this.http.get(`https://authivo-api.vercel.app/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
+            this.http.get(`https://api.authivo.com/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
 
               if (userDataResponse.status == 200) {
                 this.userData = userDataResponse.data;
