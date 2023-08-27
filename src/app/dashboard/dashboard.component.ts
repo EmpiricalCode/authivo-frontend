@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
         }
 
       } else {
-        alert(res.response);
+        console.log(res.response);
       }
     })
   }
