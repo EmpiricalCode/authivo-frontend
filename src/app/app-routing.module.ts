@@ -15,6 +15,7 @@ import { ConfigureComponent } from './dashboard/configure/configure.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: "tutorials",
     component: TutorialsComponent
+  },
+  {
+    path: "settings",
+    component: SettingsComponent,
+    canActivate: [authGuard]
   },
   {
     path: "dashboard",

@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: var(--background-alternate);
+}
+
+/* ID selectors */
+#content-container {
+    flex-grow: 1;
+    max-width: 1200px !important;
+    display: flex;
+    flex-direction: column;
+    margin-left: max(100px, calc(50% - 600px)) !important;
+    margin-right: max(100px, calc(50% - 600px)) !important;
+    padding-top: 20px;
+}
