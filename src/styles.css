@@ -45,6 +45,7 @@
 /* ID selectors */
 #content-container {
     padding-bottom: 50px;
+    flex-grow: 1;
 }
 
 /* Class selectors */
