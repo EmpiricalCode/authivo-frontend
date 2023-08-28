@@ -21,7 +21,7 @@ export class CreateComponent {
   clientSecret!: number;
 
   constructor(private http: HttpClient, private messageService: MessageService, private titleService: Title) {
-    this.titleService.setTitle("Authivo • Create");
+    this.titleService.setTitle("Create | Authivo");
   }
 
   async createApplication() {

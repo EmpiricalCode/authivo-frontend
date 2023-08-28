@@ -24,7 +24,7 @@ export class ConfigureComponent {
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private renderer: Renderer2, private messageService: MessageService, private titleService: Title) {
 
-    this.titleService.setTitle("Authivo • Configure");
+    this.titleService.setTitle("Configure | Authivo");
 
     this.route.params.subscribe((params: any) => {
       this.params = params;

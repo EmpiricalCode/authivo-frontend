@@ -20,7 +20,7 @@ export class RegisterComponent {
   @ViewChild("registerButton") registerButton!: ElementRef;
 
   constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService, private titleService: Title) {
-    this.titleService.setTitle("Authivo • Register");
+    this.titleService.setTitle("Register | Authivo");
   }
 
   async register() {

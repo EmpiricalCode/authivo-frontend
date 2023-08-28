@@ -19,7 +19,7 @@ export class LoginComponent {
   loggingIn: boolean = false;
 
   constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService, private titleService: Title) {
-    this.titleService.setTitle("Authivo • Login");
+    this.titleService.setTitle("Login | Authivo");
   }
 
   async login() {
