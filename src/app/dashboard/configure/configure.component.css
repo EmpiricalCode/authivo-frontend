@@ -1,8 +1,5 @@
 /* ID Selectors */
 #content-container {
-    max-width: 800px;
-    margin-left: max(100px, calc(50% - 400px));
-    margin-right: max(100px, calc(50% - 400px));
     margin-top: 10px;
 }
 
@@ -163,10 +160,13 @@ h2 {
 
 h4 {
     margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600 !important;
 }
 
 p {
-    font-family: "Gotham";
+    font-family: "Montserrat";
+    font-weight: 500;
     color: var(--text);
     margin: 0 0 5px 0;
 }
