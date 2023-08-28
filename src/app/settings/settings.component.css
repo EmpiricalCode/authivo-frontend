@@ -15,3 +15,8 @@
     margin-right: max(100px, calc(50% - 600px)) !important;
     padding-top: 20px;
 }
+
+#username-change-container {
+    display: flex;
+    column-gap: 15px;
+}

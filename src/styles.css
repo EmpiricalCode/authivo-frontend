@@ -139,7 +139,7 @@
 .form-input {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 1px 0px;
     width: calc(100% - 26px);
-    font-size: 14px;
+    font-size: 15px;
     font-family: "Gotham";
     color: var(--text);
     border-radius: 10px;

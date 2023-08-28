@@ -96,6 +96,10 @@
     column-gap: 15px;
 }
 
+#application-name-change-container {
+    display: flex;
+    column-gap: 15px;
+}
 
 /* Class selectors */
 .divider {
@@ -167,6 +171,7 @@ h4 {
 p {
     font-family: "Montserrat";
     font-weight: 500;
+    font-size: 15px;
     color: var(--text);
-    margin: 0 0 5px 0;
+    margin: 15px 0 15px 0;
 }
