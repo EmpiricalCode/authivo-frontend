@@ -3,6 +3,7 @@
     max-width: 800px;
     margin-left: max(100px, calc(50% - 400px));
     margin-right: max(100px, calc(50% - 400px));
+    margin-top: 10px;
 }
 
 #background-cover {
@@ -50,7 +51,7 @@
     padding: 10px;
     border-radius: 10px;
     border: 2px solid var(--red-button);
-    background: var(--background);
+    background: rgba(0, 0, 0, 0);
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 15px;
@@ -153,6 +154,7 @@
     border-radius: 10px;
     border: 1px solid var(--border);
     transition: 0.2s;
+    background: var(--background);
 }
 
 /* Element selectors */

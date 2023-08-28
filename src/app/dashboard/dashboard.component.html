@@ -1,13 +1,17 @@
-<div id="content-container">
-    <h4>Dashboard</h4>
-    <h1 style="margin-top: 10px;">My Applications</h1>
+<div class="page-title-container">
+    Dashboard
+</div>
 
+<div id="content-container">
+    
+    <h1 style="margin-top: 40px;">My Applications</h1>
     <a id="create-application-button" href="/dashboard/create">+ Create</a>
+    <div class="divider" style="margin-top: 40px; margin-bottom: 40px;"></div>
 
     <div id="application-container">
         <div class="application" *ngFor="let application of this.applications" (click)="this.router.navigate(['dashboard', 'configure', application.clientID])">
-            <div class="application-strip"></div>
             <h2 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 350px;">{{application.name}}</h2>
+            <div class="divider"></div>
             <h4>Creation Date: {{application.creationDate}}</h4>
             <h4 style="margin-top: -5px;">Client ID: {{application.clientID}}</h4>
         </div>
