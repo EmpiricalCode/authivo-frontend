@@ -50,20 +50,19 @@
 #delete-initiate-button {
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid var(--red-button);
-    background: rgba(0, 0, 0, 0);
+    border: none;
+    background: var(--red-button);
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 15px;
-    color: var(--red-button);
+    color: white;
     transition: 0.2s;
     cursor: pointer;
     margin-top: 15px;
 }
 
 #delete-initiate-button:hover {
-    background: var(--red-button) !important;
-    color: white;
+    background: var(--red-button-hover);
 }
 
 #redirect-uri-container {

@@ -20,9 +20,10 @@
     </div>
             
     <div class="section-container">
-        <h2>Information</h2>
 
+        <h2>Information</h2>
         <h4>Client ID</h4>
+
         <div class="application-information-field">
             {{this.application.clientID}}
         </div>
@@ -34,7 +35,6 @@
     <div class="section-container">
 
         <h2>Settings</h2>
-
         <h4>Redirect URIs</h4>
 
         <table id="redirect-uri-container">
@@ -65,7 +65,13 @@
         </div>
     </div>
 
-    <button id="delete-initiate-button" (click)="this.initiateDelete()">Delete Application</button>
+    <div style="border-color: var(--error-message)" class="section-container">
+
+        <h2 style="color: var(--error-message)">Delete Application</h2>
+        <h4>Delete this application and all of its data permanently.</h4>
+
+        <button id="delete-initiate-button" (click)="this.initiateDelete()">Delete Application</button>
+    </div>
 </div>
 
 <div id="background-cover" [ngClass]="this.deleting ? '' : 'hidden'">
