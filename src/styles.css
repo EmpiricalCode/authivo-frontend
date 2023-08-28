@@ -208,6 +208,17 @@
     padding-left: max(100px, calc(50% - 600px));
     align-items: center;
     background: var(--background);
+    overflow: hidden;
+    position: relative;
+}
+
+.page-title-container-background {
+    max-width: 60%;
+    filter: blur(40px);
+    opacity: 0.3;
+    right: 0;
+    position: absolute;
+    z-index: 0;
 }
 
 /* Element selectors */
