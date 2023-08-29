@@ -101,12 +101,12 @@
 
 #landing-page-graphic-menubar {
     width: calc(100% - 10px);
-    height: 20px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 10px;
+    justify-content: flex-start;
+    padding-left: 10px;
     column-gap: 10px;
 }
 
@@ -167,6 +167,14 @@
         top: max(550px, calc(100% - 185px)) !important;
         height: 300px;
         width: 500px;
+    }
+
+    #landing-page-graphic img {
+        top: 160px !important;
+    }
+
+    #landing-page-graphic-login {
+        margin-top: 100px !important;
     }
 
     #landing-page-description-container {
