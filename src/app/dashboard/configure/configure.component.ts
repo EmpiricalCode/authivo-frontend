@@ -21,6 +21,7 @@ export class ConfigureComponent {
 
   addingURI: boolean = false;
   deleting: boolean = false;
+  changingApplicationName: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private renderer: Renderer2, private messageService: MessageService, private titleService: Title) {
 
@@ -30,6 +31,31 @@ export class ConfigureComponent {
       this.params = params;
       this.loadApplicationData();
     })
+  }
+
+  changeApplicationName(name: String) {
+
+    if (name != this.application.name) {
+      if (!this.changingApplicationName) {
+        this.changingApplicationName = true;
+
+        this.http.post("https://authivo-api-dev.vercel.app/applications/changeapplicationname", {
+          token: window.localStorage.getItem("token"),
+          client_id: this.application.clientID,
+          name: name
+        }).subscribe((response: any) => {
+          this.changingApplicationName = false;
+
+          if (response.status == 200) {
+            this.messageService.spawnSuccessMessage(response.response);
+          } else {
+            this.messageService.spawnErrorMessage(response.response);
+          }
+        })
+      }
+    } else {
+      this.messageService.spawnErrorMessage("Application name must be different from current application name");
+    }
   }
 
   loadApplicationData() {
