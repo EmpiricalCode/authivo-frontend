@@ -11,11 +11,11 @@
 
     <div class="section-container">
         <h2>Username</h2>
-        <p>Your Authivo username.</p>
+        <p>Change your Authivo username.</p>
         
         <div id="username-change-container">
-            <input value="{{this.userData.username}}" class="form-input">
-            <button class="form-button-solid" style="width: 80px;">
+            <input #changeUsernameInput value="{{this.userData.username}}" class="form-input">
+            <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingUsername ? 'form-button-solid-disabled' : ''" (click)="this.changeUsername(changeUsernameInput.value)">
                 Save
                 <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px); ">
                     <svg width="30px" height="30px" class="rotating">
