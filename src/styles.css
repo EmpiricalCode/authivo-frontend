@@ -206,7 +206,7 @@
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     display: flex;
-    padding-left: max(100px, calc(50% - 600px));
+    padding-left: max(100px, calc(50% - 500px));
     align-items: center;
     background: var(--background);
     overflow: hidden;

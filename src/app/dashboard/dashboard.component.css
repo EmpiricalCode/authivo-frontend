@@ -6,11 +6,11 @@
 /* ID Selectors */
 #content-container {
     flex-grow: 1;
-    max-width: 1200px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
-    margin-left: max(100px, calc(50% - 600px));
-    margin-right: max(100px, calc(50% - 600px));
+    margin-left: max(100px, calc(50% - 500px));
+    margin-right: max(100px, calc(50% - 500px));
     padding-top: 20px;
 }
 

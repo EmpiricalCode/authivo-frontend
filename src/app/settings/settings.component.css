@@ -8,11 +8,11 @@
 /* ID selectors */
 #content-container {
     flex-grow: 1;
-    max-width: 1200px !important;
+    max-width: 1000px !important;
     display: flex;
     flex-direction: column;
-    margin-left: max(100px, calc(50% - 600px)) !important;
-    margin-right: max(100px, calc(50% - 600px)) !important;
+    margin-left: max(100px, calc(50% - 500px)) !important;
+    margin-right: max(100px, calc(50% - 500px)) !important;
     padding-top: 20px;
 }
 
