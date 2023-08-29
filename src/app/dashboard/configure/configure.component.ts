@@ -54,7 +54,7 @@ export class ConfigureComponent {
         })
       }
     } else {
-      this.messageService.spawnErrorMessage("Application name must be different from current application name");
+      this.messageService.spawnErrorMessage("New application name must be different from current application name");
     }
   }
 
