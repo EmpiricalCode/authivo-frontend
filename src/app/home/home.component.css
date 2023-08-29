@@ -20,7 +20,7 @@
     flex-direction: column;
     align-items: flex-start;
     height: calc(100vh - 430px);
-    min-height: 550px;
+    min-height: 570px;
     z-index: 100;
 }
 
@@ -91,7 +91,7 @@
     border-radius: 10px;
     background: var(--background);
     position: absolute;
-    top: max(530px, calc(100% - 450px));
+    top: max(550px, calc(100% - 450px));
     left: calc(50% - 100px);
     overflow: hidden;
     user-select: none;
@@ -164,7 +164,7 @@
 @media only screen and (max-height: 850px) {
 
     #landing-page-graphic {
-        top: max(550px, calc(100% - 185px)) !important;
+        top: max(570px, calc(100% - 185px)) !important;
         height: 300px;
         width: 500px;
     }
