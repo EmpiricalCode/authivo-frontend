@@ -49,7 +49,7 @@ export class RegisterComponent {
               auth_type: "pkce",
               client_id: "host",
               code_challenge: code_challenge,
-              redirect_uri: "http://localhost:4200"
+              redirect_uri: "https://authivo.com"
             }));
 
             if (codeResponse.status == 201) {
