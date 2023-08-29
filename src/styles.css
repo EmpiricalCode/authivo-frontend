@@ -5,6 +5,7 @@
     --border-light: rgb(240, 240, 240);
     --nav-bar-button: rgb(73, 73, 73);
     --background: rgb(255, 255, 255);
+    --background-alternate: rgb(252, 252, 252);
     --text: rgb(91 91 91);
     --title: rgb(47, 47, 47);
     --button: rgb(168, 100, 216);
@@ -24,8 +25,10 @@
 
 :root:has(#test:checked) {
     --border: rgb(33, 40, 54);
+    --border-light: rgb(48, 57, 77);
     --nav-bar-button: rgb(221, 221, 221);
     --background: rgb(21, 25, 34);
+    --background-alternate: rgb(16 20 28);
     --title: rgb(232, 232, 232);
     --subtitle: rgb(150, 150, 150);
     --text: rgb(177, 177, 177);
@@ -42,6 +45,7 @@
 /* ID selectors */
 #content-container {
     padding-bottom: 50px;
+    flex-grow: 1;
 }
 
 /* Class selectors */
@@ -127,7 +131,7 @@
 
 .form-input-title {
     font-family: "Gotham Medium";
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text);
     margin-bottom: 10px;
 }
@@ -135,7 +139,7 @@
 .form-input {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 1px 0px;
     width: calc(100% - 26px);
-    font-size: 14px;
+    font-size: 15px;
     font-family: "Gotham";
     color: var(--text);
     border-radius: 10px;
@@ -190,6 +194,32 @@
 
 .no-scroll {
     overflow-y: hidden;
+}
+
+.page-title-container {
+    font-family: "Montserrat";
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--nav-bar-button);
+    width: calc(100% - max(100px, calc(50% - 600px)));
+    height: 100px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    padding-left: max(100px, calc(50% - 500px));
+    align-items: center;
+    background: var(--background);
+    overflow: hidden;
+    position: relative;
+}
+
+.page-title-container-background {
+    max-width: 60%;
+    filter: blur(40px);
+    opacity: 0.3;
+    right: 0;
+    position: absolute;
+    z-index: 0;
 }
 
 /* Element selectors */

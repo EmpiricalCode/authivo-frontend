@@ -1,8 +1,10 @@
 /* ID Selectors */
 #content-container {
-    max-width: 800px;
-    margin-left: max(100px, calc(50% - 400px));
-    margin-right: max(100px, calc(50% - 400px));
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    padding-top: 30px;
+    margin-top: 10px;
 }
 
 #background-cover {
@@ -49,20 +51,19 @@
 #delete-initiate-button {
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid var(--red-button);
-    background: var(--background);
+    border: none;
+    background: var(--red-button);
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 15px;
-    color: var(--red-button);
+    color: white;
     transition: 0.2s;
     cursor: pointer;
     margin-top: 15px;
 }
 
 #delete-initiate-button:hover {
-    background: var(--red-button) !important;
-    color: white;
+    background: var(--red-button-hover);
 }
 
 #redirect-uri-container {
@@ -99,6 +100,10 @@
     column-gap: 15px;
 }
 
+#application-name-change-container {
+    display: flex;
+    column-gap: 15px;
+}
 
 /* Class selectors */
 .divider {
@@ -148,11 +153,27 @@
 }
 
 .section-container {
-    margin: 10px 0 20px 0;
     padding: 30px;
     border-radius: 10px;
     border: 1px solid var(--border);
     transition: 0.2s;
+    background: var(--background);
+}
+
+.section-container-footer {
+    margin-top: -40px;
+    padding: 15px 30px 15px 30px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border);
+    transition: 0.2s;
+    background: var(--background);
+}
+
+.section-container-footer p {
+    margin: 0;
 }
 
 /* Element selectors */
@@ -162,10 +183,14 @@ h2 {
 
 h4 {
     margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600 !important;
 }
 
 p {
-    font-family: "Gotham";
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
     color: var(--text);
-    margin: 0 0 5px 0;
+    margin: 15px 0 15px 0;
 }

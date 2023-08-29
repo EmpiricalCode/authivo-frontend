@@ -229,7 +229,7 @@ export class DocumentationComponent {
   }
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle("Authivo • Documentation");
+    this.titleService.setTitle("Documentation | Authivo");
   }
 
   scrollTo(element: Element) {

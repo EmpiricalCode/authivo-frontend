@@ -16,7 +16,7 @@ export class ContinueComponent implements AfterViewInit {
   continuing: boolean = false;
 
   constructor(private messageService: MessageService, private http: HttpClient, public authService: AuthService, private titleService: Title) {
-    this.titleService.setTitle("Authivo • Continue");
+    this.titleService.setTitle("Continue | Authivo");
   }
 
   ngAfterViewInit() {

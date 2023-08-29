@@ -13,6 +13,30 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient) { }
 
+  async getUserData() {
+
+    return new Promise((resolve, reject) => {
+      this.http.post("https://api.authivo.com/authorization/tokeninfo", {
+        token: window.localStorage.getItem("token")
+      }).subscribe((tokenInfoResponse: any) => {
+
+        console.log(tokenInfoResponse);
+
+        if (tokenInfoResponse.status == 200) {
+
+          this.http.get(`https://api.authivo.com/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
+
+            if (userDataResponse.status == 200) {
+              console.log(userDataResponse);
+              
+              resolve(userDataResponse.data);
+            }
+          })
+        }
+      });
+    });
+  }
+
   getRedirectUri() {
     return this.search.get("redirect_uri");
   }

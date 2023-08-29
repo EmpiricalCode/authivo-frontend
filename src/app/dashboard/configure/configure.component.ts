@@ -21,15 +21,42 @@ export class ConfigureComponent {
 
   addingURI: boolean = false;
   deleting: boolean = false;
+  changingApplicationName: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private renderer: Renderer2, private messageService: MessageService, private titleService: Title) {
 
-    this.titleService.setTitle("Authivo • Configure");
+    this.titleService.setTitle("Configure | Authivo");
 
     this.route.params.subscribe((params: any) => {
       this.params = params;
       this.loadApplicationData();
     })
+  }
+
+  changeApplicationName(name: String) {
+
+    if (name != this.application.name) {
+      if (!this.changingApplicationName) {
+        this.changingApplicationName = true;
+
+        this.http.post("https://api.authivo.com/applications/changeapplicationname", {
+          token: window.localStorage.getItem("token"),
+          client_id: this.application.clientID,
+          name: name
+        }).subscribe((response: any) => {
+          this.changingApplicationName = false;
+
+          if (response.status == 200) {
+            this.messageService.spawnSuccessMessage(response.response);
+            this.loadApplicationData();
+          } else {
+            this.messageService.spawnErrorMessage(response.response);
+          }
+        })
+      }
+    } else {
+      this.messageService.spawnErrorMessage("New application name must be different from current application name");
+    }
   }
 
   loadApplicationData() {

@@ -1,21 +1,22 @@
 :host {
     flex-grow: 1;
+    background: var(--background-alternate);
 }
 
 /* ID Selectors */
 #content-container {
     flex-grow: 1;
-    max-width: 1200px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
-    margin-left: max(100px, calc(50% - 600px));
-    margin-right: max(100px, calc(50% - 600px));
+    margin-left: max(100px, calc(50% - 500px));
+    margin-right: max(100px, calc(50% - 500px));
     padding-top: 20px;
 }
 
 #application-container {
+    /* margin-top: 35px; */
     display: grid;
-    margin-top: 40px;
     grid-template-columns: calc(50% - 10px) calc(50% - 10px);
     column-gap: 20px;
     row-gap: 20px;
@@ -25,7 +26,7 @@
     display: inline;
     align-self: flex-start;
     margin-top: -43px;
-    margin-left: 360px;
+    margin-left: 320px;
     padding: 10px;
     font-family: "Montserrat";
     font-weight: 500;
@@ -43,7 +44,7 @@
 
 /* Class selectors */
 .application-placeholder {
-    height: 158px;
+    height: 192px;
     border-radius: 10px;
     border: 2px dashed var(--border);
     transition: 0.2s;
@@ -52,14 +53,12 @@
 
 .application {
     position: relative;
-    height: 80px;
+    height: 130px;
     border-radius: 10px;
     border: 1px solid var(--border);
     transition: 0.2s;
-    padding: 40px;
-    padding-left: 30px;
+    padding: 30px;
     background: var(--background);
-    box-shadow: var(--box-shadow);
     cursor: pointer;
     overflow: hidden;
 }
@@ -71,4 +70,26 @@
     width: 5px;
     height: 100%;
     background: var(--primary);
+}
+
+.divider {
+    width: 100%;
+    margin-left: -30px;
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0 20px 0;
+}
+
+/* Element selectors */
+h4 {
+    font-family: "Montserrat";
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h1 {
+    font-size: 35px;
 }

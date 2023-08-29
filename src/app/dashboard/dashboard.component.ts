@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   applications: any[] = [];
 
   constructor(private http: HttpClient, private titleService: Title, public router: Router) {
-    this.titleService.setTitle("Authivo • Dashboard");
+    this.titleService.setTitle("Dashboard | Authivo");
   }
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
         }
 
       } else {
-        alert(res.response);
+        console.log(res.response);
       }
     })
   }

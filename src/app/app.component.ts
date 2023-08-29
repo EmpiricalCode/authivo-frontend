@@ -38,28 +38,11 @@ export class AppComponent implements AfterViewInit {
       this.spawnMessage(params.message, params.success);
     })
     
-    this.authService.isLoggedIn().then((value) => {
+    this.authService.isLoggedIn().then(async (value) => {
       this.loggedIn = value;
 
       if (value) {
-
-        this.http.post("https://api.authivo.com/authorization/tokeninfo", {
-          token: window.localStorage.getItem("token")
-        }).subscribe((tokenInfoResponse: any) => {
-
-          console.log(tokenInfoResponse);
-
-          if (tokenInfoResponse.status == 200) {
-
-            this.http.get(`https://api.authivo.com/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
-
-              if (userDataResponse.status == 200) {
-                this.userData = userDataResponse.data;
-                console.log(this.userData);
-              }
-            })
-          }
-        });
+        this.userData = await this.authService.getUserData();
       }
     })
     
@@ -73,6 +56,10 @@ export class AppComponent implements AfterViewInit {
         this.hideProfileDropdown();
       }
     }
+  }
+
+  redirectTo(path: string) {
+    window.location.href = window.location.origin + path;
   }
   
   shouldShowNavRight() {

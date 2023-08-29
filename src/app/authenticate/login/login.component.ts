@@ -19,7 +19,7 @@ export class LoginComponent {
   loggingIn: boolean = false;
 
   constructor(public authService: AuthService, private http: HttpClient, private messageService: MessageService, private titleService: Title) {
-    this.titleService.setTitle("Authivo • Login");
+    this.titleService.setTitle("Login | Authivo");
   }
 
   async login() {
@@ -45,7 +45,7 @@ export class LoginComponent {
             auth_type: "pkce",
             client_id: "host",
             code_challenge: code_challenge,
-            redirect_uri: "http://localhost:4200"
+            redirect_uri: "https://authivo.com"
           }));
 
           if (codeResponse.status == 200) {

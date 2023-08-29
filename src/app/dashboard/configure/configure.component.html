@@ -1,16 +1,47 @@
+<div class="page-title-container">
+    <svg class="page-title-container-background" width="1200px" height="600px" viewBox="0 0 80 60">
+        <path d="M 96 21 C 77 32 51 36 5 52 C 73 39 96 33 96 21" style="stroke: var(--primary); fill: var(--primary);"></path>
+        <path d="M -26 52 C -16 24 39 30 69 21 C 49 44 9 28 -26 52" style="filter: blur(0px); stroke: var(--secondary); fill: var(--secondary);"></path>
+        <path d="M -39 1 C -44 16 -11 49 5 54 C -7 37 -21 30 -39 1" style="filter: blur(0px); stroke: var(--primary); fill: var(--primary);"></path>
+    </svg>  
+    Configure Application
+</div>
+
 <div id="content-container">
     <!-- <a href="/dashboard" style="cursor: pointer; align-self: flex-start;">
         <svg style="margin-bottom: 10px" width="20px" height="20px" viewBox="-1 -1 11 10">
             <path style="stroke: var(--primary); stroke-width: 1.5px; stroke-linecap: round;" d="M 0 4 L 4 0 M 0 4 L 9 4 M 0 4 L 4 8"></path>
         </svg>
     </a> -->
-    <h4>Configure Application</h4>
-    <h1 style="margin-bottom: 20px;">{{this.application.name}}</h1>
-        
-    <div class="section-container">
-        <h2>Information</h2>
 
+    <div class="section-container">
+        <h2>Application Name</h2>
+        <p>Change your application name</p>
+
+        <div id="application-name-change-container">
+            <input #changeApplicationNameInput value="{{this.application.name}}" class="form-input">
+            
+        </div>
+    </div>
+
+    <div class="section-container-footer">
+        <p>Application names must be 20 characters or less.</p>
+        <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingApplicationName ? 'form-button-solid-disabled' : ''" (click)="this.changeApplicationName(changeApplicationNameInput.value)">
+            Save
+            <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px);">
+                <svg width="30px" height="30px" class="rotating">
+                    <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                    <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+                </svg> 
+            </div>
+        </button>
+    </div>
+            
+    <div class="section-container">
+
+        <h2>Information</h2>
         <h4>Client ID</h4>
+
         <div class="application-information-field">
             {{this.application.clientID}}
         </div>
@@ -22,7 +53,6 @@
     <div class="section-container">
 
         <h2>Settings</h2>
-
         <h4>Redirect URIs</h4>
 
         <table id="redirect-uri-container">
@@ -53,7 +83,13 @@
         </div>
     </div>
 
-    <button id="delete-initiate-button" (click)="this.initiateDelete()">Delete Application</button>
+    <div style="border-color: var(--error-message)" class="section-container">
+
+        <h2 style="color: var(--error-message)">Delete Application</h2>
+        <h4>Delete this application and all of its data permanently.</h4>
+
+        <button id="delete-initiate-button" (click)="this.initiateDelete()">Delete Application</button>
+    </div>
 </div>
 
 <div id="background-cover" [ngClass]="this.deleting ? '' : 'hidden'">

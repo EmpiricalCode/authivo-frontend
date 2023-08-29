@@ -530,7 +530,7 @@ export class TutorialsComponent {
   }
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle("Authivo • Tutorials");
+    this.titleService.setTitle("Tutorials | Authivo");
   }
 
   scrollTo(element: Element) {
