@@ -39,7 +39,7 @@ export class ConfigureComponent {
       if (!this.changingApplicationName) {
         this.changingApplicationName = true;
 
-        this.http.post("https://authivo-api-dev.vercel.app/applications/changeapplicationname", {
+        this.http.post("https://api.authivo.com/applications/changeapplicationname", {
           token: window.localStorage.getItem("token"),
           client_id: this.application.clientID,
           name: name
