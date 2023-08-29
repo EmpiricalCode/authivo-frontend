@@ -17,7 +17,7 @@
     --information-field: rgb(250, 250, 250);
     --information-field-border: rgb(177, 177, 177);
     --subtitle: rgb(94, 94, 94);
-    --box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     --red-button: rgb(179, 87, 87);
     --red-button-hover: rgb(206, 112, 112);
     --profile-button-hover: rgb(245, 245, 245);
@@ -34,7 +34,7 @@
     --text: rgb(177, 177, 177);
     --information-field: rgb(31, 37, 50);
     --information-field-border: rgb(83 90 109);
-    --box-shadow: var(--border) 0px 0px 0 1px;
+    --box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 24px;
     --profile-button-hover: rgb(31, 37, 50);
 }
 
