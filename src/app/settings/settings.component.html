@@ -12,19 +12,23 @@
     <div class="section-container">
         <h2>Username</h2>
         <p>Change your Authivo username.</p>
-        
-        <div id="username-change-container">
-            <input #changeUsernameInput value="{{this.userData.username}}" class="form-input">
-            <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingUsername ? 'form-button-solid-disabled' : ''" (click)="this.changeUsername(changeUsernameInput.value)">
-                Save
-                <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px); ">
-                    <svg width="30px" height="30px" class="rotating">
-                        <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                        <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                    </svg> 
-                </div>
-            </button>
-        </div>
+
+        <input #changeUsernameInput value="{{this.userData.username}}" class="form-input" style="width: 300px;">
+
+    </div>
+
+    <div class="section-container-footer">
+        <p>Your username must be 20 characters or less.</p>
+
+        <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingUsername ? 'form-button-solid-disabled' : ''" (click)="this.changeUsername(changeUsernameInput.value)">
+            Save
+            <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px); ">
+                <svg width="30px" height="30px" class="rotating">
+                    <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                    <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+                </svg> 
+            </div>
+        </button>
     </div>
 
     <div class="section-container">

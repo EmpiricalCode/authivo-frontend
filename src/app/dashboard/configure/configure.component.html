@@ -20,16 +20,21 @@
 
         <div id="application-name-change-container">
             <input #changeApplicationNameInput value="{{this.application.name}}" class="form-input">
-            <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingApplicationName ? 'form-button-solid-disabled' : ''" (click)="this.changeApplicationName(changeApplicationNameInput.value)">
-                Save
-                <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px);">
-                    <svg width="30px" height="30px" class="rotating">
-                        <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                        <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                    </svg> 
-                </div>
-            </button>
+            
         </div>
+    </div>
+
+    <div class="section-container-footer">
+        <p>Application names must be 20 characters or less.</p>
+        <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingApplicationName ? 'form-button-solid-disabled' : ''" (click)="this.changeApplicationName(changeApplicationNameInput.value)">
+            Save
+            <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px);">
+                <svg width="30px" height="30px" class="rotating">
+                    <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                    <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+                </svg> 
+            </div>
+        </button>
     </div>
             
     <div class="section-container">
