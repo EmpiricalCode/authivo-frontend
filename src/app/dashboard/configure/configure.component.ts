@@ -48,6 +48,7 @@ export class ConfigureComponent {
 
           if (response.status == 200) {
             this.messageService.spawnSuccessMessage(response.response);
+            this.loadApplicationData();
           } else {
             this.messageService.spawnErrorMessage(response.response);
           }
