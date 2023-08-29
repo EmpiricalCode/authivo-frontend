@@ -92,7 +92,7 @@
     background: var(--background);
     position: absolute;
     top: max(550px, calc(100% - 450px));
-    left: calc(50% - 100px);
+    left: calc(50% - 50px);
     overflow: hidden;
     user-select: none;
     z-index: 10;
