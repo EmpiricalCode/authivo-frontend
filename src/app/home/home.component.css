@@ -2,24 +2,26 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    overflow: hidden;
 }
 
 /* ID selectors */
 #content-container {
     flex-grow: 1;
     padding-bottom: 0;
+    overflow: hidden;
 }
 
 #landing-page-container {
     position: relative;
-    margin-top: 130px;
+    margin-top: 120px;
     margin-left: 17%;
     width: 650px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: calc(100vh - 370px);
+    height: calc(100vh - 430px);
+    min-height: 550px;
+    z-index: 100;
 }
 
 #landing-page-description-container {
@@ -28,6 +30,7 @@
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 100px;
+    padding-top: 150px;
     background: var(--background);
 }
 
@@ -68,8 +71,8 @@
 
 #landing-page-background-container {
     position: absolute;
-    left: -100px;
-    top: -250px;
+    left: calc(50% - 750px);
+    top: -50px;
     filter: blur(100px) opacity(50%);
     z-index: -1;
 }
@@ -83,16 +86,17 @@
 }
 
 #landing-page-graphic {
-    width: 400px;
-    height: 240px;
+    width: 500px;
+    height: 330px;
     border-radius: 10px;
     background: var(--background);
     position: absolute;
-    top: 150px;
-    left: max(40vw, 400px);
+    top: max(530px, calc(100% - 450px));
+    left: calc(50% - 100px);
     overflow: hidden;
     user-select: none;
-    z-index: -1;
+    z-index: 10;
+    box-shadow: var(--box-shadow);
 }
 
 #landing-page-graphic-menubar {
@@ -116,7 +120,7 @@
     text-align: center;
     line-height: 40px;
     margin-left: calc(50% - 100px);
-    margin-top: 70px;
+    margin-top: 120px;
     font-family: "Montserrat";
     font-weight: 500;
 }
@@ -156,21 +160,18 @@
 }
 
 /* Exceptions */
-@media only screen and (min-width: 1500px) {
-
-    #landing-page-graphic {
-        left: 700px !important;
-    }
-}
-
-@media only screen and (max-width: 1300px) {
-
-    #landing-page-subtitle {
-        width: 300px !important;
-    }
-}
 
 @media only screen and (max-height: 850px) {
+
+    #landing-page-graphic {
+        top: max(550px, calc(100% - 185px)) !important;
+        height: 300px;
+        width: 500px;
+    }
+
+    #landing-page-description-container {
+        padding-top: 200px;
+    }
 
     #landing-page-container {
         height: calc(100vh - 200px) !important;
