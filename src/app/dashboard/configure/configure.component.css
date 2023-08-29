@@ -1,5 +1,9 @@
 /* ID Selectors */
 #content-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    padding-top: 30px;
     margin-top: 10px;
 }
 
@@ -149,12 +153,27 @@
 }
 
 .section-container {
-    margin: 10px 0 20px 0;
     padding: 30px;
     border-radius: 10px;
     border: 1px solid var(--border);
     transition: 0.2s;
     background: var(--background);
+}
+
+.section-container-footer {
+    margin-top: -40px;
+    padding: 15px 30px 15px 30px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border);
+    transition: 0.2s;
+    background: var(--background);
+}
+
+.section-container-footer p {
+    margin: 0;
 }
 
 /* Element selectors */
