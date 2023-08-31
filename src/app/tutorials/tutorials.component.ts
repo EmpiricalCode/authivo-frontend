@@ -218,6 +218,9 @@ export class TutorialsComponent {
                 // Randomly generates a string of length 20
                 const codeVerifier = this.generateCodeVerifier();
 
+                // Storing the code verifier
+                window.localStorage.setItem("code", codeVerifier);
+
                 // Runs the code verifier through a SHA-256 algorithm, then converts it to base 64
                 const codeChallenge = btoa(String.fromCharCode(...new Uint8Array(
                   await window.crypto.subtle.digest("SHA-256", (new TextEncoder()).encode(codeVerifier)))));
