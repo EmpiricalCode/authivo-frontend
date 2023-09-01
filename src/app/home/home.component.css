@@ -20,17 +20,29 @@
     flex-direction: column;
     align-items: flex-start;
     height: calc(100vh - 120px);
-    min-height: 880px;
+    min-height: 900px;
     z-index: 100;
+}
+
+#landing-page-container-grid {
+    width: 100vw;
+    left: -17vw;
+    height: 1000px;
+    opacity: 0.12;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    background-image: url("../../assets/images/landing-page-grid.png");
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%);
 }
 
 #landing-page-description-container {
     position: relative;
     width: calc(100% - 200px);
-    /* border-top: 1px solid var(--border); */
+    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 100px;
-    padding-top: 210px;
+    padding-top: 190px;
     padding-bottom: 150px;
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--background) 0%);
 }
@@ -47,7 +59,7 @@
     margin-top: 15px;   
     line-height: 30px;
     font-size: 20px;
-    width: 520px;
+    width: 450px;
     background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -92,7 +104,7 @@
     display: flex;
     justify-content: center;
     top: max(700px, calc(100vh - 350px));
-    z-index: 10;
+    z-index: 100;
 }
 
 #landing-page-code {
@@ -216,8 +228,9 @@
 
 /* Class selectors */
 .description-blog {
-    width: 550px;
-    height: 400px;
+    width: 500px;
+    min-height: 430px;
+    max-height: 430px;
     background: var(--background);
     border-radius: 20px;
     z-index: 10;
@@ -230,7 +243,7 @@
     font-size: 16px;
     font-weight: 500;
     color: var(--text);
-    padding: 30px;
+    padding: 25px;
     padding-top: 20px;
     line-height: 40px;
     position: relative;
@@ -240,8 +253,8 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    height: 200px;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--background) 80%);
+    height: 220px;
+    background: linear-gradient(180deg, rgba(255,255,255,0) -50%, var(--background) 90%);
 }
 
 .description-blog-header {

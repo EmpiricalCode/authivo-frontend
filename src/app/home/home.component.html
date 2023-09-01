@@ -11,6 +11,8 @@
         <h1 id="landing-page-title">Authentication Made Easy.</h1>
         <h3 id="landing-page-subtitle">A free single sign on service with a focus on ease of use and simplicity.</h3>
         <a id="landing-onboarding-button" href="/dashboard">Try It Today</a>
+
+        <div id="landing-page-container-grid"></div>
         
     </div>
 
@@ -156,7 +158,7 @@
                 <path d="M -23 7 C -16 24 53 31 89 4 C 37 16 9 28 -23 7" style="filter: blur(0px); stroke: var(--secondary); fill: var(--secondary);"></path>
             </svg> 
 
-            <div class="description-blog" style="margin-right: -250px;">
+            <div class="description-blog" style="margin-right: -220px;">
                 <div class="description-blog-header">
                     <h4>Using Authivo With Angular</h4>
                     <div>
@@ -169,12 +171,12 @@
 
                 <div class="description-blog-content">
                     With Angular, Authivo offers the Proof of Key Code Exchange flow, the perfect authentication flow for single-page applications. 
-                    The PKCE flow does not require a client secret, but instead a code verifier and code challenge to make sure that the client initiating the auth request
+                    The PKCE flow does not require a client secret, but instead a code verifier and code challenge to make sure that the client initiating
                     <div class="description-blog-fadeout"></div>
                 </div>
             </div>
 
-            <div class="description-blog" style="margin-top: 70px; z-index: 100; margin-right: -250px;">
+            <div class="description-blog" style="margin-top: 70px; z-index: 100; margin-right: -220px;">
                 <div class="description-blog-header">
                     <h4>Supported Auth Flows</h4>
                     <div>
@@ -187,11 +189,12 @@
 
                 <div class="description-blog-content">
                     Authivo supports the PKCE (Proof of Key Code Exchange) code flow for single-page applications, and a regular Authorization Code flow for websites with a dedicated backend (such as Express.js).
-                    Both have their usecases
+                    Both have their usecases. The PKCE flow is commonly used for SPAs,
                     <div class="description-blog-fadeout">
                     </div>
-                    <a href="/documentation" class="form-button-outline" style="position: absolute; bottom: -40px; left: calc(50% - 100px); border-width: 2px; font-weight: 600; width: 200px; padding: 0;">Check Out The Docs</a>
                 </div>
+
+                <a href="/documentation" class="form-button-outline" style="position: absolute; bottom: 40px; left: calc(50% - 112px); border-width: 2px; font-weight: 600; width: 200px; padding: 10px;">Check Out The Docs</a>
             </div>
 
             <div class="description-blog">
@@ -208,7 +211,7 @@
                 <div class="description-blog-content">
                     Authivo utlizes a widespread standard known as JWTs, or JSON Web Tokens. JWTs are a way of securely transmitting information between parties. 
                     They help ensure that the data was not tampered with since it was sent.
-                    In order to verify an Authivo-granted JWT, you must use the /tokenInfo
+                    In order to verify an Authivo-granted JWT
                     <div class="description-blog-fadeout"></div>
                 </div>
             </div>
