@@ -33,13 +33,14 @@
     bottom: 0;
     z-index: 100;
     background-image: url("../../assets/images/landing-page-grid.png");
-    -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%);
+    background-position: bottom;
+    -webkit-mask-image: radial-gradient(circle at 50% -30%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%);
 }
 
 #landing-page-description-container {
     position: relative;
     width: calc(100% - 200px);
-    border-top: 1px solid var(--border);
+    /* border-top: 1px solid var(--border); */
     border-bottom: 1px solid var(--border);
     padding: 100px;
     padding-top: 190px;
