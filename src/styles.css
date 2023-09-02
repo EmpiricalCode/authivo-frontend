@@ -34,7 +34,7 @@
     --text: rgb(177, 177, 177);
     --information-field: rgb(31, 37, 50);
     --information-field-border: rgb(83 90 109);
-    --box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 24px;
+    --box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 24px;
     --profile-button-hover: rgb(31, 37, 50);
 }
 
