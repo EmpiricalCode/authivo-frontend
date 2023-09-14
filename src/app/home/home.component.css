@@ -87,7 +87,7 @@
     position: absolute;
     left: calc(50% - 750px);
     top: -50px;
-    filter: blur(100px) opacity(50%);
+    filter: blur(150px) opacity(60%);
     z-index: -1;
 }
 
