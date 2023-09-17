@@ -48,10 +48,6 @@ export class AppComponent implements AfterViewInit {
     
     // Dropdown
     window.onclick = (event: any) => {
-      console.log(event.target.id);
-      console.log(event.target.classList);
-      
-      
       if (!event.target.matches(".profile-dropdown-member")) {
         this.hideProfileDropdown();
       }
