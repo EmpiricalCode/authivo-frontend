@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,4 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomeComponent {
 
-  constructor(private titleService: Title) {
-    titleService.setTitle("Authivo | Authentication Made Easy");
-  }
 }
