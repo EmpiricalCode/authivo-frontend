@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
 
   @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
 
@@ -30,10 +31,12 @@ export class AppComponent implements AfterViewInit {
     "/auth"
   ];
 
-  constructor(public authService: AuthService, private renderer: Renderer2, private messageService: MessageService, private http: HttpClient) { }
+  constructor(public authService: AuthService, private renderer: Renderer2, private messageService: MessageService, private http: HttpClient, private themeService: ThemeService) { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
 
+    this.themeService.set("Light");
+  
     this.messageService.attachMessages().subscribe((params: any) => {
       this.spawnMessage(params.message, params.success);
     })
