@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from '../message.service';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -13,8 +14,9 @@ export class SettingsComponent implements OnInit {
 
   userData: any = {};
   changingUsername: boolean = false;
+  activeTheme: string = this.themeService.activeTheme as string;
 
-  constructor(private http: HttpClient, private authService: AuthService, private titleService: Title, private messageService: MessageService) {
+  constructor(private http: HttpClient, private authService: AuthService, private titleService: Title, private messageService: MessageService, private themeService: ThemeService) {
     titleService.setTitle("Account Settings | Authivo");
   }
 

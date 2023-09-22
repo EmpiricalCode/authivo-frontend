@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    this.themeService.set("Light");
+    this.themeService.set(localStorage.getItem("theme") as string);
   
     this.messageService.attachMessages().subscribe((params: any) => {
       this.spawnMessage(params.message, params.success);

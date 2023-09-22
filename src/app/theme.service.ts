@@ -21,7 +21,12 @@ export class ThemeService {
 
   set(themeName: string): void {
 
-    if (this.activeTheme === themeName || !this.themes.includes(themeName)) {
+    if (this.activeTheme === themeName) {
+      return;
+    }
+
+    if (!this.themes.includes(themeName)) {
+      this.set("Light");
       return;
     }
 
