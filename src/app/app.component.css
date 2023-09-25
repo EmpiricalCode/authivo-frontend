@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background: var(--background);
+    transition: 0.2s;
 }
 
 /* ID Selectors */
@@ -13,6 +15,8 @@
     display: flex;
     z-index: 100;
     align-items: center;
+    transition: 0.2s;
+
     /* border-bottom: 1px solid var(--border); */
     /* box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 10px; */
 }

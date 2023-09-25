@@ -38,8 +38,8 @@
         <div class="dropdown-container">
             <div tabindex="1" class="dropdown-initiator">{{this.activeTheme}}</div>
             <div class="dropdown">
-                <div class="dropdown-item">Light</div>
-                <div class="dropdown-item">Dark</div>
+                <div class="dropdown-item" (click)="changeTheme('Light')">Light</div>
+                <div class="dropdown-item" (click)="changeTheme('Dark')">Dark</div>
             </div>
         </div>
 

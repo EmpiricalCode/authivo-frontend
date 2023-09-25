@@ -30,6 +30,7 @@ export class ThemeService {
       return;
     }
 
+    localStorage.setItem("theme", themeName);
     this.activeThemeSubject.next(themeName);
 
     for (var theme of this.themes) {

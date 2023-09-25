@@ -20,6 +20,11 @@ export class SettingsComponent implements OnInit {
     titleService.setTitle("Account Settings | Authivo");
   }
 
+  changeTheme(name: string) {
+    this.activeTheme = name;
+    this.themeService.set(name);
+  }
+
   changeUsername(name: string) {
 
     if (name != this.userData.username) {
