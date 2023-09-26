@@ -16,7 +16,7 @@
     position: absolute;
     left: calc(50% - 500px);
     margin-bottom: -700px; 
-    z-index: -1; 
+    z-index: 0; 
     filter: blur(70px);
     opacity: 0.5;
 }
