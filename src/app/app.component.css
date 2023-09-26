@@ -3,7 +3,7 @@
     flex-direction: column;
     flex-grow: 1;
     background: var(--background);
-    transition: 0.2s;
+    transition: background 0.2s,;
 }
 
 /* ID Selectors */
