@@ -20,8 +20,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: calc(100vh - 120px);
-    min-height: 900px;
+    height: calc(100vh - 50px);
+    min-height: 800px;
     z-index: 100;
 }
 
@@ -105,7 +105,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    top: max(700px, calc(100vh - 350px));
+    top: max(600px, calc(100vh - 240px));
     z-index: 100;
 }
 
