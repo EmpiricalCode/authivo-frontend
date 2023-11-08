@@ -20,8 +20,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: calc(100vh - 120px);
-    min-height: 900px;
+    height: calc(100vh - 50px);
+    min-height: 800px;
     z-index: 100;
 }
 
@@ -105,7 +105,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    top: max(700px, calc(100vh - 350px));
+    top: max(600px, calc(100vh - 240px));
     z-index: 100;
 }
 
@@ -216,7 +216,7 @@
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    column-gap: 50px;
+    column-gap: 80px;
     position: relative;
 }
 
@@ -224,19 +224,20 @@
     position: absolute;
     left: calc(50% - 900px);
     top: -100px;
-    filter: blur(100px) opacity(40%);
+    filter: blur(50px) opacity(20%);
     z-index: 0;
 }
 
 /* Class selectors */
 .description-blog {
-    width: 500px;
+    width: 400px;
     min-height: 430px;
     max-height: 430px;
     background: var(--background);
     border-radius: 20px;
+    border: 1px solid var(--border);
     z-index: 10;
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
     overflow: hidden;
 }
 
@@ -268,7 +269,11 @@
 }
 
 .description-blog-header h4 {
-    font-size: 20px;
+    font-size: 25px;
+    font-family: "Gotham Medium";
+    background: linear-gradient(0deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .description-blog-header div {
@@ -327,7 +332,7 @@
 
 .title {
     font-size: 55px;
-    background: linear-gradient(0deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(270deg, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -356,6 +361,19 @@
 @media only screen and (max-width: 1350px) {
 
     #landing-page-code {
-        margin-right: -500px !important;
+        margin-right: -400px !important;
     }
+
+    #description-blog-first {
+        margin-right: -200px !important;
+    } 
+
+    #description-blog-middle {
+        margin-top: 100px;
+    }
+
+    #description-blog-last {
+        margin-left: -200px !important;
+        z-index: 0;
+    } 
 }

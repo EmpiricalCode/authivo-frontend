@@ -5,6 +5,7 @@
     --border-light: rgb(240, 240, 240);
     --nav-bar-button: rgb(73, 73, 73);
     --background: rgb(255, 255, 255);
+    --background-value: 255, 255, 255;
     --background-alternate: rgb(252, 252, 252);
     --text: rgb(91 91 91);
     --title: rgb(47, 47, 47);
@@ -29,7 +30,6 @@
     --border: rgb(230, 230, 230);
     --border-light: rgb(240, 240, 240);
     --nav-bar-button: rgb(73, 73, 73);
-    --background: rgb(255, 255, 255);
     --background-alternate: rgb(252, 252, 252);
     --text: rgb(91 91 91);
     --title: rgb(47, 47, 47);
@@ -51,6 +51,7 @@
     --border-light: rgb(48, 57, 77);
     --nav-bar-button: rgb(221, 221, 221);
     --background: rgb(21, 25, 34);
+    --background-value: 21, 25, 34;
     --background-alternate: rgb(16 20 28);
     --title: rgb(232, 232, 232);
     --subtitle: rgb(150, 150, 150);
