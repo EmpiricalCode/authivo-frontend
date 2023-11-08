@@ -115,7 +115,7 @@
     width: 100%;
     padding: 13px 13px 13px 15px;
     border: none;
-    background: rgba(var(--background-value), 0.2);
+    background: rgba(var(--background-value), 0.3);
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 14px;
