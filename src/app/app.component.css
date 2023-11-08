@@ -108,13 +108,14 @@
     overflow: hidden;
     z-index: 100;
     transition: 0.2s;
+    backdrop-filter: blur(13px);
 }
 
 #profile-dropdown button {
     width: 100%;
     padding: 13px 13px 13px 15px;
     border: none;
-    background: var(--background);
+    background: rgba(var(--background-value), 0.2);
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 14px;
