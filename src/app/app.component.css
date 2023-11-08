@@ -108,7 +108,7 @@
     overflow: hidden;
     z-index: 100;
     transition: 0.2s;
-    backdrop-filter: blur(13px);
+    backdrop-filter: blur(10px);
 }
 
 #profile-dropdown button {
