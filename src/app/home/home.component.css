@@ -361,6 +361,19 @@
 @media only screen and (max-width: 1350px) {
 
     #landing-page-code {
-        margin-right: -500px !important;
+        margin-right: -400px !important;
     }
+
+    #description-blog-first {
+        margin-right: -200px !important;
+    } 
+
+    #description-blog-middle {
+        margin-top: 100px;
+    }
+
+    #description-blog-last {
+        margin-left: -200px !important;
+        z-index: 0;
+    } 
 }
