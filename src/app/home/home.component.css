@@ -50,7 +50,7 @@
 }
 
 #landing-page-title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 90px;
     background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
@@ -119,7 +119,7 @@
     overflow: hidden;
     user-select: none;
     z-index: 10;
-    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
 }
@@ -182,7 +182,7 @@
     overflow: hidden;
     user-select: none;
     z-index: 10;
-    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border);
 }
 
 #landing-page-example-menubar {
@@ -331,7 +331,7 @@
 }
 
 .title {
-    font-size: 55px;
+    font-size: 60px;
     background: linear-gradient(270deg, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
