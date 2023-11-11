@@ -14,8 +14,6 @@ export class AppComponent implements OnInit {
 
   @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
 
-  ngxMarkdownVersion = '6.2.0';
-
   title: string = "authivo-frontend";
   loggedIn: boolean = true;
   profileDropdown: boolean = false;
