@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthenticateComponent } from './authenticate.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AuthenticateComponent', () => {
   let component: AuthenticateComponent;
@@ -8,6 +9,7 @@ describe('AuthenticateComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [AuthenticateComponent]
     });
     fixture = TestBed.createComponent(AuthenticateComponent);
