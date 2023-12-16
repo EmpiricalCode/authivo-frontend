@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable, lastValueFrom } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
-import { MessageService } from 'src/app/message.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-continue',

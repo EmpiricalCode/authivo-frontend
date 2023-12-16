@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { lastValueFrom } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
-import { MessageService } from 'src/app/message.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-register',

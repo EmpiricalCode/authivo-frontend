@@ -1,8 +1,8 @@
 import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { MessageService } from 'src/app/message.service';
+import { MessageService } from 'src/app/services/message.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({

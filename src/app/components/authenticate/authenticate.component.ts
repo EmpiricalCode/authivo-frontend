@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-authenticate',

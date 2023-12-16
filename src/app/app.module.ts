@@ -3,21 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './authenticate/login/login.component';
-import { AuthenticateComponent } from './authenticate/authenticate.component';
-import { RegisterComponent } from './authenticate/register/register.component';
-import { ContinueComponent } from './authenticate/continue/continue.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/authenticate/login/login.component';
+import { AuthenticateComponent } from './components/authenticate/authenticate.component';
+import { RegisterComponent } from './components/authenticate/register/register.component';
+import { ContinueComponent } from './components/authenticate/continue/continue.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CreateComponent } from './dashboard/create/create.component';
-import { ConfigureComponent } from './dashboard/configure/configure.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreateComponent } from './components/dashboard/create/create.component';
+import { ConfigureComponent } from './components/dashboard/configure/configure.component';
 import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
-import { DocumentationComponent } from './documentation/documentation.component';
-import { TutorialsComponent } from './tutorials/tutorials.component';
+import { DocumentationComponent } from './components/documentation/documentation.component';
+import { TutorialsComponent } from './components/tutorials/tutorials.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SettingsComponent } from './settings/settings.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 export default class CustomUrlSerializer implements UrlSerializer {
   private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();

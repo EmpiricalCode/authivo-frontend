@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './authenticate/login/login.component';
-import { AuthenticateComponent } from './authenticate/authenticate.component';
-import { ContinueComponent } from './authenticate/continue/continue.component';
-import { authProviderGuard } from './auth-provider.guard';
-import { authContinueGuard } from './auth-continue.guard';
-import { authCredentialsGuard } from './auth-credentials.guard';
-import { credentialsGuard } from './credentials.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { authGuard } from './auth.guard';
-import { CreateComponent } from './dashboard/create/create.component';
-import { ConfigureComponent } from './dashboard/configure/configure.component';
-import { DocumentationComponent } from './documentation/documentation.component';
-import { TutorialsComponent } from './tutorials/tutorials.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SettingsComponent } from './settings/settings.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/authenticate/login/login.component';
+import { AuthenticateComponent } from './components/authenticate/authenticate.component';
+import { ContinueComponent } from './components/authenticate/continue/continue.component';
+import { authProviderGuard } from './guards/auth-provider.guard';
+import { authContinueGuard } from './guards/auth-continue.guard';
+import { authCredentialsGuard } from './guards/auth-credentials.guard';
+import { credentialsGuard } from './guards/credentials.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { authGuard } from './guards/auth.guard';
+import { CreateComponent } from './components/dashboard/create/create.component';
+import { ConfigureComponent } from './components/dashboard/configure/configure.component';
+import { DocumentationComponent } from './components/documentation/documentation.component';
+import { TutorialsComponent } from './components/tutorials/tutorials.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {

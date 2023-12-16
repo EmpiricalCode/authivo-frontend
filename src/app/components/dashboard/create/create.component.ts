@@ -3,8 +3,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
-import { MessageService } from 'src/app/message.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-create',

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Title } from '@angular/platform-browser';
-import { MessageService } from '../message.service';
-import { ThemeService } from '../theme.service';
+import { MessageService } from '../../services/message.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-settings',

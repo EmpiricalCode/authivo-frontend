@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { response } from 'express';
 import { lastValueFrom } from 'rxjs';
-import { MessageService } from 'src/app/message.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-configure',
