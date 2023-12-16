@@ -239,7 +239,7 @@
 
 .page-title-container-background {
     max-width: 60%;
-    filter: blur(40px);
+    filter: blur(60px);
     opacity: 0.3;
     right: 0;
     position: absolute;
