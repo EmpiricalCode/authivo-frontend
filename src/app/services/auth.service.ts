@@ -20,15 +20,11 @@ export class AuthService {
         token: window.localStorage.getItem("token")
       }).subscribe((tokenInfoResponse: any) => {
 
-        console.log(tokenInfoResponse);
-
         if (tokenInfoResponse.status == 200) {
 
           this.http.get(`https://api.authivo.com/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
 
             if (userDataResponse.status == 200) {
-              console.log(userDataResponse);
-              
               resolve(userDataResponse.data);
             }
           })
