@@ -191,6 +191,10 @@
     color: var(--primary);
 }
 
+.nav-bar-image-button {
+    cursor: pointer;
+}
+
 .dropdown-hidden {
     opacity: 0;
     margin-top: 0 !important;

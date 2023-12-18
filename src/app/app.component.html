@@ -15,13 +15,12 @@
       <p id="app-title">authivo</p>
     </div>
 
-    <div style="padding: 5px 8px 5px 8px; border-radius: 10px; background: var(--primary); color: white; font-family: 'Montserrat'; font-weight: 600; margin-left: 5px; margin-top: -2px;">BETA</div>
-
   </div>
 
   <div id="nav-bar-right" *ngIf="shouldShowNavRight()">
     <a class="nav-bar-button" href="/documentation">Documentation</a>
     <a class="nav-bar-button" href="/tutorials">Tutorials</a>
+    <img onclick="window.location.href = 'https://github.com/empiricalcode/authivo-frontend'" class="nav-bar-image-button" src="../assets/images/github-logo.png" width="30px" height="30px">
     <div style="width: 2px; height: 30px; background: var(--border); transition: 0.2s;"></div>
     <a class="nav-bar-button" id="login-button" href="/login" *ngIf="!this.loggedIn">
       <svg width="20px" height="20px" viewBox="0 0 30 34">
