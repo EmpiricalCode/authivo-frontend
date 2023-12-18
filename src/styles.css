@@ -47,7 +47,7 @@
     --red-button-hover: rgb(206, 112, 112);
     --profile-button-hover: rgb(245, 245, 245);
 
-    --border: rgb(33, 40, 54);
+    --border: rgb(45, 52, 66);
     --border-light: rgb(48, 57, 77);
     --nav-bar-button: rgb(221, 221, 221);
     --background: rgb(21, 25, 34);
@@ -239,7 +239,7 @@
 
 .page-title-container-background {
     max-width: 60%;
-    filter: blur(40px);
+    filter: blur(60px);
     opacity: 0.3;
     right: 0;
     position: absolute;

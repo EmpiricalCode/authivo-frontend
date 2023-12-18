@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-grow: 1;
+    z-index: 10;
+}
+
+/* ID Selectors */
+#content-container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#error-container {
+    margin-top: -100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+    padding-bottom: 70px;
+    border-radius: 20px;
+    position: relative;
+    background: var(--background);
+    /* -webkit-box-shadow: inset 0px 0px 60px 100px var(--background);
+    box-shadow: inset 0px 0px 60px 100px var(--background); */
+}
+
+#error-background-container {
+    position: absolute;
+    z-index: -1;    
+    filter: blur(120px) opacity(0.7);
+}
+
+#error-code {
+    font-size: 130px;
+    margin-bottom: 0px;
+    background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

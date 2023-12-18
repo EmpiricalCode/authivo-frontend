@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { AuthService } from './auth.service';
-import { MessageService } from './message.service';
+import { AuthService } from './services/auth.service';
+import { MessageService } from './services/message.service';
 import { HttpClient } from '@angular/common/http';
-import { ThemeService } from './theme.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +13,6 @@ import { ThemeService } from './theme.service';
 export class AppComponent implements OnInit {
 
   @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
-
-  ngxMarkdownVersion = '6.2.0';
 
   title: string = "authivo-frontend";
   loggedIn: boolean = true;

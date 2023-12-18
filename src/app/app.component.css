@@ -4,6 +4,8 @@
     flex-grow: 1;
     background: var(--background);
     transition: background 0.2s,;
+    position: relative;
+    overflow-x: hidden;
 }
 
 /* ID Selectors */
