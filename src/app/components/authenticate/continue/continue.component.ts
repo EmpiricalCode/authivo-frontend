@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable, lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,7 +10,7 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './continue.component.html',
   styleUrls: ['./continue.component.css', '../authenticate.component.css']
 })
-export class ContinueComponent implements AfterViewInit {
+export class ContinueComponent implements OnInit {
 
   userData: any = {};
   continuing: boolean = false;
@@ -20,7 +20,7 @@ export class ContinueComponent implements AfterViewInit {
   }
 
   // Runs after component view initialized
-  ngAfterViewInit() {
+  ngOnInit() {
 
     // Fetching token information
     this.http.post("https://api.authivo.com/authorization/tokeninfo", {
