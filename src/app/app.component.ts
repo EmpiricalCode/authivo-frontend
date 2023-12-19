@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
 
   constructor(public authService: AuthService, private renderer: Renderer2, private messageService: MessageService, private http: HttpClient, private themeService: ThemeService) { }
 
+  // Runs after component is created
   ngOnInit() {
 
     this.themeService.set(localStorage.getItem("theme") as string);

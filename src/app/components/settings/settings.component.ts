@@ -20,7 +20,7 @@ export class SettingsComponent implements OnInit {
     titleService.setTitle("Account Settings | Authivo");
   }
 
-  // Runs on component init
+  // Runs after component is initialized
   async ngOnInit() {
 
     // Fetching user data
