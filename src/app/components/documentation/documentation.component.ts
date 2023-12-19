@@ -232,10 +232,12 @@ export class DocumentationComponent {
     this.titleService.setTitle("Documentation | Authivo");
   }
 
+  // Scrolls to element
   scrollTo(element: Element) {
     element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }
 
+  // Scrolls to element by ID
   scrollToID(id: any) {
     document.getElementById(id)!.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }

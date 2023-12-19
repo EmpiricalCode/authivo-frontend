@@ -6,6 +6,7 @@ export const credentialsGuard: CanActivateFn = async (route, state) => {
   
   const authService: AuthService = inject(AuthService);
 
+  // Navigates to dashboard if user is logged in
   if (!(await authService.isLoggedIn())) {
     return true;
   }

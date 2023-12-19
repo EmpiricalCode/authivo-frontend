@@ -536,10 +536,12 @@ export class TutorialsComponent {
     this.titleService.setTitle("Tutorials | Authivo");
   }
 
+  // Scrolls to element
   scrollTo(element: Element) {
     element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }
 
+  // Scrolls to element by id
   scrollToID(id: any) {
     document.getElementById(id)!.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }

@@ -15,9 +15,8 @@ export class AuthenticateComponent implements AfterViewInit {
 
   ngAfterViewInit() {
       
+    // If path matches /auth, redirect to /auth/login
     if (this.authService.pathMatch("/auth")) {
-
-      const urlParams = new URLSearchParams(document.location.search);
 
       this.authService.redirectWithParams("/auth/login");
     }

@@ -23,6 +23,8 @@ export class RegisterComponent {
     this.titleService.setTitle("Register | Authivo");
   }
 
+  // Handles registration for regular site registration
+  // and for third party applications
   async register() {
 
     if (!this.registering) {
@@ -35,7 +37,7 @@ export class RegisterComponent {
 
         this.registering = true;
 
-        // Regular login
+        // Regular registration
         if (this.authService.pathMatch("/register")) {
 
           const code_verifier = this.authService.generateCodeVerifier();
@@ -43,6 +45,7 @@ export class RegisterComponent {
 
           try {
 
+            // Fetching authorization code
             const codeResponse: any = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/register", {
               username: username,
               password: password,
@@ -54,12 +57,14 @@ export class RegisterComponent {
 
             if (codeResponse.status == 201) {
 
+              // Fetching token
               const tokenResponse: any = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/token", {
                 auth_type: "pkce",
                 code_verifier: code_verifier,
                 code: codeResponse.code
               }));
 
+              // Storing token and redirecting to the dashboard
               if (tokenResponse.status == 200) {
                 window.localStorage.setItem("token", tokenResponse.token);
                 window.location.href = window.location.origin + "/dashboard";
@@ -86,7 +91,7 @@ export class RegisterComponent {
 
           this.registering = false;
 
-        // Auth provider login
+        // Auth provider registration
         } else if (this.authService.pathMatch("/auth/register")) {
         
           const clientID = this.authService.getClientID();
@@ -98,6 +103,7 @@ export class RegisterComponent {
 
             const codeChallenge = this.authService.getCodeChallenge();
 
+            // Fetching authorization code using PKCE parameters
             codeResponse = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/register", {
               username: username,
               password: password,
@@ -109,6 +115,7 @@ export class RegisterComponent {
 
           } else {
 
+            // Fetching authorization code using regular authorization code parameters
             codeResponse = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/register", {
               username: username,
               password: password,
@@ -118,6 +125,7 @@ export class RegisterComponent {
             }));
           }
 
+          // Redirecting with authorization code
           if (codeResponse.status == 201) {
             window.location.href = redirectURI + "?code=" + codeResponse.code;
           } else {

@@ -22,6 +22,8 @@ export class LoginComponent {
     this.titleService.setTitle("Login | Authivo");
   }
 
+  // Triggers the login process for regular site login
+  // and login for third party applications
   async login() {
 
     if (!this.loggingIn) {
@@ -39,6 +41,7 @@ export class LoginComponent {
 
         try {
 
+          // Fetching authorization code
           const codeResponse: any = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/login", {
             username: username,
             password: password,
@@ -50,12 +53,14 @@ export class LoginComponent {
 
           if (codeResponse.status == 200) {
 
+            // Fetching token
             const tokenResponse: any = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/token", {
               auth_type: "pkce",
               code_verifier: code_verifier,
               code: codeResponse.code
             }));
 
+            // Storing token and redirecting to dashboard
             if (tokenResponse.status == 200) {
               window.localStorage.setItem("token", tokenResponse.token);
               window.location.href = window.location.origin + "/dashboard";
@@ -94,6 +99,7 @@ export class LoginComponent {
 
           const codeChallenge = this.authService.getCodeChallenge();
 
+          // Fetching authorization code using PKCE parameters
           codeResponse = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/login", {
             username: username,
             password: password,
@@ -105,6 +111,7 @@ export class LoginComponent {
 
         } else {
 
+          // Fetching authorization code using regular authorization code parameters
           codeResponse = await lastValueFrom(this.http.post("https://api.authivo.com/authentication/login", {
             username: username,
             password: password,
@@ -114,6 +121,7 @@ export class LoginComponent {
           }));
         }
 
+        // Redirecting with authorization cide
         if (codeResponse.status == 200) {
           window.location.href = redirectURI + "?code=" + codeResponse.code;
         } else {
