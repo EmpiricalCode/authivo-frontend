@@ -12,7 +12,7 @@ import { ThemeService } from './services/theme.service';
 
 export class AppComponent implements OnInit {
 
-  @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
+  @ViewChild("messageContainer") messageContainer!: ElementRef;
 
   title: string = "authivo-frontend";
   loggedIn: boolean = true;
@@ -72,27 +72,27 @@ export class AppComponent implements OnInit {
   // Displays an error/success message
   spawnMessage(message: string, success: boolean) {
 
-    const errorMessage = this.renderer.createElement("div");
+    const messageElement = this.renderer.createElement("div");
 
-    errorMessage.innerHTML = message;
+    messageElement.innerHTML = message;
 
     // Appending error message
-    this.errorMessageContainer.nativeElement.append(errorMessage);
+    this.messageContainer.nativeElement.append(messageElement);
 
-    this.renderer.addClass(errorMessage, "message");
+    this.renderer.addClass(messageElement, "message");
 
     if (success) {
-      this.renderer.addClass(errorMessage, "success-message");
+      this.renderer.addClass(messageElement, "success-message");
     } else {
-      this.renderer.addClass(errorMessage, "error-message");
+      this.renderer.addClass(messageElement, "error-message");
     }
 
     // Deleting message after delay
     setTimeout(() => {
-      errorMessage.style.opacity = "0";
+      messageElement.style.opacity = "0";
 
       setTimeout(() => {
-        errorMessage.remove();
+        messageElement.remove();
       }, 200);
     }, 3000);
   }
