@@ -85,7 +85,7 @@ export class SettingsComponent implements OnInit {
       this.changingPassword = true;
 
       // Calling changePassword API 
-      this.http.post("https://api-authivo-dev.vercel.app/users/changepassword", {
+      this.http.post("https://api.authivo.com/users/changepassword", {
         token: localStorage.getItem("token"),
         oldPassword: oldPassword,
         newPassword: newPassword
