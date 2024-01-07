@@ -14,6 +14,7 @@ export class SettingsComponent implements OnInit {
 
   userData: any = {};
   changingUsername: boolean = false;
+  changingPassword: boolean = false;
   activeTheme: string = this.themeService.activeTheme as string;
 
   constructor(private http: HttpClient, private authService: AuthService, private titleService: Title, private messageService: MessageService, private themeService: ThemeService) {
@@ -53,8 +54,13 @@ export class SettingsComponent implements OnInit {
 
           // If success, reload page and spawn success message
           if (response.status == 200) {
-            window.location.reload();
+
             this.messageService.spawnSuccessMessage(response.response);
+            
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+
           } else {
             this.messageService.spawnErrorMessage(response.response);
           }
@@ -62,6 +68,42 @@ export class SettingsComponent implements OnInit {
       }
     } else {
       this.messageService.spawnErrorMessage("New username must be different than current username");
+    }
+  }
+
+  // Changes a user's password
+  changePassword(oldPassword: string, newPassword: string, newPasswordConfirm: string) {
+
+    // Checks if new password matches new confirm password
+    if (newPassword !== newPasswordConfirm) {
+      this.messageService.spawnErrorMessage("Passwords do not match");
+      return;
+    }
+
+    if (!this.changingPassword) {
+
+      this.changingPassword = true;
+
+      // Calling changePassword API 
+      this.http.post("https://api-authivo-dev.vercel.app/users/changepassword", {
+        token: localStorage.getItem("token"),
+        oldPassword: oldPassword,
+        newPassword: newPassword
+      }).subscribe((response: any) => {
+
+        this.changingPassword = false;
+
+        // If success, reload page and spawn success message
+        if (response.status == 200) {
+          this.messageService.spawnSuccessMessage(response.response);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        } else {
+          this.messageService.spawnErrorMessage(response.response);
+        }
+      })
     }
   }
 }
