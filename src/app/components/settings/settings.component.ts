@@ -54,8 +54,13 @@ export class SettingsComponent implements OnInit {
 
           // If success, reload page and spawn success message
           if (response.status == 200) {
-            window.location.reload();
+
             this.messageService.spawnSuccessMessage(response.response);
+            
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+
           } else {
             this.messageService.spawnErrorMessage(response.response);
           }
