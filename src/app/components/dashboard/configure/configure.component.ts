@@ -27,18 +27,22 @@ export class ConfigureComponent {
 
     this.titleService.setTitle("Configure | Authivo");
 
+    // Trigger data loading of current application
     this.route.params.subscribe((params: any) => {
       this.params = params;
       this.loadApplicationData();
     })
   }
 
+  // Changes application name to a given string
   changeApplicationName(name: String) {
 
     if (name != this.application.name) {
       if (!this.changingApplicationName) {
+
         this.changingApplicationName = true;
 
+        // Making request to change application name endpoint
         this.http.post("https://api.authivo.com/applications/changeapplicationname", {
           token: window.localStorage.getItem("token"),
           client_id: this.application.clientID,
@@ -46,6 +50,7 @@ export class ConfigureComponent {
         }).subscribe((response: any) => {
           this.changingApplicationName = false;
 
+          // Displaying response
           if (response.status == 200) {
             this.messageService.spawnSuccessMessage(response.response);
             this.loadApplicationData();
@@ -59,13 +64,18 @@ export class ConfigureComponent {
     }
   }
 
+  // Loads application data from URL
   loadApplicationData() {
+
+    // Fetching application data
     this.http.post("https://api.authivo.com/applications/getapplicationbyid", {
         token: window.localStorage.getItem("token"),
         client_id: this.params.client_id
     }).subscribe((response: any) => {
 
       if (response.status == 200) {
+
+        // Storing application data
         this.application = response.application;
         this.application.creationDate = new Date(this.application.creationDate).toLocaleString().split(',')[0];
         this.getRedirectURIs();
@@ -75,17 +85,22 @@ export class ConfigureComponent {
     })
   }
 
+  // Cancel deletion of application
   deactivateDelete() {
     this.renderer.removeClass(document.body, "no-scroll");
     this.deleting = false;
   }
 
+  // Initiate deletion of appliation
   initiateDelete() {
     this.renderer.addClass(document.body, "no-scroll");
     this.deleting = true;
   }
 
+  // Delete application
   delete() {
+
+    // Making request to application delete endpoint
     this.http.post("https://api.authivo.com/applications/delete", {
       token: window.localStorage.getItem("token"),
       client_id: this.params.client_id
@@ -93,6 +108,7 @@ export class ConfigureComponent {
 
       this.deactivateDelete();
 
+      // If success, navigate to dashboard. Otherwise, display error message
       if (response.status == 200) {
         this.router.navigate(['dashboard']);
       } else {
@@ -101,6 +117,7 @@ export class ConfigureComponent {
     })
   }
 
+  // Adds redirect URI to application
   addRedirectURI() {
 
     if (!this.addingURI) {
@@ -109,12 +126,14 @@ export class ConfigureComponent {
 
       const uri = this.addRedirectURIInput.nativeElement.value;
 
+      // Making request to add redirect URI endpoint
       this.http.post("https://api.authivo.com/applications/addredirecturi", {
         token: window.localStorage.getItem("token"),
         client_id: this.params.client_id,
         redirect_uri: uri
       }).subscribe((response: any) => {
 
+        // Displaying response and updating redirect URis
         if (response.status == 200) {
           this.messageService.spawnSuccessMessage(response.response);
           this.addRedirectURIInput.nativeElement.value = "";
@@ -128,13 +147,17 @@ export class ConfigureComponent {
     }
   }
 
+  // Deletes redirect URI
   deleteRedirectURI(uri: string) {
+
+    // Making request to delete redirect URI endpoint
     this.http.post("https://api.authivo.com/applications/deleteredirecturi", {
       token: window.localStorage.getItem("token"),
       client_id: this.params.client_id,
       redirect_uri: uri
     }).subscribe((response: any) => {
 
+      // Displaying response adn updating redirect URIs
       if (response.status == 200) {
         this.messageService.spawnSuccessMessage(response.response);
         this.getRedirectURIs();
@@ -145,13 +168,16 @@ export class ConfigureComponent {
     })
   }
 
+  // Gets redirect URIs
   getRedirectURIs() {
 
+    // Making request to get redirect URI endpoint
     this.http.post("https://api.authivo.com/applications/getredirecturis", {
       token: window.localStorage.getItem("token"),
       client_id: this.params.client_id,
     }).subscribe((response: any) => {
 
+      // Handling response
       if (response.status == 200) {
         this.redirectURIs = response.redirect_uris;
       } else {  

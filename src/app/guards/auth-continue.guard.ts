@@ -6,6 +6,7 @@ export const authContinueGuard: CanActivateFn = async (route, state) => {
   
   const authService: AuthService = inject(AuthService);
 
+  // Redirects to /auth/login if user is not logged in 
   if (await authService.isLoggedIn()) {
     return true;
   }

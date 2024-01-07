@@ -165,7 +165,7 @@
     text-overflow: ellipsis;
 }
 
-#error-message-container {
+#message-container {
     z-index: 100;
     position: fixed;
     right: 0;

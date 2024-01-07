@@ -12,7 +12,7 @@ import { ThemeService } from './services/theme.service';
 
 export class AppComponent implements OnInit {
 
-  @ViewChild("errorMessageContainer") errorMessageContainer!: ElementRef;
+  @ViewChild("messageContainer") messageContainer!: ElementRef;
 
   title: string = "authivo-frontend";
   loggedIn: boolean = true;
@@ -31,14 +31,18 @@ export class AppComponent implements OnInit {
 
   constructor(public authService: AuthService, private renderer: Renderer2, private messageService: MessageService, private http: HttpClient, private themeService: ThemeService) { }
 
+  // Runs after component is initialized
   ngOnInit() {
 
+    // Sets up current theme
     this.themeService.set(localStorage.getItem("theme") as string);
   
+    // Setting up message display
     this.messageService.attachMessages().subscribe((params: any) => {
       this.spawnMessage(params.message, params.success);
     })
     
+    // Fetching user data if logged in
     this.authService.isLoggedIn().then(async (value) => {
       this.loggedIn = value;
 
@@ -47,7 +51,7 @@ export class AppComponent implements OnInit {
       }
     })
     
-    // Dropdown
+    // Dropdown handling
     window.onclick = (event: any) => {
       if (!event.target.matches(".profile-dropdown-member")) {
         this.hideProfileDropdown();
@@ -55,50 +59,60 @@ export class AppComponent implements OnInit {
     }
   }
 
+  // Redirects to a path on the website
   redirectTo(path: string) {
     window.location.href = window.location.origin + path;
   }
   
+  // Returns if the right side of the nav bar should be shown
   shouldShowNavRight() {
     return !this.authPaths.includes(document.location.pathname);
   }
 
+  // Displays an error/success message
   spawnMessage(message: string, success: boolean) {
 
-    const errorMessage = this.renderer.createElement("div");
+    const messageElement = this.renderer.createElement("div");
 
-    errorMessage.innerHTML = message;
-    this.errorMessageContainer.nativeElement.append(errorMessage);
+    messageElement.innerHTML = message;
 
-    this.renderer.addClass(errorMessage, "message");
+    // Appending error message
+    this.messageContainer.nativeElement.append(messageElement);
+
+    this.renderer.addClass(messageElement, "message");
 
     if (success) {
-      this.renderer.addClass(errorMessage, "success-message");
+      this.renderer.addClass(messageElement, "success-message");
     } else {
-      this.renderer.addClass(errorMessage, "error-message");
+      this.renderer.addClass(messageElement, "error-message");
     }
 
+    // Deleting message after delay
     setTimeout(() => {
-      errorMessage.style.opacity = "0";
+      messageElement.style.opacity = "0";
 
       setTimeout(() => {
-        errorMessage.remove();
+        messageElement.remove();
       }, 200);
     }, 3000);
   }
 
+  // Shows profile dropdown menu
   showProfileDropdown() {
     this.profileDropdown = true;
   }
 
+  // Hides profile dropdown menu
   hideProfileDropdown() {
     this.profileDropdown = false;
   }
 
+  // Toggles profile dropdown menu
   toggleProfileDropdown() {
     this.profileDropdown = !this.profileDropdown;
   }
 
+  // Logs user out of account
   logout() {
     window.localStorage.removeItem("token");
     window.location.href = window.location.origin;

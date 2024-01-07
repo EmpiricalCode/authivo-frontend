@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
     this.titleService.setTitle("Dashboard | Authivo");
   }
 
+  // Runs after component is initialized
   ngOnInit() {
       
     this.http.post("https://api.authivo.com/applications/getapplications", {

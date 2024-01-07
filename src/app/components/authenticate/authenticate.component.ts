@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,17 +7,17 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./authenticate.component.css']
 })
 
-export class AuthenticateComponent implements AfterViewInit {
+export class AuthenticateComponent implements OnInit {
 
   constructor(public authService: AuthService) {
 
   }
 
-  ngAfterViewInit() {
+  // Runs after component is initialized
+  ngOnInit() {
       
+    // If path matches /auth, redirect to /auth/login
     if (this.authService.pathMatch("/auth")) {
-
-      const urlParams = new URLSearchParams(document.location.search);
 
       this.authService.redirectWithParams("/auth/login");
     }

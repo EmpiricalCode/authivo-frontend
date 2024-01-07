@@ -20,11 +20,21 @@ export class SettingsComponent implements OnInit {
     titleService.setTitle("Account Settings | Authivo");
   }
 
+  // Runs after component is initialized
+  async ngOnInit() {
+
+    // Fetching user data
+    this.userData = await this.authService.getUserData();
+    this.userData.creationDate = new Date(this.userData.registerTimestamp).toLocaleString().split(',')[0];
+  }
+
+  // Changes theme given name
   changeTheme(name: string) {
     this.activeTheme = name;
     this.themeService.set(name);
   }
 
+  // Changes a user's username
   changeUsername(name: string) {
 
     if (name != this.userData.username) {
@@ -33,6 +43,7 @@ export class SettingsComponent implements OnInit {
 
         this.changingUsername = true;
 
+        // Calling changeUsername API 
         this.http.post("https://api.authivo.com/users/changeusername", {
           token: localStorage.getItem("token"),
           username: name
@@ -40,6 +51,7 @@ export class SettingsComponent implements OnInit {
 
           this.changingUsername = false;
 
+          // If success, reload page and spawn success message
           if (response.status == 200) {
             window.location.reload();
             this.messageService.spawnSuccessMessage(response.response);
@@ -51,10 +63,5 @@ export class SettingsComponent implements OnInit {
     } else {
       this.messageService.spawnErrorMessage("New username must be different than current username");
     }
-  }
-
-  async ngOnInit() {
-    this.userData = await this.authService.getUserData();
-    this.userData.creationDate = new Date(this.userData.registerTimestamp).toLocaleString().split(',')[0];
   }
 }
