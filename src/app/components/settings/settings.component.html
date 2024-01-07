@@ -32,6 +32,34 @@
     </div>
 
     <div class="section-container">
+        <h2>Password</h2>
+
+        <p>Old Password</p>
+        <input #oldPasswordInput class="form-input" style="width: 300px;" type="password">
+
+        <p>New Password</p>
+        <input #changePasswordInput class="form-input" style="width: 300px;" type="password">
+
+        <p>Confirm New Password</p>
+        <input #changePasswordConfirmInput class="form-input" style="width: 300px;" type="password">
+
+    </div>
+
+    <div class="section-container-footer">
+        <p>Your new password must be 30 characters or less.</p>
+
+        <button class="form-button-solid" style="width: 175px;" [ngClass]="this.changingPassword ? 'form-button-solid-disabled' : ''" (click)="this.changePassword(this.oldPasswordInput.value, this.changePasswordInput.value, this.changePasswordConfirmInput.value)">
+            Change Password
+            <div class="form-button-loading-svg-container" style="width: 160px; left: calc(50% - 80px); ">
+                <svg width="30px" height="30px" class="rotating">
+                    <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+                    <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+                </svg> 
+            </div>
+        </button>
+    </div>
+
+    <div class="section-container">
         <h2>Theme</h2>
         <p>Change the theme of the website.</p>
 
