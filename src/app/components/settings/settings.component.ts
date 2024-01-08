@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from '../../services/message.service';
@@ -15,9 +15,10 @@ export class SettingsComponent implements OnInit {
   userData: any = {};
   changingUsername: boolean = false;
   changingPassword: boolean = false;
+  deleting: boolean = false;
   activeTheme: string = this.themeService.activeTheme as string;
 
-  constructor(private http: HttpClient, private authService: AuthService, private titleService: Title, private messageService: MessageService, private themeService: ThemeService) {
+  constructor(private http: HttpClient, private authService: AuthService, private titleService: Title, private messageService: MessageService, private themeService: ThemeService, private renderer: Renderer2) {
     titleService.setTitle("Account Settings | Authivo");
   }
 
@@ -80,6 +81,12 @@ export class SettingsComponent implements OnInit {
       return;
     }
 
+    // Checks if old password matches new password
+    if (newPassword === newPassword) {
+      this.messageService.spawnErrorMessage("New password cannot be the same as old password");
+      return;
+    }
+
     if (!this.changingPassword) {
 
       this.changingPassword = true;
@@ -105,5 +112,46 @@ export class SettingsComponent implements OnInit {
         }
       })
     }
+  }
+
+
+
+  // Deletes the user's account
+  delete(confirmUsername: string) {
+
+    // Checks if the confirm username is correct
+    if (this.userData.username !== confirmUsername) {
+      this.messageService.spawnErrorMessage("Incorrect username entered");
+      return;
+    }
+
+    // Making request to deleteAccount endpoint
+    this.http.post("https://api.authivo.com/users/deleteaccount", {
+      token: localStorage.getItem("token")
+    }).subscribe((response: any) => {
+
+      if (response.status == 200) {
+        this.messageService.spawnSuccessMessage(response.response);
+        localStorage.removeItem("token");
+
+        setTimeout(() => {
+          window.location.href = "";
+        }, 1000);
+      } else {
+        this.messageService.spawnErrorMessage(response.response);
+      }
+    })
+  }
+
+  // Initiates the delete action
+  initiateDelete() {
+    this.renderer.addClass(document.body, "no-scroll");
+    this.deleting = true;
+  }
+
+  // Cancels the delete action
+  deactivateDelete() {
+    this.renderer.removeClass(document.body, "no-scroll");
+    this.deleting = false;
   }
 }

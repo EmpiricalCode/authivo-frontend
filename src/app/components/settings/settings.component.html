@@ -82,4 +82,25 @@
         <h4>Creation Date</h4>
         <p>{{this.userData.creationDate}}</p>
     </div>
+
+    <div style="border-color: var(--error-message)" class="section-container">
+
+        <h2 style="color: var(--error-message)">Delete Account</h2>
+        <p>Delete your account and all of your data permanently.</p>
+        <button id="delete-initiate-button" (click)="this.initiateDelete()">Delete Account</button>
+    </div>
+</div>
+
+<div id="background-cover" [ngClass]="this.deleting ? '' : 'hidden'">
+    <div id="delete-container" style="height: 260px;">
+        <a id="delete-container-close" (click)="this.deactivateDelete()">
+            <svg width="20px" height="20px" viewBox="-1 -1 8 8">
+                <path style="stroke: var(--primary); stroke-width: 0.5px; stroke-linecap: round;" d="M 6 6 L 0 0 M 0 6 L 6 0"></path>
+            </svg>
+        </a>
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 10px; font-size: 30px">Delete Account</h2>
+        <p style="text-align: center; margin-top: 0; margin-bottom: 30px;">Are you sure you want to delete your account? All your data will be lost. This action is irreversible.</p>
+        <input #confirmAccountDeleteInput class="form-input" placeholder="Enter your username to continue">
+        <button id="delete-initiate-button" (click)="this.delete(this.confirmAccountDeleteInput.value)" style="margin-top: 20px;">Confirm Deletion</button>
+    </div>
 </div>
