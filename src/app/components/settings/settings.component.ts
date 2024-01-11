@@ -39,7 +39,7 @@ export class SettingsComponent implements OnInit {
   // Changes a user's username
   changeUsername(name: string) {
 
-    if (name != this.userData.username) {
+    if (name.trim() != this.userData.username) {
 
       if (!this.changingUsername) {
 
