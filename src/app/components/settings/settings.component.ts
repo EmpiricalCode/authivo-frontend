@@ -39,14 +39,14 @@ export class SettingsComponent implements OnInit {
   // Changes a user's username
   changeUsername(name: string) {
 
-    if (name != this.userData.username) {
+    if (name.trim() != this.userData.username) {
 
       if (!this.changingUsername) {
 
         this.changingUsername = true;
 
         // Calling changeUsername API 
-        this.http.post("https://api.authivo.com/users/changeusername", {
+        this.http.post("https://api-authivo-dev.vercel.app/users/changeusername", {
           token: localStorage.getItem("token"),
           username: name
         }).subscribe((response: any) => {
