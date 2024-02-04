@@ -132,7 +132,7 @@ export class SettingsComponent implements OnInit {
 
       if (response.status == 200) {
         this.messageService.spawnSuccessMessage(response.response);
-        localStorage.removeItem("token");
+        localStorage.clear();
 
         setTimeout(() => {
           window.location.href = "";
