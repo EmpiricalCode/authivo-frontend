@@ -13,29 +13,37 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  // Fetches user data using localstorage token
+  // Fetches user data using stored user ID
   async getUserData() {
 
     return new Promise((resolve, reject) => {
 
-      if (!window.localStorage.getItem("token")) {
+      if (!window.localStorage.getItem("token") || !window.localStorage.getItem("userID")) {
         reject();
       }
 
-      // Fetching token info to get user id
-      this.http.post("https://api.authivo.com/authorization/tokeninfo", {
+      // Fetching user data from id
+      this.http.get(`https://api.authivo.com/users/userdata?id=${window.localStorage.getItem("userID")}`).subscribe((userDataResponse: any) => {
+
+        if (userDataResponse.status == 200) {
+          resolve(userDataResponse.data);
+        } else {
+          reject();
+        }
+      });
+    });
+  }
+
+  // Returns token info from the local storage token
+  async getTokenInfo() {
+    return new Promise((resolve, reject) => { this.http.post("https://api.authivo.com/authorization/tokeninfo", {
         token: window.localStorage.getItem("token")
       }).subscribe((tokenInfoResponse: any) => {
 
         if (tokenInfoResponse.status == 200) {
-
-          // Fetching user data from id
-          this.http.get(`https://api.authivo.com/users/userdata?id=${tokenInfoResponse.decoded.id}`).subscribe((userDataResponse: any) => {
-
-            if (userDataResponse.status == 200) {
-              resolve(userDataResponse.data);
-            }
-          })
+          resolve(tokenInfoResponse);
+        } else {
+          reject();
         }
       });
     });
@@ -75,11 +83,12 @@ export class AuthService {
         // alert(error.message);
       })
 
-      // If token invalid, clear token from localstorage
+      // If token invalid, clear token and userID from localstorage
       if (response && response.status == 200 && response.valid == true && response.decoded.aud == "host") {
         return true;
       } else {
         window.localStorage.removeItem("token");
+        window.localStorage.removeItem("userID");
       }
     } 
       

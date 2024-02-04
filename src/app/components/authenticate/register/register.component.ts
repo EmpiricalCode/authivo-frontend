@@ -67,6 +67,7 @@ export class RegisterComponent {
               // Storing token and redirecting to the dashboard
               if (tokenResponse.status == 200) {
                 window.localStorage.setItem("token", tokenResponse.token);
+                window.localStorage.setItem("userID", ((Object) (await this.authService.getTokenInfo())).decoded.id);
                 window.location.href = window.location.origin + "/dashboard";
               } else {
                 

@@ -115,6 +115,7 @@ export class AppComponent implements OnInit {
   // Logs user out of account
   logout() {
     window.localStorage.removeItem("token");
+    window.localStorage.removeItem("userID");
     window.location.href = window.location.origin;
   }
 }

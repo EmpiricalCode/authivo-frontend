@@ -63,6 +63,7 @@ export class LoginComponent {
             // Storing token and redirecting to dashboard
             if (tokenResponse.status == 200) {
               window.localStorage.setItem("token", tokenResponse.token);
+              window.localStorage.setItem("userID", ((Object) (await this.authService.getTokenInfo())).decoded.id);
               window.location.href = window.location.origin + "/dashboard";
             } else {
 
