@@ -85,7 +85,7 @@ export class DocumentationComponent {
         access: "PUBLIC",
         url: "https://api.authivo.com/authorization/tokenInfo",
         description: "The token info endpoint takes in a token, and returns information about that token.",
-        note: "Make sure you verify that the 'aud' field of the decoded token matches to your client ID.",
+        note: "Make sure you verify that the 'aud' field of the decoded token matches your client ID.",
         request: [
           {
             name: "token",
