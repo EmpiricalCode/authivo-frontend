@@ -62,7 +62,7 @@
     --profile-button-hover: rgb(31, 37, 50);
 }
 
-:root:has(#test:checked) #login-background-container {
+:root:has(#test:checked) #login-background-svg {
     opacity: 0.2;
 }
 

@@ -1,8 +1,10 @@
 <div id="content-container">
-    <svg id="authenticate-background-container" width="1000px" height="700px" viewBox="0 0 50 50">
-        <path d="M 0 0 C 0 19 40 24 50 50 C 53 27 20 23 0 0" style="stroke: var(--primary); fill: var(--primary);"></path>
-        <path d="M -7 33 C 0 9 39 30 52 20 C 43 35 1 17 -7 33" style="filter: blur(0px); stroke: var(--secondary); fill: var(--secondary); margin-left: -500px"></path>
-    </svg>
+    <div id="authenticate-background-container">
+        <svg id="authenticate-background-svg" width="1000px" height="700px" viewBox="0 0 50 50">
+            <path d="M 0 0 C 0 19 40 24 50 50 C 53 27 20 23 0 0" style="stroke: var(--primary); fill: var(--primary);"></path>
+            <path d="M -7 33 C 0 9 39 30 52 20 C 43 35 1 17 -7 33" style="filter: blur(0px); stroke: var(--secondary); fill: var(--secondary); margin-left: -500px"></path>
+        </svg>
+    </div>
 
     <app-login *ngIf="this.authService.pathMatch('/login') || this.authService.pathMatch('/auth/login')"></app-login>
     <app-register *ngIf="this.authService.pathMatch('/register') || this.authService.pathMatch('/auth/register')"></app-register>

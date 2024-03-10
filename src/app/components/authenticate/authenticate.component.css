@@ -14,7 +14,17 @@
 
 #authenticate-background-container {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#authenticate-background-svg {
+    position: absolute;
     left: calc(50% - 500px);
+    top: 12vh;
     margin-bottom: -700px; 
     z-index: 0; 
     filter: blur(100px);
