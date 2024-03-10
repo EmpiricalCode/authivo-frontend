@@ -84,7 +84,7 @@
     border: 2px solid var(--button-hover);
 }
 
-#landing-page-background-container {
+#landing-page-background-svg {
     position: absolute;
     left: calc(50% - 750px);
     top: -50px;
@@ -92,7 +92,7 @@
     z-index: -1;
 }
 
-#landing-page-description-background-container {
+#landing-page-description-background-svg {
     position: absolute;
     left: calc(50% - 900px);
     top: -150px;
@@ -220,7 +220,7 @@
     position: relative;
 }
 
-#description-blog-background-container {
+#description-blog-background-svg {
     position: absolute;
     left: calc(50% - 900px);
     top: -100px;

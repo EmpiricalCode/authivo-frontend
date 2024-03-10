@@ -28,7 +28,7 @@
     box-shadow: inset 0px 0px 60px 100px var(--background); */
 }
 
-#error-background-container {
+#error-background-svg {
     position: absolute;
     z-index: -1;    
     filter: blur(120px) opacity(0.7);
