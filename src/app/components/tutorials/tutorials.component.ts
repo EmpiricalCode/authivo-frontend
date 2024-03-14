@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -6,10 +6,21 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './tutorials.component.html',
   styleUrls: ['./tutorials.component.css', '../documentation/documentation.component.css']
 })
-export class TutorialsComponent {
+export class TutorialsComponent implements AfterViewInit {
 
+  // TODO: Move tutorials data off ts file
   tutorialsData: any = {
     raw: [
+      {
+        title: "Demo",
+        id: "demo",
+        content: [
+          {
+            type: "p",
+            content: `Check out a demo here: <$link>https://authivo-demo.vercel.app</$link>.`
+          }
+        ]
+      },
       {
         title: "Getting Set Up",
         id: "getting_set_up",
@@ -532,8 +543,26 @@ export class TutorialsComponent {
     ]
   }
 
+  @ViewChild("blogContainer") blogContainer!: ElementRef;
+
   constructor(private titleService: Title) {
     this.titleService.setTitle("Tutorials | Authivo");
+  }
+
+  // Creating blog links
+  ngAfterViewInit(): void {
+
+    let anchors: any;
+
+    // Creating anchor elements
+    this.blogContainer.nativeElement.innerHTML = this.blogContainer.nativeElement.innerHTML.replace("&lt;$link&gt;", "<a>").replace("&lt;/$link&gt;", "</a>");
+
+    anchors = this.blogContainer.nativeElement.getElementsByTagName("a");
+    
+    // Initializing anchor hrefs
+    for (let anchor of anchors) {
+      anchor.href = anchor.innerHTML;
+    }
   }
 
   // Scrolls to element
