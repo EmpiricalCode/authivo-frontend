@@ -19,15 +19,7 @@
 
     <div class="section-container-footer">
         <p>Application names must be 20 characters or less.</p>
-        <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingApplicationName ? 'form-button-solid-disabled' : ''" (click)="this.changeApplicationName(changeApplicationNameInput.value)">
-            Save
-            <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px);">
-                <svg width="30px" height="30px" class="rotating">
-                    <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                    <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                </svg> 
-            </div>
-        </button>
+        <app-button-loading [active]="this.changingApplicationName" [text]="'Save'" (buttonClick)="this.changeApplicationName(changeApplicationNameInput.value)"></app-button-loading>
     </div>
             
     <div class="section-container">
@@ -64,15 +56,7 @@
         <div id="redirect-uri-add">
             
             <input #addRedirectURIInput placeholder="https://example.com" class="form-input">
-            <button class="form-button-solid" style="width: 80px;" (click)="this.addRedirectURI()" [ngClass]="this.addingURI ? 'form-button-solid-disabled' : ''">
-                Add
-                <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px); ">
-                    <svg width="30px" height="30px" class="rotating">
-                        <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                        <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                    </svg> 
-                </div>
-            </button>
+            <app-button-loading [active]="this.addingURI" [text]="'Add'" (buttonClick)="this.addRedirectURI()"></app-button-loading>
         </div>
     </div>
 

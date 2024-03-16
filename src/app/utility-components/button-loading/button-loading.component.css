@@ -1,0 +1,32 @@
+:host {
+    display: block;
+}
+
+/* Class Selectors */
+.form-button-solid-disabled {
+    background: var(--button-hover) !important;
+}
+
+.form-button-solid-disabled .form-button-loading-svg-container {
+    opacity: 1 !important;
+    background: var(--button-hover) !important;
+}
+
+.form-button-solid-disabled circle {
+    fill: var(--button-hover) !important;
+}
+
+.form-button-loading-svg-container {
+    width: 200px; 
+    height: 30px; 
+    position: absolute; 
+    left: calc(50% - 100px); 
+    top: calc(50% - 15px);
+    background: var(--button);
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.form-button-solid:hover .form-button-loading-svg-container {
+    background: var(--button-hover);
+}
