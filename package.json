@@ -1,6 +1,6 @@
 {
   "name": "authivo-frontend",
-  "version": "1.4.2-alpha",
+  "version": "1.4.4-alpha",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

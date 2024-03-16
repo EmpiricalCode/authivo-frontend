@@ -82,7 +82,7 @@ export class SettingsComponent implements OnInit {
     }
 
     // Checks if old password matches new password
-    if (newPassword === newPassword) {
+    if (oldPassword === newPassword) {
       this.messageService.spawnErrorMessage("New password cannot be the same as old password");
       return;
     }

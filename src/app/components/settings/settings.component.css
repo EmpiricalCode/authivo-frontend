@@ -23,9 +23,6 @@
 }
 
 /* Class selectors */
-.page-title-container {
-    transition: 0.2s;
-}
 .dropdown-container {
     width: 324px;
     cursor: pointer;

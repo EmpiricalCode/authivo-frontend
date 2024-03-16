@@ -18,6 +18,8 @@ import { TutorialsComponent } from './components/tutorials/tutorials.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { PageTitleContainerComponent } from './utility-components/page-title-container/page-title-container.component';
+import { ButtonLoadingComponent } from './utility-components/button-loading/button-loading.component';
 
 export default class CustomUrlSerializer implements UrlSerializer {
   private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -49,6 +51,8 @@ export default class CustomUrlSerializer implements UrlSerializer {
     TutorialsComponent,
     PageNotFoundComponent,
     SettingsComponent,
+    PageTitleContainerComponent,
+    ButtonLoadingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<button [ngClass]="active ? 'form-button-solid-disabled' : ''" class="form-button-solid" [style]="'width: ' + this.width" (click)="this.click()">
+    {{this.text}}
+    <div class="form-button-loading-svg-container" style="width: 100%; left: 0">
+        <svg width="30px" height="30px" class="rotating">
+            <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
+            <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
+        </svg> 
+    </div>
+</button>

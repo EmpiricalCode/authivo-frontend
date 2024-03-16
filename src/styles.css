@@ -83,7 +83,7 @@
 
 .form-button-solid {
     width: 100%;
-    padding: 12px;
+    padding: 12px 20px 12px 20px;
     background: var(--primary);
     border: none;
     border-radius: 10px;
@@ -101,10 +101,6 @@
 }
 
 .form-button-solid:hover {
-    background: var(--button-hover);
-}
-
-.form-button-solid:hover .form-button-loading-svg-container {
     background: var(--button-hover);
 }
 
@@ -140,19 +136,6 @@
     align-items: center;
 }
 
-.form-button-solid-disabled {
-    background: var(--button-hover) !important;
-}
-
-.form-button-solid-disabled .form-button-loading-svg-container {
-    opacity: 1 !important;
-    background: var(--button-hover) !important;
-}
-
-.form-button-solid-disabled circle {
-    fill: var(--button-hover) !important;
-}
-
 .form-input-title {
     font-family: "Gotham Medium";
     font-size: 14px;
@@ -177,17 +160,6 @@
 
 .form-input:focus {
     border-color: var(--primary);
-}
-
-.form-button-loading-svg-container {
-    width: 200px; 
-    height: 30px; 
-    position: absolute; 
-    left: calc(50% - 100px); 
-    top: calc(50% - 15px);
-    background: var(--button);
-    transition: 0.2s;
-    opacity: 0;
 }
 
 .message {
@@ -218,32 +190,6 @@
 
 .no-scroll {
     overflow-y: hidden;
-}
-
-.page-title-container {
-    font-family: "Montserrat";
-    font-size: 25px;
-    font-weight: 600;
-    color: var(--nav-bar-button);
-    width: calc(100% - max(100px, calc(50% - 600px)));
-    height: 100px;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    padding-left: max(100px, calc(50% - 500px));
-    align-items: center;
-    background: var(--background);
-    overflow: hidden;
-    position: relative;
-}
-
-.page-title-container-background {
-    max-width: 60%;
-    filter: blur(60px);
-    opacity: 0.3;
-    right: 0;
-    position: absolute;
-    z-index: 0;
 }
 
 /* Element selectors */

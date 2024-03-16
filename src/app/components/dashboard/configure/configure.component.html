@@ -1,11 +1,4 @@
-<div class="page-title-container">
-    <svg class="page-title-container-background" width="1200px" height="600px" viewBox="0 0 80 60">
-        <path d="M 96 21 C 77 32 51 36 5 52 C 73 39 96 33 96 21" style="stroke: var(--primary); fill: var(--primary);"></path>
-        <path d="M -26 52 C -16 24 39 30 69 21 C 49 44 9 28 -26 52" style="filter: blur(0px); stroke: var(--secondary); fill: var(--secondary);"></path>
-        <path d="M -39 1 C -44 16 -11 49 5 54 C -7 37 -21 30 -39 1" style="filter: blur(0px); stroke: var(--primary); fill: var(--primary);"></path>
-    </svg>  
-    Configure Application
-</div>
+<app-page-title-container [title]="'Configure'"></app-page-title-container>
 
 <div id="content-container">
     <!-- <a href="/dashboard" style="cursor: pointer; align-self: flex-start;">
@@ -26,15 +19,7 @@
 
     <div class="section-container-footer">
         <p>Application names must be 20 characters or less.</p>
-        <button class="form-button-solid" style="width: 80px;" [ngClass]="this.changingApplicationName ? 'form-button-solid-disabled' : ''" (click)="this.changeApplicationName(changeApplicationNameInput.value)">
-            Save
-            <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px);">
-                <svg width="30px" height="30px" class="rotating">
-                    <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                    <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                </svg> 
-            </div>
-        </button>
+        <app-button-loading [active]="this.changingApplicationName" [text]="'Save'" (buttonClick)="this.changeApplicationName(changeApplicationNameInput.value)"></app-button-loading>
     </div>
             
     <div class="section-container">
@@ -71,15 +56,7 @@
         <div id="redirect-uri-add">
             
             <input #addRedirectURIInput placeholder="https://example.com" class="form-input">
-            <button class="form-button-solid" style="width: 80px;" (click)="this.addRedirectURI()" [ngClass]="this.addingURI ? 'form-button-solid-disabled' : ''">
-                Add
-                <div class="form-button-loading-svg-container" style="width: 50px; left: calc(50% - 25px); ">
-                    <svg width="30px" height="30px" class="rotating">
-                        <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                        <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                    </svg> 
-                </div>
-            </button>
+            <app-button-loading [active]="this.addingURI" [text]="'Add'" (buttonClick)="this.addRedirectURI()"></app-button-loading>
         </div>
     </div>
 

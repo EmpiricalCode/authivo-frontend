@@ -10,15 +10,7 @@
         <div id="create-form-container" [id]="this.creatingFinished ? 'create-form-container-hidden' : 'create-form-container'">
             <h4>Name</h4>
             <input #nameInput class="form-input" placeholder="Your Application Name">
-            <button class="form-button-solid" (click)="this.createApplication()" [ngClass]="this.creating ? 'form-button-solid-disabled' : ''" style="margin-top: 20px;">
-                Create
-                <div class="form-button-loading-svg-container">
-                    <svg width="30px" height="30px" class="rotating">
-                        <circle r="10" cx="15" cy="15" style="fill: var(--button); stroke: white; stroke-width: 2px;"></circle>
-                        <circle r="10" cx="15" cy="0" style="fill: var(--button); stroke-width: 2px;"></circle>
-                    </svg> 
-                </div>
-            </button>
+            <app-button-loading [active]="this.creating" [text]="'Create'" (buttonClick)="this.createApplication()" style="margin-top: 20px;"></app-button-loading>
         </div>
     </div>
 
