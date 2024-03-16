@@ -1,0 +1,26 @@
+/* IDs */
+#page-title-container {
+    font-family: "Montserrat";
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--nav-bar-button);
+    width: calc(100% - max(100px, calc(50% - 600px)));
+    height: 100px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    padding-left: max(100px, calc(50% - 500px));
+    align-items: center;
+    background: var(--background);
+    overflow: hidden;
+    position: relative;
+}
+
+#page-title-container-background {
+    max-width: 60%;
+    filter: blur(60px);
+    opacity: 0.3;
+    right: 0;
+    position: absolute;
+    z-index: 0;
+}
